@@ -1,0 +1,43 @@
+<%- title 'New Product' -%>
+
+<h3>New Product</h3>
+
+<%= error_messages_for(:item) %>
+
+<%- form_for(@item, :html => {:multipart => true}) do |f| -%>
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description, :rows => 10 %>
+</p>
+<p>
+  <%= f.label :item_category %><br />
+  <%= f.select :category_id, Category.find(:all).collect{|c| [c.name, c.id]} %>
+</p>
+<p>
+  <%= f.label :price %><br />
+  <%= f.text_field :price %>
+  <label>
+    <%= radio_button_tag :nego, 'negotiable', true %>&nbsp;Nego
+  </label>
+  <label>
+    <%= radio_button_tag :nego, 'fixed' %>&nbsp;Harga pas
+  </label>
+</p>
+<p>
+  <%= f.label :item_location %><br />
+  <%= f.text_field :location %>
+</p>
+<p>
+  <%= f.label :photo %><br />
+  <div id="test" style="display:none;"></div>
+  <%= f.file_field :file, :onchange => "$('new_item').writeAttribute('action', '/uploader');$('new_item').writeAttribute('target', 'RSIframe');$('new_item').submit();$('new_item').writeAttribute('action', '/items');" %>
+  <iframe id="RSIframe" name="RSIframe" style="width:0px;height:0px;border:0"></iframe>
+</p>
+<p>
+  <%= submit_tag("Save") %> <%= link_to("Cancel", new_item_path) %>
+</p>
+<%- end -%>
