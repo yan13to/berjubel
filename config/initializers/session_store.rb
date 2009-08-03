@@ -13,3 +13,5 @@ ActionController::Base.session = {
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rake db:sessions:create")
 # ActionController::Base.session_store = :active_record_store
+REST_AUTH_SITE_KEY         = '56cb6f07ae5760d8a583e1b5c3434db47d47601c'
+REST_AUTH_DIGEST_STRETCHES = 10
