@@ -1,9 +1,9 @@
-<div style="padding:4px;background-color:green;">
+<div class="bar">
   <%- form_tag "/", :method => :get do -%>
-    <font style="color:white;">Enter what are you looking for here : </font>
+    <span>Enter what are you looking for here : </span>
     <%= text_field_tag :q, params[:q], :size => 50 %>
     <%= set_focus_to 'q' %>
-    <%= select_tag :c, options_for_select(@categories.collect(&:name)) %>
+     In <%= select_tag :c, options_for_select(@categories.collect(&:name)) %>
     <%= submit_tag :Search, :name => nil %>
     <%= link_to "Advanced Search" %>
   <%- end -%>

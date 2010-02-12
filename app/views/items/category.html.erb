@@ -1,23 +1,54 @@
-<%- title 'Categories' -%>
+<%- title 'Select a category' -%>
 
-<h3>Select Item Category</h3>
-<%= display_categories_breadcrumb(@category) %>
+<h3>Select a category</h3>
+<div>
+  <ul style="margin:5px 5px 5px 0;padding:2px;list-style:none;">
+    <li style="display:inline;border:1px solid #cccccc;"><%= link_to "Search category", select_a_category_url(:tid => 'search') %></li>
+    <li style="display:inline;">or</li>
+    <li style="display:inline;border:1px solid #cccccc;"><%= link_to "Browse categories", select_a_category_url(:tid => 'browse') %></li>
+  </ul>
+  <%- if @tab == 'search' || @tab.blank? -%>
+  <div style="padding:10px 0;">
+    <!-- <p>Find a matching category</p> -->
+    <p>Enter at least 3 keywords about your item to find a relevant category to list in.</p>
+    <div>eg: korong, modol, dahar</div>
+    <%- form_tag select_a_category_url(:tid => 'search'), :method => :get do -%>
+    <%= text_field_tag :q, params[:q], :size => 40 %> <%= submit_tag "Search", :name => nil %>
+    <%= set_focus_to 'q' %>
+    <%- end -%>
+    <br />
+    <%- unless @categories.blank? -%>
+    <%= link_to "reset", "#" %>
+    <div style="overflow:auto;width:400px;height:250px;">
+      <ul style="list-style:none;margin:0;padding:0;">
+      <%- @categories.each do |c| -%>
+        <li><%= check_box_tag :cid %>&nbsp;<%= build_categories_tree(c) %></li>
+      <%- end -%>
+      </ul>
+    </div>
+    <%- end -%>
+  </div>
+  <%- elsif @tab == 'browse' -%>
+  <p>Select at least 3 categories</p>
+  <p><%= display_categories_breadcrumb(@category) %></p>
+  <div style="overflow:auto;width:300px;height:200px;float:left;">
+    <ul style="list-style:none;margin:0;padding:0;">
+      <%- @parent_categories.each do |category| -%>
+        <li><%= link_to_category category %></li>
+      <%- end -%>
+    </ul>
+  </div>
+  <div style="overflow:auto;width:300px;height:200px;float:left;">
+    <ul style="list-style:none;margin:0;padding:0;">
+      <%- @categories.each do |category| -%>
+        <li><%= link_to_category category %></li>
+      <%- end unless @categories.nil? -%>
+    </ul>
+  </div>
+  <%- end -%>
+  
+  <div style="clear:both;">
+    <%= submit_tag 'Continue', :disabled => true %>
+  </div>
+</div>
 
-<table cellpadding="0" cellspacing="0" border="0">
-  <tr>
-    <td valign="top">
-      <ul>
-        <%- @parent_categories.each do |category| -%>
-          <li><%= link_to_category category %></li>
-        <%- end -%>
-      </ul>
-    </td>
-    <td valign="top">
-      <ul>
-        <%- @category.children.each do |category| -%>
-          <li><%= link_to_category category %></li>
-        <%- end unless @category.blank? -%>
-      </ul>
-    </td>
-  </tr>
-</table>

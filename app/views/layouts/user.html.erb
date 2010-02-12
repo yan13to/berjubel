@@ -10,11 +10,8 @@
   </head>
   <body>
     <%= render :partial => 'shared/header' %>
-
-    <%= render :partial => "shared/main_search" %>
     <div id="outer_container">
       <%= yield %>
-      <%= link_to 'agreement' %> | <%= link_to 'privacy' %> | <%= link_to 'about us' %>
     </div>
   </body>
 </html>

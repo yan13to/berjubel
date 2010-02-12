@@ -1,27 +1,41 @@
-<%- title 'Home' -%>
-<%= render :partial => "shared/main_search" %>
+<%- title "Welcome to #{site_name}" -%>
+
 <table>
   <tr>
-    <td valign="top">
-      <ul style="font-size:0.9em;list-style:none;">
+    <td valign="top" width="172px">
+      <h4 style="padding:0;margin-bottom:0;">Categories</h4>
+      <ul style="font-size:0.9em;list-style:none;padding:0;margin-top:0;">
       <%- @categories.each do |c| -%>
         <li><%= link_to c.name %></li>
       <%- end -%>
       </ul>
     </td>
     <td valign="top">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      <br />
+      
+      <div class="rc">
+        <div class="h">
+          <div class="c lt"></div>
+          <div class="c rt"></div>
+          <div class="l"></div>
+        </div>
+        <div class="i">
+          <!-- begin content -->
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+          sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <!-- end content -->
+        </div>
+        <div class="cl"></div>
+        <div class="h">
+          <div class="c lb"></div>
+          <div class="c rb"></div>
+          <div class="l"></div>
+        </div>
+      </div>
+      
     </td>
   </tr>
 </table>

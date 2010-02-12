@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
-  def index
-    respond_to do |format|
-      format.html {redirect_to(login_url)}
-    end
-  end
+  before_filter :check_if_user_logged_in, :except => :destroy
+  layout "simple"
 
   def new
   end
@@ -27,7 +24,7 @@ class SessionsController < ApplicationController
   def destroy
     logout_killing_session!
     flash.now[:notice] = "You have been logged out."
-    redirect_back_or_default(dashboard_index_url)
+    redirect_back_or_default("/")
   end
 
 protected

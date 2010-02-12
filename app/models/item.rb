@@ -5,6 +5,9 @@ class Item < ActiveRecord::Base
 
   # validates_presence_of :user_id, :title, :description, :location, :category_id
 
-  named_scope :all, :order => "updated_at DESC"
+  class Type
+    DRAFT = 1
+    
+  end
 
 end

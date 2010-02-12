@@ -1,0 +1,7 @@
+<%- title 'Browse items by categories' -%>
+
+<ul>
+<%- @categories.each do |c| -%>
+  <li><%= c.name %></li>
+<%- end -%>
+</ul>

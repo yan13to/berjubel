@@ -9,14 +9,14 @@
     <title><%= yield(:title) %></title>
   </head>
   <body>
+    <div id="top-bar-left">
+      <h2 style="margin:0;padding:0;">&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to_site_name %></h2>
+    </div>
+    <div id="top-bar-right"></div>
+    <div id="top-bar-cleared"></div>
     <div id="outer_container">
-      <h1><a href="/">berjubel</a></h1>
-      <div>
-        <%= yield %>
-      </div>
-      <div>
-        <%= link_to 'agreement' %> | <%= link_to 'privacy' %> | <%= link_to 'about us' %>
-      </div>
+      <%= yield %>
+      <%= link_to 'agreement' %> | <%= link_to 'privacy' %> | <%= link_to 'about us' %>
     </div>
   </body>
 </html>

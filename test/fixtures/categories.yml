@@ -1,103 +1,103 @@
 cat1:
   id : 1
   name: "Antiques"
-  description: "Furniture | Rugs, Carpets | Silver | More"
+  description: "Furniture,Rugs,Carpets,Silver"
   position: 
 
 cat2:
   id: 2
   name: "Art"
-  description: "Paintings | Posters | Prints | More"
+  description: "Paintings,Posters,Prints"
   position: 
 
 cat3:
   id: 3
   name: "Baby"
-  description: "Feeding | Gear | Nursery Furniture | Strollers | More"
+  description: "Feeding,Gear,Nursery Furniture,Strollers"
   position: 
 
 cat4:
   id: 4
   name: "Books"
-  description: "Antiquarian & Collectible | Children's Books | Fiction Books | Nonfiction Books | Textbooks, Education | More"
+  description: "Antiquarian & Collectible,Children's Books,Fiction Books,Nonfiction Books,Textbooks,Education"
   position: 
 
 cat5:
   id: 5
   name: "Business & Industrial"
-  description: "Construction | Restaurant & Catering | Manufacturing & Metalworking | Office | More"
+  description: "Construction,Restaurant & Catering,Manufacturing & Metalworking,Office"
   position: 
 
 cat6:
   id: 6
   name: "Cameras & Photo"
-  description: "Camcorders | Digital Cameras | Film Cameras | Lenses & Filters | More"
+  description: "Camcorders,Digital Cameras,Film Cameras,Lenses & Filters"
   position: 
 
 cat7:
   id: 7
   name: "Cars, Boats, Vehicles & Parts"
-  description: "Motorcycles | Passenger Vehicles | Powersports | Parts & Accessories | More"
+  description: "Motorcycles,Passenger Vehicles,Powersports,Parts & Accessories"
   position: 
 
 cat8:
   id: 8
   name: "Cell Phones & PDAs"
-  description: "Cell Phones | PDAs & Pocket PCs | Bluetooth Accessories | More"
+  description: "Cell Phones,PDAs & Pocket PCs,Bluetooth Accessories"
   position: 
 
 cat9:
   id: 9
   name: "Clothing, Shoes & Accessories"
-  description: "Boys | Girls | Handbags | Men | Women | More"
+  description: "Boys,Girls,Handbags,Men,Women"
   position: 
 
 cat10:
   id: 10
   name: "Coins & Paper Money"
-  description: "Coins: US | Bullion | Coins: Ancient | Coins: World | More"
+  description: "Coins: US,Bullion,Coins: Ancient,Coins: World"
   position: 
 
 cat11:
   id: 11
   name: "Collectibles"
-  description: "Advertising | Casino | Comics | Decorative Collectibles | Militaria | More"
+  description: "Advertising,Casino,Comics,Decorative Collectibles,Militaria"
   position: 
 
 cat12:
   id: 12
   name: "Computers & Networking"
-  description: "Desktop PCs | Laptops & Notebooks | Monitors & Projectors | Networking | More"
+  description: "Desktop PCs,Laptops & Notebooks,Monitors & Projectors,Networking"
   position: 
 
 cat13:
   id: 13
   name: "Crafts"
-  description: "Drawing | Painting | Scrapbooking | Sewing | Woodworking | More"
+  description: "Drawing,Painting,Scrapbooking,Sewing,Woodworking"
   position: 
 
 cat14:
   id: 14
   name: "Dolls & Bears"
-  description: "Bears | Dollhouse Miniatures | Dolls | More"
+  description: "Bears,Dollhouse Miniatures,Dolls"
   position: 
 
 cat15:
   id: 15
   name: "DVDs & Movies"
-  description: "DVD | Film | Laserdisc | VHS | More"
+  description: "DVD,Film,Laserdisc,VHS"
   position: 
 
 cat16:
   id: 16
   name: "Electronics"
-  description: "Apple iPods & MP3 Players | Car Electronics | Home Audio | Televisions | More"
+  description: "Apple iPods & MP3 Players,Car Electronics,Home Audio,Televisions"
   position: 
 
 cat17:
   id: 17
   name: "Entertainment Memorabilia"
-  description: "Autographs-Original | Movie | Music | Television | More"
+  description: "Autographs-Original,Movie,Music,Television"
   position: 
 
 cat18:
@@ -109,97 +109,97 @@ cat18:
 cat19:
   id: 19
   name: "Health & Beauty"
-  description: "Fragrances | Makeup | Skin Care | Nutrition | More"
+  description: "Fragrances,Makeup,Skin Care,Nutrition"
   position: 
 
 cat20:
   id: 20
   name: "Home & Garden"
-  description: "Inside the Home | Tools & Home Improvement | Yard, Garden & Outdoor Living | More"
+  description: "Inside the Home,Tools & Home Improvement,Yard,Garden & Outdoor Living"
   position: 
 
 cat21:
   id: 21
   name: "Jewelry & Watches"
-  description: "Bracelets | Earrings | Necklaces & Pendants | Rings | Watches | More"
+  description: "Bracelets,Earrings,Necklaces & Pendants,Rings,Watches"
   position: 
 
 cat22:
   id: 22
   name: "Music"
-  description: "Cassettes | CDs | Records | More"
+  description: "Cassettes,CDs,Records"
   position: 
 
 cat23:
   id: 23
   name: "Musical Instruments"
-  description: "Guitar | Piano & Organ | Woodwind | Instruction Books | More"
+  description: "Guitar,Piano & Organ,Woodwind,Instruction Books"
   position: 
 
 cat24:
   id: 24
   name: "Pottery & Glass"
-  description: "Glass | Pottery & China"
+  description: "Glass,Pottery & China"
   position: 
 
 cat25:
   id: 25
   name: "Real Estate"
-  description: "Commercial | Land | Residential | Timeshares | More"
+  description: "Commercial,Land,Residential,Timeshares"
   position: 
 
 cat26:
   id: 26
   name: "Specialty Services"
-  description: "Custom Clothing & Jewelry | Printing & Personalization | Web & Computer Services | More"
+  description: "Custom Clothing & Jewelry,Printing & Personalization,Web & Computer Services"
   position: 
 
 cat27:
   id: 27
   name: "Sporting Goods"
-  description: "Exercise & Fitness | Golf | Outdoor Sports | Team Sports | More"
+  description: "Exercise & Fitness,Golf,Outdoor Sports,Team Sports"
   position: 
 
 cat28:
   id: 28
   name: "Sports Mem, Cards & Fan Shop"
-  description: "Autographs | Fan Apparel & Souvenirs | Cards | More"
+  description: "Autographs,Fan Apparel & Souvenirs,Cards,More"
   position: 
 
 cat29:
   id: 29
   name: "Stamps"
-  description: "Asia | Europe | United States | Worldwide | More"
+  description: "Asia,Europe,United States,Worldwide"
   position: 
 
 cat30:
   id: 30
   name: "Tickets"
-  description: "Event Tickets | Experiences"
+  description: "Event Tickets,Experiences"
   position: 
 
 cat31:
   id: 31
   name: "Toys & Hobbies"
-  description: "Action Figures | Diecast Toy Vehicles | Model RR, Trains | More"
+  description: "Action Figures,Diecast Toy Vehicles,Model RR, Trains"
   position: 
 
 cat32:
   id: 32
   name: "Travel"
-  description: "Airline | Cruises | Lodging | Luggage | Vacation Packages"
+  description: "Airline,Cruises,Lodging,Luggage,Vacation Packages"
   position: 
 
 cat33:
   id: 33
   name: "Video Games"
-  description: "Games | Systems | Accessories | Internet Games | More"
+  description: "Games,Systems,Accessories,Internet Games"
   position: 
 
 cat34:
   id: 34
   name: "Everything Else"
-  description: "Education & Learning | Genealogy | More"
+  description: "Education & Learning,Genealogy"
   position: 
 
 cat35:

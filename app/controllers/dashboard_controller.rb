@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
+  layout 'user'
   def index
-    @tab = "Dashboard"
   end
 end
