@@ -1,0 +1,23 @@
+<div class="d-flex align-content-start flex-wrap">
+  <% @categories.each do |category| %>
+    <div class="p-2 bd-highlight">
+      <div class="card" style="width: 18rem;">
+        <% if category.image.present? %>
+          <img src="..." class="card-img-top" alt="...">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to category.name %></h5>
+          <p class="card-text"><%= category.description %></p>
+          <ul class="list-group list-group-flush">
+            <% category.children.each do |child| %>
+              <li class="list-group-item"><%= link_to child.name %></li>
+            <% end %>
+            <li class="list-group-item">
+              <a href="#" class="btn btn-primary">More...</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

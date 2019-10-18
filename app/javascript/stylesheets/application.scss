@@ -1,1 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
+
+.img-thumbnail {
+  height: 100px;
+}
+
+.list.img-thumbnail {
+  margin-bottom: 5px;;
+}

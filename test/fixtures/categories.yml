@@ -1,0 +1,1123 @@
+_fixture:
+  model_class: Category
+
+--- !omap
+- cat01:
+    id: 1
+    parent_id: NULL
+    name: Clothing and Apparel
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat02:
+    id: 2
+    parent_id: 1
+    name: Men's Clothing
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat03:
+    id: 3
+    parent_id: 1
+    name: Women's Clothing
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat04:
+    id: 4
+    parent_id: 1
+    name: Trending
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat05:
+    id: 5
+    parent_id: NULL
+    name: Electronics
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat06:
+    id: 6
+    parent_id: 5
+    name: 3D Printer & Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat07:
+    id: 7
+    parent_id: 5
+    name: Arduino Compatible SCM & DIY Kits
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat08:
+    id: 8
+    parent_id: 5
+    name: Security & Protection
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat09:
+    id: 9
+    parent_id: 5
+    name: Home Audio & Video
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat10:
+    id: 10
+    parent_id: 5
+    name: Module Board For Arduino
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat11:
+    id: 11
+    parent_id: 5
+    name: Photography & Camera Acc
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat12:
+    id: 12
+    parent_id: 5
+    name: Media Players
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat13:
+    id: 13
+    parent_id: 5
+    name: Video Games Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat14:
+    id: 14
+    parent_id: 5
+    name: Plug & Adaptors
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat15:
+    id: 15
+    parent_id: 5
+    name: Electronic Accessories & Gadgets
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat16:
+    id: 16
+    parent_id: 5
+    name: Batteries & Chargers
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat17:
+    id: 17
+    parent_id: NULL
+    name: Home Appliances
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat18:
+    id: 18
+    parent_id: 17
+    name: Cleaning Appliances
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat19:
+    id: 19
+    parent_id: 17
+    name: Household Appliances
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat20:
+    id: 20
+    parent_id: 17
+    name: Home Entertainments & Work
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat21:
+    id: 21
+    parent_id: 17
+    name: Kitchen Appliances
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat22:
+    id: 22
+    parent_id: 17
+    name: Air Conditioning Appliances
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat23:
+    id: 23
+    parent_id: 17
+    name: Kitchen
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat24:
+    id: 24
+    parent_id: 17
+    name: Kitchen
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat25:
+    id: 25
+    parent_id: 17
+    name: Home Appliance Parts
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat26:
+    id: 26
+    parent_id: 17
+    name: Bathroom Gadgets
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat27:
+    id: 27
+    parent_id: NULL
+    name: Health & Beauty
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat28:
+    id: 28
+    parent_id: 27
+    name: Nail Art
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat29:
+    id: 29
+    parent_id: 27
+    name: Eye Care
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat30:
+    id: 30
+    parent_id: 27
+    name: Health Management
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat31:
+    id: 31
+    parent_id: 27
+    name: Skin Care
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat32:
+    id: 32
+    parent_id: 27
+    name: Teeth & Mouth Care
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat33:
+    id: 33
+    parent_id: 27
+    name: Health Care
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat34:
+    id: 34
+    parent_id: 27
+    name: Makeup
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat35:
+    id: 35
+    parent_id: 27
+    name: Massages & Relaxing
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat36:
+    id: 36
+    parent_id: 27
+    name: Hair Styling Tools & Salon
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat37:
+    id: 37
+    parent_id: 27
+    name: Personal Care Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat38:
+    id: 38
+    parent_id: 27
+    name: Shavers and Hair Removal
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat39:
+    id: 39
+    parent_id: 27
+    name: Tattoos & Body Art
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat40:
+    id: 40
+    parent_id: 27
+    name: Brace & Support
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat41:
+    id: 41
+    parent_id: 27
+    name: Hair & Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat42:
+    id: 42
+    parent_id: NULL
+    name: Automobiles & Motorcycles
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat43:
+    id: 43
+    parent_id: 42
+    name: Car Lights
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat44:
+    id: 44
+    parent_id: 42
+    name: Car Alarm & Security
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat45:
+    id: 45
+    parent_id: 42
+    name: Car Repair & Maintenance
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat46:
+    id: 46
+    parent_id: 42
+    name: Car DVRs
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat47:
+    id: 47
+    parent_id: 42
+    name: Diagnostic Scan Tool
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat48:
+    id: 48
+    parent_id: 42
+    name: Motorcycle
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat49:
+    id: 49
+    parent_id: 42
+    name: GPS & Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat50:
+    id: 50
+    parent_id: 42
+    name: Auto Parts
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat51:
+    id: 51
+    parent_id: 42
+    name: Electric Scooters
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat52:
+    id: 52
+    parent_id: 42
+    name: Car Electronics
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat53:
+    id: 53
+    parent_id: 42
+    name: Interior Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat54:
+    id: 54
+    parent_id: 42
+    name: Boat
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat55:
+    id: 55
+    parent_id: 42
+    name: Car Audio & Monitor
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat56:
+    id: 56
+    parent_id: 42
+    name: Exterior Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat57:
+    id: 57
+    parent_id: NULL
+    name: Mobile Phones & Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat58:
+    id: 58
+    parent_id: 57
+    name: Smartphones
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat59:
+    id: 59
+    parent_id: 57
+    name: Earphones & Speakers
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat60:
+    id: 60
+    parent_id: 57
+    name: Smart Watch & Band
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat61:
+    id: 61
+    parent_id: 57
+    name: Feature Phones
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat62:
+    id: 62
+    parent_id: 57
+    name: Mobile Phones Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat63:
+    id: 63
+    parent_id: 57
+    name: Smart Devices & Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat64:
+    id: 64
+    parent_id: 57
+    name: Power Banks
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat65:
+    id: 65
+    parent_id: 57
+    name: Gadgets
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat66:
+    id: 66
+    parent_id: 57
+    name: Samsung Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat67:
+    id: 67
+    parent_id: 57
+    name: Chargers & Cables
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat68:
+    id: 68
+    parent_id: 57
+    name: Mounts & Holders
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat69:
+    id: 69
+    parent_id: 57
+    name: Apple Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat70:
+    id: 70
+    parent_id: 57
+    name: Case & Leather
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat71:
+    id: 71
+    parent_id: NULL
+    name: Tools, Industrial & Scientific
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat72:
+    id: 72
+    parent_id: 71
+    name: Professional Tools
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat73:
+    id: 73
+    parent_id: 71
+    name: Measurement & Analysis Instruments
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat74:
+    id: 74
+    parent_id: 71
+    name: Tapes, Adhesives & Sealants
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat75:
+    id: 75
+    parent_id: 71
+    name: Tool Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat76:
+    id: 76
+    parent_id: 71
+    name: Mechanical Parts
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat77:
+    id: 77
+    parent_id: 71
+    name: Raw Materials
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat78:
+    id: 78
+    parent_id: 71
+    name: Laser Equipment
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat79:
+    id: 79
+    parent_id: 71
+    name: Electrical Equipment & Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat80:
+    id: 80
+    parent_id: 71
+    name: Power Tools
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat81:
+    id: 81
+    parent_id: 71
+    name: Lab & Scientific Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat82:
+    id: 82
+    parent_id: 71
+    name: Hardware &amp; Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat83:
+    id: 83
+    parent_id: 71
+    name: Hand Tools
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat84:
+    id: 84
+    parent_id: 71
+    name: Fasteners
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat85:
+    id: 85
+    parent_id: NULL
+    name: Bags & Shoes
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat86:
+    id: 86
+    parent_id: 85
+    name: Women's Bags
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat87:
+    id: 87
+    parent_id: 85
+    name: Women's Shoes
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat88:
+    id: 88
+    parent_id: 85
+    name: Men's Bags
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat89:
+    id: 89
+    parent_id: 85
+    name: Men's Shoes
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat90:
+    id: 90
+    parent_id: 85
+    name: School Bags
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat91:
+    id: 91
+    parent_id: 85
+    name: Kids Shoes
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat92:
+    id: 92
+    parent_id: 85
+    name: Kids Bags
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat93:
+    id: 93
+    parent_id: 85
+    name: Baby Shoes
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat94:
+    id: 94
+    parent_id: NULL
+    name: Computer & Networking
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat95:
+    id: 95
+    parent_id: 94
+    name: Tablet PC
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat96:
+    id: 96
+    parent_id: 94
+    name: Computer Components
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat97:
+    id: 97
+    parent_id: 94
+    name: Mini PC & Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat98:
+    id: 98
+    parent_id: 94
+    name: Laptops & Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat99:
+    id: 99
+    parent_id: 94
+    name: Drives and Storage
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat100:
+    id: 100
+    parent_id: 94
+    name: Computer Cables & Connectors
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat101:
+    id: 101
+    parent_id: 94
+    name: Office & School Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat102:
+    id: 102
+    parent_id: 94
+    name: Networking
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat103:
+    id: 103
+    parent_id: 94
+    name: Office Furniture
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat104:
+    id: 104
+    parent_id: 94
+    name: Computer Peripherals
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat105:
+    id: 105
+    parent_id: NULL
+    name: Lights & Lighting
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat106:
+    id: 106
+    parent_id: 105
+    name: Flashlight
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat107:
+    id: 107
+    parent_id: 105
+    name: Indoor Lighting
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat108:
+    id: 108
+    parent_id: 105
+    name: LED Light Bulbs
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat109:
+    id: 109
+    parent_id: 105
+    name: Outdoor Lighting
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat110:
+    id: 110
+    parent_id: 105
+    name: Lighting Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat111:
+    id: 111
+    parent_id: 105
+    name: LED Strip
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat112:
+    id: 112
+    parent_id: 105
+    name: Lasers
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat113:
+    id: 113
+    parent_id: 105
+    name: Holiday Lights
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat114:
+    id: 114
+    parent_id: NULL
+    name: Toys Hobbies and Robot
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat115:
+    id: 115
+    parent_id: 114
+    name: RC Drones
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat116:
+    id: 116
+    parent_id: 114
+    name: RC Robot
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat117:
+    id: 117
+    parent_id: 114
+    name: Learning & Education
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat118:
+    id: 118
+    parent_id: 114
+    name: RC Vehicles
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat119:
+    id: 119
+    parent_id: 114
+    name: Musical Instruments
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat120:
+    id: 120
+    parent_id: 114
+    name: Novelty & Gagdet Toys
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat121:
+    id: 121
+    parent_id: 114
+    name: RC Parts
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat122:
+    id: 122
+    parent_id: 114
+    name: Dolls & Stuffed Toys
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat123:
+    id: 123
+    parent_id: 114
+    name: Model & Building Toys
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat124:
+    id: 124
+    parent_id: NULL
+    name: Home and Garden
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat125:
+    id: 125
+    parent_id: 124
+    name: Kitchen,Dining & Bar
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat126:
+    id: 126
+    parent_id: 124
+    name: Home Textiles
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat127:
+    id: 127
+    parent_id: 124
+    name: Pet Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat128:
+    id: 128
+    parent_id: 124
+    name: Furniture
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat129:
+    id: 129
+    parent_id: 124
+    name: Home Decor
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat130:
+    id: 130
+    parent_id: 124
+    name: Baby Kids & Mother Care
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat131:
+    id: 131
+    parent_id: 124
+    name: Bathroom
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat132:
+    id: 132
+    parent_id: 124
+    name: Festival Gifts & Party Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat133:
+    id: 133
+    parent_id: 124
+    name: Housekeeping & Organization
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat134:
+    id: 134
+    parent_id: 124
+    name: Gardening
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat135:
+    id: 135
+    parent_id: 124
+    name: Faucets
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat136:
+    id: 136
+    parent_id: 124
+    name: Home Cleaner
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat137:
+    id: 137
+    parent_id: NULL
+    name: Jewelry and Watch
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat138:
+    id: 138
+    parent_id: 137
+    name: Men Watches
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat139:
+    id: 139
+    parent_id: 137
+    name: Men Jewelry
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat140:
+    id: 140
+    parent_id: 137
+    name: Magnet & Healing Jewelry
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat141:
+    id: 141
+    parent_id: 137
+    name: Women Watches
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat142:
+    id: 142
+    parent_id: 137
+    name: Women Jewelry
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat143:
+    id: 143
+    parent_id: 137
+    name: Keychain & Ornaments
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat144:
+    id: 144
+    parent_id: 137
+    name: Smart Wearable Device
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat145:
+    id: 145
+    parent_id: 137
+    name: Fine Jewelry
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat146:
+    id: 146
+    parent_id: 137
+    name: Kid's Jewelry & DIY
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat147:
+    id: 147
+    parent_id: 137
+    name: Gym & Hiking Watch
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat148:
+    id: 148
+    parent_id: 137
+    name: Jewelry Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat149:
+    id: 149
+    parent_id: 137
+    name: Watch Accessories
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat150:
+    id: 150
+    parent_id: 137
+    name: Watch Tools
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat151:
+    id: 151
+    parent_id: 137
+    name: Sports & Outdoor
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat152:
+    id: 152
+    parent_id: 137
+    name: Bike & Bicycle
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat153:
+    id: 153
+    parent_id: 137
+    name: Fitness Wellness
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat154:
+    id: 154
+    parent_id: 137
+    name: Outdoors Clothing & Shoes
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat155:
+    id: 155
+    parent_id: 137
+    name: Camping
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat156:
+    id: 156
+    parent_id: 137
+    name: Outdoor Recreation
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat157:
+    id: 157
+    parent_id: 137
+    name: Travel Supplies
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat158:
+    id: 158
+    parent_id: 137
+    name: Fishing & Hunting
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat159:
+    id: 159
+    parent_id: 137
+    name: Team Sport
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL
+
+- cat160:
+    id: 160
+    parent_id: 137
+    name: Hiking & Climbing
+    description: <%= Faker::Lorem.paragraph %>
+    position: NULL

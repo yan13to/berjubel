@@ -1,11 +1,10 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+_fixture:
+  model_class: User
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+<% 1.upto(1000) do |i| %>
+user_<%= i %>:
+  id: <%= i %>
+  email: <%= Faker::Internet.email(separators: i.to_s) %>
+  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
+  avatar: <%= File.open('https://i.pravatar.cc/300') %>
+<% end %>
