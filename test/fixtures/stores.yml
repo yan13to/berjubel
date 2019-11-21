@@ -1,0 +1,7 @@
+<% 1.upto(1000) do |i| %>
+store_<%= i %>:
+  id: <%= i %>
+  user_id: <%= (1..1000).to_a.sample %>
+  name: <%= Faker::Commerce.department %>
+  description: <%= Faker::Lorem.paragraph %>
+<% end %>

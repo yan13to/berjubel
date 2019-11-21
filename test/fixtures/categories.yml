@@ -1,7 +1,3 @@
-_fixture:
-  model_class: Category
-
---- !omap
 - cat01:
     id: 1
     parent_id: NULL

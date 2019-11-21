@@ -1,7 +1,15 @@
-item_1:
-  store_id:
-  title: ''
-
-item_2:
-  store_id:
-  title: ''
+<%
+  image_path = File.join(Rails.root, 'test', 'fixtures', 'files', 'examples', 'hrcn', '*')
+  Dir[image_path].select.with_index do |file, i|
+    item_id = i + 1
+    filename = File.basename(file)
+%>
+    item_<%= item_id %>:
+      id: <%= item_id %>
+      store_id: <%= (1..10).to_a.sample %>
+      name: <%= Faker::Commerce.product_name %>
+      price: <%= Faker::Commerce.price(range: 10000.10000000000000000000) %>
+      stock: <%= (0..10000).to_a.sample %>
+      file: <%= file %>
+      filename: <%= filename %>
+<% end %>

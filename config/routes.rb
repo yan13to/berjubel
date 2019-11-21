@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
 
-  root 'home#index'
+  root 'items#index'
 end

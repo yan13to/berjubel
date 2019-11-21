@@ -1,10 +1,8 @@
-_fixture:
-  model_class: User
-
 <% 1.upto(1000) do |i| %>
 user_<%= i %>:
   id: <%= i %>
   email: <%= Faker::Internet.email(separators: i.to_s) %>
-  encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-  avatar: <%= File.open('https://i.pravatar.cc/300') %>
+  password: 'password'
+  password_confirmation: 'password'
+  #encrypted_password: <%= User.new.send(:password_digest, 'password') %>
 <% end %>
