@@ -1,5 +1,6 @@
 <%
-  image_path = File.join(Rails.root, 'test', 'fixtures', 'files', 'examples', 'hrcn', '*')
+  image_path = File.join(Rails.root, 'test', 'fixtures', 'files', 'examples', 'items', '*')
+
   Dir[image_path].select.with_index do |file, i|
     item_id = i + 1
     filename = File.basename(file)
