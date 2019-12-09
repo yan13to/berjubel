@@ -249,7 +249,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   money
-  puma (~> 3.12)
+  puma (~> 3.12.2)
   rails (~> 6.0.0)
   react-rails
   sass-rails (~> 5)
