@@ -5,5 +5,22 @@
 }
 
 .list.img-thumbnail {
-  margin-bottom: 5px;;
+  margin-bottom: 5px;
+}
+
+.star {
+  cursor: pointer;
+}
+
+ul.list-categories-right-panel {
+  > li {
+    padding-left: 0;
+  }
+}
+
+.seller {
+  .badge {
+    font-weight: 100;
+    font-style: italic;
+  }
 }

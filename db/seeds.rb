@@ -1,5 +1,9 @@
 require 'faker'
 
+#ActiveRecord::Base.connection.tables.each do |t|
+#  ActiveRecord::Base.connection.reset_pk_sequence!(t)
+#end
+
 models = if ENV['MODELS'].present?
   ENV['MODELS'].split(',').map(&:to_sym)
 else
@@ -65,13 +69,25 @@ if models.include?(:items)
 	items = YAML.load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'items.yml'))).result).values
 
   items.each do |params|
-    item = Item.new(id: params['id'], store_id: params['store_id'], name: params['name'], price: params['price'], stock: params['stock'])
+    item = Item.where(id: params['id']).try(:first)
+    item = Item.new(id: params['id'], store_id: params['store_id'], name: params['name'], price: params['price'], stock: params['stock']) unless item.present?
 
-    if item.save!
-			item.photos.attach(io: File.open(params['file']), filename: params['filename'])
+    if item.save! && item.new_record?
+      url = 'https://picsum.photos/800/400'
+
+      num_photos = (1..20).to_a.sample
+
+      1.upto(num_photos) do |i|
+        i += 1
+        file = URI.open(url)
+        item.photos.attach(io: file, filename: "photo-item-#{item.id}-#{i}")
+      end
+
       puts "#{item.name} has been saved with id: (#{item.id})"
-    else
+    elsif item.errors.full_messages.present?
       puts "Failed to save item: #{item.name} with errors: (#{item.errors.full_messages})"
+    else
+      puts item.name
     end
   end
 

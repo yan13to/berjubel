@@ -1,3 +1,86 @@
-<% @items.each do |item| %>
-  <%= link_to image_tag(item.photos.first.variant(resize_to_limit: [200, 200]), width: '200px', height: '200px') %>
-<% end %>
+<div class="row">
+	<div class="col">
+		<% @items.each do |item| %>
+      <div class="d-flex">
+        <div class="p-2">
+          <%= image_tag('icons/round_account_circle_black_24dp.png')%>
+        </div>
+        <%= react_component 'items/Index', {name: item.store.name}, class: 'p-2' %>
+        <div class="dropdown ml-auto p-2">
+          <a href="#" class="btn" data-toggle="dropdown">
+            <%= image_tag('icons/ic_more_horiz_18pt.png') %>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item-text">Wait Sakeudeung...</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3">
+        <div id="carousel-banner" class="carousel" data-ride="carousel">
+          <div class="carousel-inner">
+            <% item.photos.each_with_index do |p, i| %>
+              <div class="carousel-item<%= ' active' if i == 0 %>">
+                <% if p.variable? %>
+                  <img src="<%= url_for(p.variant(resize_to_limit: [800, 400])) %>" class="d-block-w100" style="width:100%;"/>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= link_to item.name %>
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <%= number_to_currency item.price %>
+          </h6>
+          <h6 class="card-subtitle mb-2">
+            <%= "In stock: #{number_with_delimiter(item.stock)}" %>
+          </h6>
+          <p class="star">
+            <span>
+              <%= image_tag('icons/ic_star_border_black_24dp.png') %>
+              <%= image_tag('icons/ic_star_border_black_24dp.png') %>
+              <%= image_tag('icons/ic_star_border_black_24dp.png') %>
+              <%= image_tag('icons/ic_star_border_black_24dp.png') %>
+              <%= image_tag('icons/ic_star_border_black_24dp.png') %>
+              100 reviews
+            </span>
+          </p>
+<!--
+          <p class="card-text">
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+          </p>
+-->
+          <span class="badge badge-light">#baju</span>
+          <span class="badge badge-light">#sendal</span>
+          <span class="badge badge-light">#sepatu</span>
+          <span class="badge badge-light">#kemeja</span>
+        </div>
+      </div>
+		<% end %>
+	</div>
+
+	<div class="col col-lg-3">
+    <h3><%= link_to 'Categories', categories_path %></h3>
+		<ul class="list-group list-group-flush list-categories-right-panel">
+      <% Category.parents.each do |c| %>
+        <li class="list-group-item">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#<%= "cat-#{c.id}"%>" style="padding:0;">
+            <%= image_tag('icons/ic_add_black_18dp.png') %>
+          </button>
+          <a href="#"><%= c.name %></a>
+          <ul class="list-group collapse" id="<%= "cat-#{c.id}" %>">
+            <% c.children.each do |child| %>
+              <li class="list-group-item">
+                <%= link_to child.name %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+		</ul>
+	</div>
+</div>
