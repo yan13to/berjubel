@@ -18,9 +18,9 @@ ul.list-categories-right-panel {
   }
 }
 
-.seller {
-  .badge {
-    font-weight: 100;
-    font-style: italic;
+.dropdown.popper {
+  .dropdown-menu {
+    padding: 10px;
+    width: 300px;
   }
 }
