@@ -1,4 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
+@import "material-icons";
+
+body {
+  font-size: 14px;
+  background-color:#eee;
+}
 
 .img-thumbnail {
   height: 100px;
