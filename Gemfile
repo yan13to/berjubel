@@ -28,6 +28,7 @@ gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'rack-cors', :require => 'rack/cors'
 gem 'devise'
 gem 'devise_token_auth'
 gem 'exception_notification'
