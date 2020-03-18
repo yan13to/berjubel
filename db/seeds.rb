@@ -53,9 +53,17 @@ if models.include?(:stores)
   stores = YAML.load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'stores.yml'))).result).values
 
   stores.each do |params|
-    store = Store.new(params)
+    store = Store.find(params['id'])
+    store = Store.new(params) unless store.present?
+    saved = store.persisted? ? true : store.save!
 
-    if store.save!
+    if saved
+      url = 'https://i.pravatar.cc/300'
+
+      filename = File.basename(URI.parse(url).path)
+      file = URI.open(url)
+
+      store.avatar.attach(io: file, filename: filename)
       puts "#{store.name} has been saved with id: (#{store.id})"
     else
       puts "Failed to save store: #{store.name} with errors: (#{store.errors.full_messages})"
