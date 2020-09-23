@@ -16,11 +16,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'devise'
 gem 'devise_token_auth'
 gem 'exception_notification'
 gem 'money'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'ransack'
 gem 'react-rails'
 gem 'will_paginate'
 
@@ -41,6 +41,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
