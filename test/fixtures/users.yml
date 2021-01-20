@@ -1,16 +1,12 @@
 user_1:
   id: 1
-  nickname: 'User'
-  name: 'User Useran'
   email: 'user@berjubel.com'
   password: 'password'
   password_confirmation: 'password'
 
-<% 2.upto(1000) do |i| %>
+<% 2.upto(50) do |i| %>
 user_<%= i %>:
   id: <%= i %>
-  nickname: <%= Faker::Name.first_name %>
-  name: <%= Faker::Name.unique.name %>
   email: <%= Faker::Internet.email(separators: i.to_s) %>
   password: 'password'
   password_confirmation: 'password'

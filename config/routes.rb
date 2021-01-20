@@ -3,21 +3,16 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-        sessions: 'api/v1/auth/sessions'
+      mount_devise_token_auth_for 'User', at: 'users', controllers: {
+        sessions: 'api/v1/sessions',
+        registrations: 'api/v1/registrations'
       }
 
-      as :user do
-        # Define routes for User within this block.
-      end
-
-      resources :items
+      resources :items, except: %I[new edit]
     end
   end
 
-  devise_for :users, path: 'auth'
-
-  resources :items
+  resources :items, only: :index
 
   root 'items#index'
 end

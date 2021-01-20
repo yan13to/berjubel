@@ -2,7 +2,7 @@ import React from 'react';
 import Summary from './summary';
 
 const API = {
-  server: 'http://localhost:5000/',
+  server: 'http://localhost:3000/',
   baseURL: 'api/v1/'
 };
 

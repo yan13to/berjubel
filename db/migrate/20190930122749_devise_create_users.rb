@@ -3,10 +3,6 @@
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
-      ## User Info
-      t.string :name
-      t.string :nickname
-
       ## Required
       t.string :provider, null: false, default: 'email'
       t.string :uid, null: false, default: ''

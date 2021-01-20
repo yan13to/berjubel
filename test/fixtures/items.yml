@@ -1,4 +1,4 @@
-<% 1.upto(1000) do |i| %>
+<% 1.upto(100) do |i| %>
 item_<%= i %>:
   id: <%= i %>
   store_id: <%= (1..1000).to_a.sample %>
