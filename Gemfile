@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.6.6'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'pg'
@@ -14,7 +14,6 @@ gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
-
 gem 'devise_token_auth'
 gem 'exception_notification'
 gem 'money'
