@@ -1,5 +1,4 @@
 import React from 'react';
-import Summary from './summary';
 
 const API = {
   server: 'http://localhost:3000/',
@@ -42,16 +41,10 @@ class Listing extends React.Component {
 
   render () {
     const { hasNextPage, isNextPageLoading, items, sortOrder } = this.state;
-    console.log(items);
 
     return (
-      <Summary
-        hasNextPage={hasNextPage}
-        isNextPageLoading={isNextPageLoading}
-        items={items}
-        sortOrder={sortOrder}
-        loadNextPage={this._loadNextPage} />
-    );
+      <h1>Berjubel</h1>
+    )
   }
 }
 
