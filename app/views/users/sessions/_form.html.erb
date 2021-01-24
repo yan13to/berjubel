@@ -1,26 +1,32 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="form-floating mb-2">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-    <%= f.label :email %>
-  </div>
+  <% error_messages = flash.now[:alert] %>
 
-  <div class="form-floating mb-2">
-    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-    <%= f.label :password %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="form-check mb-2">
-      <%= f.check_box :remember_me, class: 'form-check-input' %>
-      <%= f.label :remember_me, class: 'form-check-label' %>
+  <% if error_messages %>
+    <div class="alert alert-danger" id="error_explanation" role="alert">
+      <h5>Invalid credentials</h5>
+      <%= flash.now[:alert] %>
     </div>
   <% end %>
 
-  <div class="form-floating">
-    <%= f.submit "Log in", class: 'btn btn-outline-primary' %>
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+          class: "form-control#{error_messages ? ' is-invalid' : nil}" %>
   </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+  <div class="mb-3">
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "current-password",
+          class: "form-control#{error_messages ? ' is-invalid' : nil}" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="form-check mb-3">
+      <%= f.check_box :remember_me, class: "form-check-input" %>
+      <%= f.label :remember_me, class: "form-check-label" %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Log in", class: "btn btn-outline-primary" %>
+<% end %>

@@ -1,0 +1,46 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+          class: "form-control#{resource.errors.messages[:email].present? ? ' is-invalid' : nil}" %>
+    <div class="invalid-feedback">
+      <%= resource.errors.messages[:email].join(', ') %>
+    </div>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, autocomplete: "new-password",
+          placeholder: "#{@minimum_password_length} characters minimum",
+          class: "form-control#{resource.errors.messages[:password].present? ? ' is-invalid' : nil}" %>
+    <div class="invalid-feedback">
+      <%= resource.errors.messages[:password].join(', ') %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",
+          class: "form-control#{resource.errors.messages[:password_confirmation].present? ? ' is-invalid' : nil}" %>
+    <div class="invalid-feedback">
+      <%= resource.errors.messages[:password_confirmation].join(', ') %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+    <%= f.password_field :current_password, autocomplete: "current-password",
+          class: "form-control#{resource.errors.messages[:current_password].present? ? ' is-invalid' : nil}" %>
+    <div class="invalid-feedback">
+      <%= resource.errors.messages[:current_password].join(', ') %>
+    </div>
+  </div>
+
+  <%= f.submit "Update", class: "btn btn-outline-primary" %>
+<% end %>
