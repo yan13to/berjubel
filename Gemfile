@@ -15,7 +15,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
-gem 'devise_token_auth'
+gem 'devise_token_auth', path: '../devise_token_auth'
 gem 'exception_notification'
 gem 'money'
 gem 'rack-cors', require: 'rack/cors'

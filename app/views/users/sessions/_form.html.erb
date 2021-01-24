@@ -5,7 +5,7 @@
   <% if error_messages %>
     <div class="alert alert-danger" id="error_explanation" role="alert">
       <h5>Invalid credentials</h5>
-      <%= flash.now[:alert] %>
+      <%= error_messages %>
     </div>
   <% end %>
 

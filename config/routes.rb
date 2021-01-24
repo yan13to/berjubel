@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'users', controllers: {
-        sessions: 'api/v1/sessions',
-        registrations: 'api/v1/registrations'
+        sessions: 'api/v1/users/sessions',
+        registrations: 'api/v1/users/registrations'
       }
 
       resources :items, except: %I[new edit]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations',
     sessions: 'users/sessions',
-    unlock: 'users/unlocks'
+    unlocks: 'users/unlocks'
   }
 
   resources :items, only: :index
