@@ -1,25 +1,25 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="form-floating mb-3">
+  <div class="form-floating mb-2">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
     <%= f.label :email %>
   </div>
 
-  <div class="form-floating mb-3">
+  <div class="form-floating mb-2">
     <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
     <%= f.label :password %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me, class: 'form-check-label' %>
+    <div class="form-check mb-2">
+      <%= f.check_box :remember_me, class: 'form-check-input' %>
       <%= f.label :remember_me, class: 'form-check-label' %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="form-floating">
+    <%= f.submit "Log in", class: 'btn btn-outline-primary' %>
   </div>
 <% end %>
 
