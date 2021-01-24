@@ -8,11 +8,11 @@ class Category < ApplicationRecord
 
   scope :parents, -> { where(parent_id: nil) }
 
-  def has_children?
-    self.children.size > 0
+  def children?
+    children.size.positive?
   end
 
-  def has_parent?
-    !self.parent.nil?
+  def parent?
+    !parent.nil?
   end
 end

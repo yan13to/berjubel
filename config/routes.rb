@@ -12,6 +12,15 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :users, controllers: {
+    confirmations: 'users/confirmations',
+    omniauth_callback: 'users/omniauth_callbacks',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    unlock: 'users/unlocks'
+  }
+
   resources :items, only: :index
 
   root 'items#index'

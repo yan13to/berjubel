@@ -109,4 +109,15 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.default_url_options = { host: 'berjubel.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+    address: 'in-v3.mailjet.com',
+    port: '587',
+    authentication: :plain,
+    user_name: 'b2e68a38044f83f8ec6ce70540551cc1',
+    password: '54c32250d86a63360ee71bceceb2e903'
+  }
 end
