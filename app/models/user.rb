@@ -14,6 +14,20 @@ class User < ApplicationRecord
 
   has_many :stores
 
+  def send_confirmation_instructions(opts = {})
+    generate_confirmation_token! unless @raw_confirmation_token
+
+    opts[:client_config] ||= 'default'
+    opts[:to] = unconfirmed_email if pending_reconfirmation?
+    opts[:redirect_url] ||= DeviseTokenAuth.default_confirm_success_url
+
+    if from_api
+      send_devise_notification(:confirmation_instructions, @raw_confirmation_token, opts)
+    else
+      DeviseMailer.confirmation_instructions(self, @raw_confirmation_token, opts).deliver_now
+    end
+  end
+
   def send_confirmation_notification?
     return true unless from_api
   end

@@ -1,3 +1,23 @@
+GIT
+  remote: https://github.com/yan13to/devise.git
+  revision: 81bf3ad8c1e3812448ba4588598493c8e80ecf10
+  specs:
+    devise (4.7.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+
+GIT
+  remote: https://github.com/yan13to/devise_token_auth.git
+  revision: c92258038c05fcc8f6a0374ccce2e63b9f8d5312
+  specs:
+    devise_token_auth (1.1.4)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 6.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -81,17 +101,6 @@ GEM
     concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     crass (1.0.6)
-    devise (4.7.3)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-    devise_token_auth (1.1.4)
-      bcrypt (~> 3.0)
-      devise (> 3.5.2, < 5)
-      rails (>= 4.2.0, < 6.1)
-      sprockets (= 3.7.2)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.15.1)
@@ -260,8 +269,8 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
-  devise
-  devise_token_auth
+  devise!
+  devise_token_auth!
   faker
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
