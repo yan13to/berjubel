@@ -1,11 +1,3 @@
-PATH
-  remote: ../devise_token_auth
-  specs:
-    devise_token_auth (1.1.4)
-      bcrypt (~> 3.0)
-      devise (> 3.5.2, < 5)
-      rails (>= 4.2.0, < 6.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -95,10 +87,12 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise_token_auth (1.1.4)
+      bcrypt (~> 3.0)
+      devise (> 3.5.2, < 5)
+      rails (>= 4.2.0, < 6.1)
+      sprockets (= 3.7.2)
     erubi (1.10.0)
-    exception_notification (4.4.3)
-      actionmailer (>= 4.0, < 7)
-      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     faker (2.15.1)
       i18n (>= 1.6, < 2)
@@ -267,8 +261,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  devise_token_auth!
-  exception_notification
+  devise_token_auth
   faker
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
