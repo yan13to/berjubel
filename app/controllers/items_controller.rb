@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+# ItemsController
 class ItemsController < ApplicationController
   include Pagination
+
+  before_action :authenticate_user!
 
   def index
     @items = Item.ransack(query)
