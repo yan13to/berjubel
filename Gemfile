@@ -14,8 +14,8 @@ gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'devise', github: 'yan13to/devise' #, path: '../devise'
-gem 'devise_token_auth', github: 'yan13to/devise_token_auth' #, path: '../devise_token_auth'
+gem 'devise', github: 'yan13to/devise'
+gem 'devise_token_auth', github: 'yan13to/devise_token_auth'
 # gem 'exception_notification'
 gem 'money'
 gem 'rack-cors', require: 'rack/cors'
@@ -23,6 +23,7 @@ gem 'ransack'
 gem 'react-rails'
 gem 'will_paginate'
 gem 'awesome_print'
+gem 'ahoy_matey'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

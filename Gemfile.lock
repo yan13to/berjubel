@@ -78,6 +78,11 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ahoy_matey (3.1.0)
+      activesupport (>= 5)
+      device_detector
+      geocoder (>= 1.4.5)
+      safely_block (>= 0.2.1)
     awesome_print (1.8.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -101,11 +106,14 @@ GEM
     concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     crass (1.0.6)
+    device_detector (1.0.5)
+    errbase (0.2.1)
     erubi (1.10.0)
     execjs (2.7.0)
     faker (2.15.1)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
+    geocoder (1.6.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.7)
@@ -204,6 +212,8 @@ GEM
       ffi (~> 1.9)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
+    safely_block (0.3.0)
+      errbase (>= 0.1.1)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -264,6 +274,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ahoy_matey
   awesome_print
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
@@ -298,4 +309,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.1.4
+   2.2.11

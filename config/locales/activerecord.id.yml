@@ -1,0 +1,6 @@
+id:
+  activerecord:
+    models:
+      category:
+        one: Kategori
+        other: Kategori

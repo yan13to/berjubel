@@ -1,0 +1,18 @@
+<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <% if categories.present? %>
+    <% categories.each_with_index do |cat, i| %>
+      <li>
+        <a class="dropdown-item" href="#">
+          <%= cat.name %>
+        </a>
+      </li>
+      <% if i + 1 < categories.length %>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <% end %>
+    <% end %>
+  <% else %>
+    <li class="dropdown-item">No categories available</li>
+  <% end %>
+</ul>

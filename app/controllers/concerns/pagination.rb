@@ -8,11 +8,11 @@ module Pagination
   end
 
   def page
-    params[:p] || 1
+    params[:page] || 1
   end
 
   def per_page
-    params[:pp] || 12
+    params[:per_page] || 12
   end
 
   def query

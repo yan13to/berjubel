@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      category:
+        one: Category
+        other: Categories
+      item:
+        one: Item
+        other: Items
+      store:
+        one: Store
+        other: Stores
+      user:
+        one: User
+        other: Users

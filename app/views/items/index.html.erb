@@ -1,16 +1,16 @@
-<div class="modal fade show" tabindex="-1" style="display:block;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Berjubel API</h5>
-      </div>
-      <div class="modal-body">
-        <p>
-          <a href="https://berjubel-app.web.app/" target="_blank">Frontend in react js</a>
-        </p>
-      </div>
-    </div>
+<%#= react_component 'items/listing' %>
+<div class="card mt-5">
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <% @items.each do |item| %>
+        <li class="list-group-item">
+          <%= image_tag(item.default_photo.variant(resize_to_limit: [250, 100])) %>
+          <h3><%= item.name %></h3>
+          <p><%= item.price %></p>
+          <p><%= item.store.name %></p>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
-
-<%#= react_component 'items/listing' %>
+<%= will_paginate(@items) %>
