@@ -38,3 +38,5 @@ yarn-debug.log*
 berjubel_development
 
 /config/credentials/development.key
+
+/config/credentials/production.key
