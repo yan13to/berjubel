@@ -24,6 +24,8 @@ gem 'react-rails'
 gem 'will_paginate'
 gem 'awesome_print'
 gem 'ahoy_matey'
+gem 'aws-sdk-rails', '~> 3'
+gem 'aws-sdk-s3', '~> 1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
