@@ -12,7 +12,7 @@ module Pagination
   end
 
   def per_page
-    params[:per_page] || 12
+    params[:per_page] || 24
   end
 
   def query

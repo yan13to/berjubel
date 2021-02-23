@@ -18,7 +18,7 @@
             <% if current_user.avatar.attached? %>
               <%= image_tag current_user.avatar.variant(resize_to_limit: [40, 40]), class: 'rounded-circle' %>
             <% else %>
-              <i class="bi bi-file-person" style="font-size:26px;"></i>
+              <i class="bi bi-file-person fs-3"></i>
             <% end %>
             <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
               <%= current_user.email %>

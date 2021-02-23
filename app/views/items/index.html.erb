@@ -1,16 +1,22 @@
 <%#= react_component 'items/listing' %>
-<div class="card mt-5">
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <% @items.each do |item| %>
-        <li class="list-group-item">
-          <%= image_tag(item.default_photo.variant(resize_to_limit: [250, 100])) %>
-          <h3><%= item.name %></h3>
-          <p><%= item.price %></p>
-          <p><%= item.store.name %></p>
-        </li>
-      <% end %>
-    </ul>
+<div class="d-flex align-items-center">
+  <div class="me-auto">Home</div>
+  <div class="me-2 fs-4">
+    <a href="#"><i class="bi bi-card-list"></i></a>
+    <a href="#"><i class="bi bi-columns"></i></a>
+  </div>
+  <div>
+    <%= select_tag 'order', options_for_select([['Featured', 0], ['Price: Low to High', 1], ['Price: High to Low', 1], ['Avg. Customer Review', 1]]) %>
   </div>
 </div>
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex align-items-center align-content-stretch flex-wrap">
+      <% @items.each do |item| %>
+        <%= render 'item', item: item %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%= will_paginate(@items) %>
