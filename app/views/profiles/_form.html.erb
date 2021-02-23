@@ -1,0 +1,15 @@
+<%= form_for @profile, url: profile_path do |f| %>
+  <div class="mb-3">
+    <%= f.label :first_name %>
+    <br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :last_name %>
+    <br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="mb-3">
+    <%= f.submit I18n.t(:save) %>
+  </div>
+<% end %>

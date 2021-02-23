@@ -13,3 +13,6 @@ en:
       user:
         one: User
         other: Users
+      user/profile:
+        one: Profile
+        other: Profiles

@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_one :profile, class_name: 'User::Profile'
+
   has_many :stores
 
   def send_confirmation_instructions(opts = {})

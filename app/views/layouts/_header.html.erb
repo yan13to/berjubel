@@ -7,9 +7,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <%= render 'layouts/search' %>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav d-flex align-items-center">
           <li>
-            <select class="form-control">
+            <select>
               <option>EN</option>
               <option>ID</option>
             </select>
@@ -25,7 +25,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="#">Profile</a>
+                <%= link_to User::Profile.model_name.human, profile_path, class: 'dropdown-item' %>
               </li>
               <li>
                 <hr class="dropdown-divider">

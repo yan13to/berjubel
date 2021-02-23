@@ -4,3 +4,15 @@ id:
       category:
         one: Kategori
         other: Kategori
+      item:
+        one: Barang
+        other: Barang
+      store:
+        one: Toko
+        other: Toko
+      user:
+        one: Pengguna
+        other: Pengguna
+      user/profile:
+        one: Profil
+        other: Profil
