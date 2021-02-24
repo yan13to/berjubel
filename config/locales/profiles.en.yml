@@ -1,0 +1,7 @@
+en:
+  profiles:
+    create:
+      success: 'Profile has been updated successfully'
+    update:
+      success: :profiles.create.success
+
