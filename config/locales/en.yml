@@ -1,4 +1,5 @@
 en:
+  empty: 'Empty'
   hello: 'Hello world'
   save: 'Save'
   submit: 'Submit'

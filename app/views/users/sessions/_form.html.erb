@@ -2,23 +2,24 @@
 
   <% error_messages = flash.now[:alert] %>
 
-  <% if error_messages %>
-    <div class="alert alert-danger" id="error_explanation" role="alert">
-      <h5>Invalid credentials</h5>
-      <%= error_messages %>
-    </div>
+  <% if error_messages.present? %>
+    <% content_for :alert do %>
+      <div class="position-relative">
+        <div class="position-absolute top-0 start-50 translate-middle" style="top:-35px !important">
+          <%= render_error_message(:danger, [error_messages]) %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="mb-3">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",
-          class: "form-control#{error_messages ? ' is-invalid' : nil}" %>
+    <%= f.label :email, class: 'd-block' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "current-password",
-          class: "form-control#{error_messages ? ' is-invalid' : nil}" %>
+    <%= f.label :password, class: 'd-block' %>
+    <%= f.password_field :password, autocomplete: "current-password", required: true %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -28,5 +29,5 @@
     </div>
   <% end %>
 
-  <%= f.submit "Log in", class: "btn btn-outline-primary" %>
+  <%= f.submit "Log in" %>
 <% end %>

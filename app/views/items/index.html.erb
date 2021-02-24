@@ -8,8 +8,8 @@
   <div class="d-flex align-items-center">
     <div class="me-auto">Home</div>
     <div class="me-2 fs-4">
-      <a href="#"><i class="bi bi-card-list"></i></a>
       <a href="#"><i class="bi bi-columns"></i></a>
+      <a href="#"><i class="bi bi-card-list"></i></a>
     </div>
     <div>
       <%= select_tag 'order', options_for_select([['Featured', 0], ['Price: Low to High', 1], ['Price: High to Low', 1], ['Avg. Customer Review', 1]]) %>
@@ -20,9 +20,7 @@
 <div class="card">
   <div class="card-body">
     <div class="d-flex align-items-center align-content-stretch flex-wrap">
-      <% @items.each do |item| %>
-        <%= render 'item', item: item %>
-      <% end %>
+      <%= render @items || 'empty_item' %>
     </div>
   </div>
 </div>

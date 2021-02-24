@@ -3,15 +3,14 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="mb-3">
-    <%= f.label :password, "New password" %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control"
-          placeholder: "#{minimum_password_length} characters minimum" %>
+    <%= f.label :password, "New password", class: 'd-block' %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "#{minimum_password_length} characters minimum" %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :password_confirmation, "Confirm new password" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    <%= f.label :password_confirmation, "Confirm new password", class: 'd-block' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <%= f.submit "Change my password", class: "btn btn-outline-primary" %>
+  <%= f.submit "Change my password" %>
 <% end %>

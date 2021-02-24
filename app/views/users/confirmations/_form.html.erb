@@ -2,11 +2,12 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="mb-3">
-    <%= f.label :email %>
+    <%= f.label :email, class: 'd-block' %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email",
           value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-          class: "form-control#{resource.errors[:email].present? ? ' is-invalid' : nil}" %>
+          class: "#{resource.errors[:email].present? ? ' is-invalid' : nil}" %>
+    <%= render_error_message_for(resource.errors[:email]) %>
   </div>
 
-  <%= f.submit "Send", class: "btn btn-outline-primary" %>
+  <%= f.submit "Send" %>
 <% end %>

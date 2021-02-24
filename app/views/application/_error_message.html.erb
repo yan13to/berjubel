@@ -1,0 +1,6 @@
+<div class="alert alert-<%= type || 'success' %> alert-dismissible fade show" role="alert">
+  <% message.each do |msg| %>
+    <div><%= msg %></div>
+  <% end %>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
