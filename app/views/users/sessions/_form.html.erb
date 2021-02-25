@@ -1,11 +1,9 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
   <% error_messages = flash.now[:alert] %>
-
   <% if error_messages.present? %>
     <% content_for :alert do %>
       <div class="position-relative">
-        <div class="position-absolute top-0 start-50 translate-middle" style="top:-35px !important">
+        <div class="position-absolute top-0 start-50 translate-middle" style="top:-35px !important;font-size:small;">
           <%= render_error_message(:danger, [error_messages]) %>
         </div>
       </div>

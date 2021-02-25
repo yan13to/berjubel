@@ -3,7 +3,8 @@
 
   <div class="mb-3">
     <%= f.label :email, class: 'd-block' %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "#{resource.errors[:email].present? ? ' is-invalid' : nil}" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+          class: render_field_class(resource, :email), required: true %>
     <%= render_error_message_for(resource.errors[:email]) %>
   </div>
 

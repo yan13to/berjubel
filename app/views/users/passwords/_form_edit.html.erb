@@ -4,12 +4,17 @@
 
   <div class="mb-3">
     <%= f.label :password, "New password", class: 'd-block' %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "#{minimum_password_length} characters minimum" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "new-password",
+          class: render_field_class(resource, :password)
+          placeholder: "#{minimum_password_length} characters minimum", required: true %>
+    <%= render_error_message_for(resource.errors[:password]) %>
   </div>
 
   <div class="mb-3">
     <%= f.label :password_confirmation, "Confirm new password", class: 'd-block' %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",
+          required: true, render_field_class(resource, :password_confirmation) %>
+    <%= render_error_message_for(resource.errors[:password_confirmation]) %>
   </div>
 
   <%= f.submit "Change my password" %>

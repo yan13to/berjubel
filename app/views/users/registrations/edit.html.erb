@@ -1,9 +1,12 @@
-<h4>Edit <%= resource_name.to_s.humanize %></h4>
-
-<%= render 'form_edit' %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="card w-25" style="margin: 80px auto;">
+  <div class="card-header">
+    <h5 class="card-title">Edit <%= resource_name.to_s.humanize %></h5>
+  </div>
+  <div class="card-body">
+    <%= render 'form_edit' %>
+  </div>
+  <div class="card-footer">
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <%= link_to "Back", :back %>
+  </div>
+</div>

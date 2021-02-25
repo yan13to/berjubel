@@ -3,10 +3,9 @@
 
   <div class="mb-3">
     <%= f.label :email, class: 'd-block' %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "#{resource.errors.messages[:email].present? ? 'is-invalid' : nil}" %>
-    <div class="invalid-feedback">
-      <%= resource.errors.messages[:email].join(', ') %>
-    </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+          class: render_field_class(resource, :email), required: true %>
+    <%= render_error_message_for(resource.errors[:email]) %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -17,28 +16,22 @@
     <%= f.label :password, class: 'd-block' %> <i>(leave blank if you don't want to change it)</i>
     <%= f.password_field :password, autocomplete: "new-password",
           placeholder: "#{@minimum_password_length} characters minimum",
-          class: "#{resource.errors.messages[:password].present? ? 'is-invalid' : nil}" %>
-    <div class="invalid-feedback">
-      <%= resource.errors.messages[:password].join(', ') %>
-    </div>
+          class: render_field_class(resource, :password), required: true %>
+    <%= render_error_message_for(resource.errors[:password]) %>
   </div>
 
   <div class="mb-3">
     <%= f.label :password_confirmation, class: 'd-block' %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password",
-          class: "#{resource.errors.messages[:password_confirmation].present? ? 'is-invalid' : nil}" %>
-    <div class="invalid-feedback">
-      <%= resource.errors.messages[:password_confirmation].join(', ') %>
-    </div>
+          class: render_field_class(resource, :password_confirmation), required: true %>
+    <%= render_error_message_for(resource.errors[:password_confirmation]) %>
   </div>
 
   <div class="mb-3">
     <%= f.label :current_password, class: 'd-block' %> <i>(we need your current password to confirm your changes)</i>
     <%= f.password_field :current_password, autocomplete: "current-password",
-          class: "#{resource.errors.messages[:current_password].present? ? 'is-invalid' : nil}" %>
-    <div class="invalid-feedback">
-      <%= resource.errors.messages[:current_password].join(', ') %>
-    </div>
+          class: render_field_class(resource, :current_password), required: true %>
+    <%= render_error_message_for(resource.errors[:current_password]) %>
   </div>
 
   <%= f.submit "Update" %>

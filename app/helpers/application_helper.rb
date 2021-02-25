@@ -9,4 +9,8 @@ module ApplicationHelper
   def render_error_message_for(messages)
     render 'error_message_for', messages: messages if messages.compact.present?
   end
+
+  def render_field_class(object, field)
+    'is-invalid' if object.errors.messages[field].any?
+  end
 end
