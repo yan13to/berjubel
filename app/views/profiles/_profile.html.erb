@@ -1,0 +1,10 @@
+<div class="d-flex">
+  <div class="flex-grow-1">
+    <span><%= User::Profile.human_attribute_name(:name) %>: </span>
+    <span><%= profile.first_name %></span>
+    <span><%= profile.last_name %></span>
+  </div>
+  <div>
+    <%= link_to t(:edit), edit_profile_path %>
+  </div>
+</div>

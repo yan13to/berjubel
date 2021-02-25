@@ -1,5 +1,7 @@
 id:
+  create: 'Buat'
   empty: 'Kosong'
   hello: 'Halo semuanya'
+  home: 'Awal'
   save: 'Simpan'
   submit: 'Kirim'

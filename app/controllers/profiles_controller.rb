@@ -4,8 +4,18 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+    @profile = current_user.build_profile
+  end
+
+  def edit
+    @profile = current_user.profile
+  end
+
   def show
-    @profile = current_user.profile || current_user.build_profile
+    @profile = current_user.profile
+
+    redirect_to new_profile_path and return unless @profile
   end
 
   def create
@@ -14,7 +24,7 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to profile_path, notice: I18n.t('profiles.create.success')
     else
-      render :show
+      render :new
     end
   end
 
@@ -24,7 +34,7 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to profile_path, notice: I18n.t('profiles.update.success')
     else
-      render :show
+      render :edit
     end
   end
 

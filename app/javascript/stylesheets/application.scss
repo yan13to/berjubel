@@ -43,3 +43,13 @@ select {
 .invalid-feedback {
   display: block !important;
 }
+
+.floating-alert {
+  top: -5em !important;
+  font-size: small;
+  z-index: 99999;
+}
+
+.floating-alert > div.alert {
+  min-width: 22em;
+}

@@ -1,5 +1,7 @@
 en:
+  create: 'Create'
   empty: 'Empty'
   hello: 'Hello world'
+  home: 'Home'
   save: 'Save'
   submit: 'Submit'
