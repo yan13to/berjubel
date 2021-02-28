@@ -6,7 +6,7 @@
 
 <div class="card">
   <div class="card-body">
-    <%= render_floating_alert([flash.now[:notice]], :success) %>
+    <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
     <%= render 'profile', profile: @profile %>
   </div>
 </div>

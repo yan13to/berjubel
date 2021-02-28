@@ -1,1 +1,3 @@
-<%= render_floating_alert(resource.errors.full_messages) %>
+<% content_for :alert do %>
+  <%= render_floating_alert(resource.errors.full_messages) %>
+<% end %>

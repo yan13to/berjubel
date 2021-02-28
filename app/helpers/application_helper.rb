@@ -24,7 +24,15 @@ module ApplicationHelper
                     else
                       render_success_message(messages)
                     end
-    render 'floating_alert', messages: alert_message if messages.present?
+
+    return unless messages.present?
+
+    content_for :alert do
+      render 'floating_alert', messages: alert_message
+    end
+  end
+
+  def render_breadcrumbs
   end
 
   private
