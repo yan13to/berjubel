@@ -11,6 +11,8 @@ id:
         last_name: Nama Belakang
       user/setting:
         currency: Mata Uang
+        listing_mode: Mode Tampilan
+        locale: Bahasa
 
     models:
       category:

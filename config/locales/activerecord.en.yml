@@ -11,6 +11,8 @@ en:
         last_name: Last Name
       user/setting:
         currency: Currency
+        listing_mode: Listing Mode
+        locale: Locale
 
     models:
       category:

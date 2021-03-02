@@ -1,0 +1,17 @@
+<div class="d-flex mb-3">
+  <div>
+    <%= image_tag item.default_photo.variant(resize_to_limit: [300, 100]), loading: :lazy %>
+  </div>
+  <div class="me-auto p-2 ps-3">
+    <h5 class="mb-0"><%= item.name %></h5>
+    <div>
+      <%= item.store.name %>
+    </div>
+    <div>
+      <%= Item.human_attribute_name(:price) %>: <%= item.price %>
+    </div>
+    <div>
+      <%= Item.human_attribute_name(:stock) %>: <%= item.stock %>
+    </div>
+  </div>
+</div>

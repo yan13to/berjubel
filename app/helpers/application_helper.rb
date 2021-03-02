@@ -2,7 +2,8 @@
 
 # ApplicationHelper
 module ApplicationHelper
-  def render_page_title
+  def page_title
+    'Berjubel | Online marketplace'
   end
 
   def render_user_name

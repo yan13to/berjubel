@@ -1,6 +1,8 @@
 en:
+  cancel: Cancel
   column: Column
   create: 'Create'
+  edit: 'Edit'
   empty: 'Empty'
   go: 'Go'
   hello: 'Hello world'

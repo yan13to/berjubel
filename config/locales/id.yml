@@ -1,6 +1,8 @@
 id:
+  cancel: Batal
   column: Kolom
   create: 'Buat'
+  edit: Ubah
   empty: 'Kosong'
   go: 'Lanjut'
   hello: 'Halo semuanya'

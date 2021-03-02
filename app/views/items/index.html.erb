@@ -13,15 +13,17 @@
       <%= render 'layouts/listing_mode_form' %>
     </div>
     <div>
-      <%= select_tag 'order', options_for_select([['Featured', 0], ['Price: Low to High', 1], ['Price: High to Low', 1], ['Avg. Customer Review', 1]]) %>
+      <%#= select_tag 'order', options_for_select([['Featured', 0], ['Price: Low to High', 1], ['Price: High to Low', 1], ['Avg. Customer Review', 1]]) %>
     </div>
   </div>
 <% end %>
 
 <div class="card">
   <div class="card-body">
-    <div class="d-flex align-items-center align-content-stretch flex-wrap">
-      <%= render @items || 'empty_item' %>
+    <div class="<%= build_items_classes(current_user.try(:setting).try(:listing_mode)) %>">
+      <% @items.each do |item| %>
+        <%= render current_user.try(:setting).try(:listing_mode), item: item %>
+      <% end %>
     </div>
   </div>
 </div>
