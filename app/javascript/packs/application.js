@@ -1,8 +1,3 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
-
 require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
@@ -17,10 +12,29 @@ require("channels");
 
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons';
-import 'flag-icon-css/css/flag-icon';
 import '../stylesheets/application';
 
 // Support component names relative to this directory:
 var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
+
+const fadeAlert = () => window.setTimeout(() => $('div.alert').fadeTo(500, 0).slideUp(500, () => $(this).remove()), 2000);
+const remoteSelector = () => {
+  $('select[remote=true]').on('change', (e) => {
+    e.preventDefault()
+
+    $(e.target).parent('form').trigger('submit');
+  })
+}
+
+const loadApp = () => {
+  fadeAlert();
+  remoteSelector();
+}
+
+document.addEventListener('turbolinks:load', loadApp)
+
+if (document.readyState === 'loading') {
+  console.log('loading...')
+}

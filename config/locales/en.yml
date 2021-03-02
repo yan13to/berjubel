@@ -1,7 +1,11 @@
 en:
+  column: Column
   create: 'Create'
   empty: 'Empty'
+  go: 'Go'
   hello: 'Hello world'
   home: 'Home'
+  list: List
+  logout: 'Logout'
   save: 'Save'
   submit: 'Submit'

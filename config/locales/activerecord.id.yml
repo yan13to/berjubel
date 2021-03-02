@@ -1,5 +1,17 @@
 id:
   activerecord:
+    attributes:
+      common: &common
+        name: Nama
+      item:
+        <<: *common
+      user/profile:
+        <<: *common
+        first_name: Nama Depan
+        last_name: Nama Belakang
+      user/setting:
+        currency: Mata Uang
+
     models:
       category:
         one: Kategori
@@ -16,3 +28,6 @@ id:
       user/profile:
         one: Profil
         other: Profil
+      user/setting:
+        one: Pengaturan
+        other: Pengaturan

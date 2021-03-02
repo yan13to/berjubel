@@ -52,3 +52,12 @@ select {
 .floating-alert > div.alert {
   min-width: 22em;
 }
+
+.floating-alert .heading-icon {
+  font-size: 3em;
+  margin-top: -0.3em;
+}
+
+.floating-alert .alert-success .heading-icon {
+  color: darkseagreen;
+}

@@ -1,0 +1,7 @@
+en:
+  settings:
+    create:
+      success: 'Setting has been updated successfully'
+    update:
+      success: :settings.create.success
+

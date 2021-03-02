@@ -4,9 +4,17 @@
   </div>
 <% end %>
 
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
 <div class="card">
   <div class="card-body">
-    <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
-    <%= render 'profile', profile: @profile %>
+    <div class="row">
+      <div class="col-2">
+        <%= image_tag current_user.avatar.variant(resize_to_limit: [180, 180]), class: 'rounded-circle' %>
+      </div>
+      <div class="col">
+        <%= render 'profile', profile: @profile %>
+      </div>
+    </div>
   </div>
 </div>

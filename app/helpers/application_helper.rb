@@ -2,6 +2,13 @@
 
 # ApplicationHelper
 module ApplicationHelper
+  def render_page_title
+  end
+
+  def render_user_name
+    current_user.try(:profile).try(:first_name) || current_user.email
+  end
+
   def render_success_message(messages)
     render 'success_message', messages: messages if messages.present?
   end

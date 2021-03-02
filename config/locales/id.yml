@@ -1,7 +1,11 @@
 id:
+  column: Kolom
   create: 'Buat'
   empty: 'Kosong'
+  go: 'Lanjut'
   hello: 'Halo semuanya'
   home: 'Awal'
+  list: Baris
+  logout: 'Keluar'
   save: 'Simpan'
   submit: 'Kirim'

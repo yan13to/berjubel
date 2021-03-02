@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   resources :items, only: :index
   resource :profile
+  resource :setting
 
   root 'items#index'
 end

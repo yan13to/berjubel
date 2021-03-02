@@ -1,5 +1,17 @@
 en:
   activerecord:
+    attributes:
+      common: &common
+        name: Name
+      item:
+        <<: *common
+      user/profile:
+        <<: *common
+        first_name: First Name
+        last_name: Last Name
+      user/setting:
+        currency: Currency
+
     models:
       category:
         one: Category
@@ -16,3 +28,6 @@ en:
       user/profile:
         one: Profile
         other: Profiles
+      user/setting:
+        one: Setting
+        other: Settings

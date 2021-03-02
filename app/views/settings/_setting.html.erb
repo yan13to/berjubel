@@ -1,0 +1,21 @@
+<div class="d-flex">
+  <div class="flex-grow-1">
+    <span><%= User::Setting.human_attribute_name(:currency) %>: </span>
+    <span><%= setting.currency %></span>
+  </div>
+  <div>
+    <%= link_to t(:edit), edit_setting_path %>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="flex-grow-1">
+    <span><%= User::Setting.human_attribute_name(:listing_mode) %>: </span>
+    <span><%= I18n.t(setting.listing_mode) if setting.listing_mode.present? %></span>
+  </div>
+</div>
+<div class="d-flex">
+  <div class="flex-grow-1">
+    <span><%= User::Setting.human_attribute_name(:locale) %>: </span>
+    <span><%= setting.locale %></span>
+  </div>
+</div>

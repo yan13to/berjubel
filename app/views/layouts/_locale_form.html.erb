@@ -1,0 +1,3 @@
+<%= form_for current_user.setting, url: setting_path, html: { id: 'top_locale_selector' } do |f| %>
+  <%= f.select :locale, [['EN', :en], ['ID', :id]], {}, id: 'top_user_setting_locale', remote: true %>
+<% end %>

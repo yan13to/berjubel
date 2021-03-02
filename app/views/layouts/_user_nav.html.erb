@@ -1,9 +1,6 @@
 <ul class="navbar-nav d-flex align-items-center ms-auto">
   <li>
-    <select>
-      <option>EN</option>
-      <option>ID</option>
-    </select>
+    <%= render 'layouts/locale_form' %>
   </li>
   <li class="dropdown">
     <% if current_user.avatar.attached? %>
@@ -11,18 +8,19 @@
     <% else %>
       <i class="bi bi-file-person fs-3"></i>
     <% end %>
-    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
-      <%= current_user.email %>
-    </a>
+    <%= link_to render_user_name, '#', class: 'dropdown-toggle', 'data-bs-toggle': 'dropdown' %>
     <ul class="dropdown-menu">
       <li>
         <%= link_to User::Profile.model_name.human, profile_path, class: 'dropdown-item' %>
       </li>
       <li>
+        <%= link_to User::Setting.model_name.human, setting_path, class: 'dropdown-item' %>
+      </li>
+      <li>
         <hr class="dropdown-divider">
       </li>
       <li>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </li>
     </ul>
   </li>

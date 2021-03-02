@@ -1,0 +1,12 @@
+<% content_for :breadcrumbs do %>
+  <div class="d-flex align-items-center pt-2 pb-2">
+    <div class="me-auto"><%= t(:home) %> &#8618; <%= User::Setting.model_name.human %></div>
+  </div>
+<% end %>
+
+<div class="card">
+  <div class="card-body">
+    <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+    <%= render 'setting', setting: @setting %>
+  </div>
+</div>
