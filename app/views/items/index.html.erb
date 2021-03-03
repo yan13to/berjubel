@@ -10,7 +10,9 @@
       <%= t(:home) %>
     </div>
     <div class="me-2">
-      <%= render 'layouts/listing_mode_form' if signed_in? %>
+      <% if signed_in? %>
+        <%= render 'layouts/listing_mode_form' %>
+      <% end %>
     </div>
     <div>
       <%#= select_tag 'order', options_for_select([['Featured', 0], ['Price: Low to High', 1], ['Price: High to Low', 1], ['Avg. Customer Review', 1]]) %>
@@ -20,9 +22,9 @@
 
 <div class="card">
   <div class="card-body">
-    <div class="<%= build_items_classes(current_user.try(:setting).try(:listing_mode)) %>">
+    <div class="<%= build_items_classes(current_user.setting.try(:listing_mode) || 'column') %>">
       <% @items.each do |item| %>
-        <%= render current_user.try(:setting).try(:listing_mode), item: item %>
+        <%= render current_user.setting.try(:listing_mode) || 'column', item: item %>
       <% end %>
     </div>
   </div>
