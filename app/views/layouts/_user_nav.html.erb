@@ -1,5 +1,5 @@
 <ul class="navbar-nav d-flex align-items-center ms-auto">
-  <% if signed_in? %>
+  <% if current_user %>
     <li class="me-2">
       <%= render 'layouts/locale_form' %>
     </li>
