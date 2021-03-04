@@ -5,13 +5,23 @@
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= User::Profile.model_name.human %></h5>
+    <h5 class="card-title">
+      <%= User::Profile.model_name.human %>
+    </h5>
     <div class="row">
       <div class="col-2">
         <%= image_tag current_user.avatar.variant(resize_to_limit: [180, 180]), class: 'rounded-circle' %>
       </div>
       <div class="col">
-        <%= render 'profile', profile: @profile %>
+        <%= render 'tabs' %>
+        <div class="tab-content" id="profileTabContent">
+          <div class="tab-pane pt-3 show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <%= render 'profile', profile: @profile %>
+          </div>
+          <div class="tab-pane pt-3" id="account" role="tabpanel" aria-labelledby="account-tab">
+            <%= render 'account' %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
