@@ -1,29 +1,29 @@
 <ul class="navbar-nav d-flex align-items-center ms-auto">
-  <% if current_user %>
+  <% if signed_in? %>
     <li class="me-2">
-      <%= render 'layouts/locale_form' %>
+      <%= render_locale_form %>
     </li>
   <% end %>
   <li class="dropdown">
-    <% if current_user.avatar.attached? %>
-      <%= image_tag current_user.avatar.variant(resize_to_limit: [40, 40]), class: 'rounded-circle' %>
+    <%- if signed_in? %>
+      <%= render_user_avatar %>
+      <%= link_to render_user_name, '#', class: 'dropdown-toggle', 'data-bs-toggle': 'dropdown' %>
+      <ul class="dropdown-menu">
+        <li>
+          <%= link_to User::Profile.model_name.human, profile_path, class: 'dropdown-item' %>
+        </li>
+        <li>
+          <%= link_to User::Setting.model_name.human, setting_path, class: 'dropdown-item' %>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li>
+          <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        </li>
+      </ul>
     <% else %>
-      <i class="bi bi-file-person fs-3"></i>
+      <%= link_to t(:sign_in), new_user_session_path %>
     <% end %>
-    <%= link_to render_user_name, '#', class: 'dropdown-toggle', 'data-bs-toggle': 'dropdown' %>
-    <ul class="dropdown-menu">
-      <li>
-        <%= link_to User::Profile.model_name.human, profile_path, class: 'dropdown-item' %>
-      </li>
-      <li>
-        <%= link_to User::Setting.model_name.human, setting_path, class: 'dropdown-item' %>
-      </li>
-      <li>
-        <hr class="dropdown-divider">
-      </li>
-      <li>
-        <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-      </li>
-    </ul>
   </li>
 </ul>

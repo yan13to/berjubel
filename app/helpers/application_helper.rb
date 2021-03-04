@@ -9,11 +9,19 @@ module ApplicationHelper
   end
 
   def item_listing_mode
-    current_user.setting.try(:listing_mode) || 'column'
+    current_user.try(:setting).try(:listing_mode) || 'column'
   end
 
   def render_user_name
     current_user.try(:profile).try(:first_name) || current_user.email
+  end
+
+  def render_user_avatar
+    if current_user.avatar.attached?
+      image_tag current_user.avatar.variant(resize_to_limit: [40, 40]), class: 'rounded-circle'
+    else
+      content_tag(:i, nil, class: 'bi bi-file-person fs-3')
+    end
   end
 
   def render_success_message(messages)
@@ -58,6 +66,10 @@ module ApplicationHelper
     content_for :search_form do
       render 'layouts/search_form'
     end
+  end
+
+  def render_locale_form
+    render 'layouts/locale_form'
   end
 
   private

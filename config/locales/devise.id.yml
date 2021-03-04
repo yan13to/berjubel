@@ -25,7 +25,7 @@ id:
       email_changed:
         greeting: Halo %{recipient}!
         message: Kami menghubungi Anda untuk memberitahu, bahwa email terdaftar telah berubah menjadi %{email}.
-        message_unconfirmed:
+        message_unconfirmed: Kami menghubungi Anda untuk memberitahu, bahwa email belum berubah menjadi %{email}
         subject: Email telah diubah
       password_change:
         greeting: Halo %{recipient}!
@@ -110,4 +110,6 @@ id:
       expired: telah kadaluarsa, tolong pesan lagi
       not_found: tidak ditemukan
       not_locked: tidak dikunci
-      not_saved: "%{count} kesalahan membuat %{resource} tidak bisa disimpan:"
+      not_saved:
+        one: "1 kesalahan membuat %{resource} tidak bisa disimpan:"
+        other: "%{count} kesalahan membuat %{resource} tidak bisa disimpan:"

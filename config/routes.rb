@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   }
 
   resources :items, only: :index
+  resource :account, only: %I[edit update]
   resource :profile
   resource :setting
 

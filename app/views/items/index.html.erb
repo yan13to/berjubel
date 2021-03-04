@@ -3,8 +3,9 @@
 <%= render_search_form %>
 
 <%= render_breadcrumbs([t(:home), Item.model_name.human(count: 2)]) %>
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
 
-<div class="card">
+<div class="card mb-3">
   <div class="card-body">
     <div class="d-flex flex-row-reverse pe-3 pb-2">
       <%= render_listing_items_selector if signed_in? %>
@@ -16,5 +17,5 @@
     </div>
   </div>
 </div>
-
 <%= will_paginate(@items, renderer: BerjubelPagination) %>
+<br />

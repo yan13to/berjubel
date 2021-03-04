@@ -1,7 +1,7 @@
 <form class="me-auto">
   <div class="input-group">
     <span class="input-group-text p-0" style="background-color:white;border:2px solid black;border-right:0;">
-      <% categories = Category.parents.select('id, name').inject([['All', nil]]) {|sum, c| sum << [c.name, c.id]} %>
+      <% categories = Category.parents.select('id, name').inject([[t(:all), nil]]) {|sum, c| sum << [c.name, c.id]} %>
       <%= select_tag 'q[categories_id_in]', options_for_select(categories, params[:q] && params[:q][:categories_id_in]), class: 'border-0' %>
     </span>
     <input type="search" name="q[name_cont]" value="<%= params[:q] && params[:q][:name_cont] %>"

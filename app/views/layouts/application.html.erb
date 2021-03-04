@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <%= render 'layouts/header' unless devise_controller? %>
     <div class="container">
       <%= yield :breadcrumbs %>
       <%= yield :alert %>
