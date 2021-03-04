@@ -1,30 +1,17 @@
-<%#= react_component 'items/listing' %>
+<%- @page_title = Item.model_name.human(count: 2) %>
 
-<% content_for :search_form do %>
-  <%= render 'layouts/search_form' %>
-<% end %>
+<%= render_search_form %>
 
-<% content_for :breadcrumbs do %>
-  <div class="d-flex align-items-center">
-    <div class="me-auto">
-      <%= t(:home) %>
-    </div>
-    <div class="me-2">
-      <% if signed_in? %>
-        <%= render 'layouts/listing_mode_form' %>
-      <% end %>
-    </div>
-    <div>
-      <%#= select_tag 'order', options_for_select([['Featured', 0], ['Price: Low to High', 1], ['Price: High to Low', 1], ['Avg. Customer Review', 1]]) %>
-    </div>
-  </div>
-<% end %>
+<%= render_breadcrumbs([t(:home), Item.model_name.human(count: 2)]) %>
 
 <div class="card">
   <div class="card-body">
-    <div class="<%= build_items_classes(current_user.setting.try(:listing_mode) || 'column') %>">
+    <div class="d-flex flex-row-reverse pe-3 pb-2">
+      <%= render_listing_items_selector if signed_in? %>
+    </div>
+    <div class="<%= build_items_classes %>">
       <% @items.each do |item| %>
-        <%= render current_user.setting.try(:listing_mode) || 'column', item: item %>
+        <%= render item_listing_mode, item: item %>
       <% end %>
     </div>
   </div>

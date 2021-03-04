@@ -1,6 +1,6 @@
 id:
   settings:
     create:
-      success: 'Setting Anda telah berhasil di ubah'
+      success: Setting Anda telah berhasil di ubah
     update:
       success: :settings.create.success

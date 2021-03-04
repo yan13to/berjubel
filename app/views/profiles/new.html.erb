@@ -1,10 +1,6 @@
-<% content_for :breadcrumbs do %>
-  <div class="d-flex align-items-center pt-2 pb-2">
-    <div class="me-auto">
-      <%= t(:home) %> &#8618; <%= t(:create) %> &#8618; <%= User::Profile.model_name.human %>
-    </div>
-  </div>
-<% end %>
+<%- @page_title = [t(:create), User::Profile.model_name.human].join(' | ') %>
+
+<%= render_breadcrumbs([t(:home), t(:create), User::Profile.model_name.human]) %>
 
 <div class="card">
   <div class="card-body">

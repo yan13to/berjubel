@@ -1,14 +1,18 @@
 en:
   cancel: Cancel
   column: Column
-  create: 'Create'
-  edit: 'Edit'
-  empty: 'Empty'
-  go: 'Go'
-  hello: 'Hello world'
-  home: 'Home'
+  create: Create
+  edit: Edit
+  empty: Empty
+  go: Go
+  hello: Hello
+  home: Home
   list: List
-  logout: 'Logout'
-  save: 'Save'
+  logout: Logout
+  sign_in: Sign in
+  sign_up: Sign up
+  save: Save
   search: Search
-  submit: 'Submit'
+  send: Send
+  submit: Submit
+  update: Update

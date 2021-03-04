@@ -1,14 +1,18 @@
 id:
   cancel: Batal
   column: Kolom
-  create: 'Buat'
+  create: Buat
   edit: Ubah
-  empty: 'Kosong'
-  go: 'Lanjut'
-  hello: 'Halo semuanya'
-  home: 'Awal'
+  empty: Kosong
+  go: Lanjut
+  hello: Halo
+  home: Awal
   list: Baris
-  logout: 'Keluar'
-  save: 'Simpan'
+  logout: Keluar
+  sign_in: Masuk
+  sign_up: Daftar
+  save: Simpan
   search: Cari
-  submit: 'Kirim'
+  send: Kirim
+  submit: :send
+  update: :edit

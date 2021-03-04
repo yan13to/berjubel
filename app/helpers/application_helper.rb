@@ -3,7 +3,13 @@
 # ApplicationHelper
 module ApplicationHelper
   def page_title
-    'Berjubel | Online marketplace'
+    title = ['Berjubel']
+    title << @page_title
+    title.compact.join(' | ')
+  end
+
+  def item_listing_mode
+    current_user.setting.try(:listing_mode) || 'column'
   end
 
   def render_user_name
@@ -40,7 +46,18 @@ module ApplicationHelper
     end
   end
 
-  def render_breadcrumbs
+  def render_breadcrumbs(items = [])
+    return if items.empty?
+
+    content_for :breadcrumbs do
+      render 'breadcrumbs', items: items
+    end
+  end
+
+  def render_search_form
+    content_for :search_form do
+      render 'layouts/search_form'
+    end
   end
 
   private

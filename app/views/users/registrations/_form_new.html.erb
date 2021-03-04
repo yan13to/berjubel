@@ -1,5 +1,5 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+  <%= render_floating_alert(resource.errors.full_messages) %>
 
   <div class="mb-3">
     <%= f.label :email, class: 'd-block' %>
@@ -11,7 +11,7 @@
   <div class="mb-3">
     <%= f.label :password, class: 'd-block' %>
     <%= f.password_field :password, autocomplete: "new-password",
-          placeholder: "#{@minimum_password_length} characters minimum",
+          placeholder: t('devise.shared.minimum_password_length', count: @minimum_password_length),
           class: render_field_class(resource, :password), required: true %>
     <%= render_error_message_for(resource.errors[:password]) %>
   </div>
@@ -23,5 +23,5 @@
     <%= render_error_message_for(resource.errors[:password_confirmation]) %>
   </div>
 
-  <%= f.submit "Sign up" %>
+  <%= f.submit t(:sign_up) %>
 <% end %>
