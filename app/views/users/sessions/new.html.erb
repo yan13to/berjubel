@@ -1,8 +1,10 @@
-<%- @page_title = t(:sign_in) %>
+<%- @page_title = t('devise.sessions.new.sign_in') %>
 
 <div class="card w-25" style="margin: 80px auto;">
   <div class="card-header">
-    <h5 class="card-title"><%= t(:sign_in) %></h5>
+    <h6 class="card-title">
+      <%= t('devise.sessions.new.sign_in') %>
+    </h6>
   </div>
   <div class="card-body">
     <%= render 'form' %>

@@ -62,7 +62,21 @@ en:
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      created:
+        title: Please check your email
+        message: Confirmation email has been sent to your email, please check your email and click the link
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      edit:
+        are_you_sure: Are you sure?
+        cancel_my_account: Cancel my account
+        currently_waiting_confirmation_for_email: Currently waiting confirmation for email
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you don't want to change it
+        title: Change %{resource}
+        unhappy: Unhappy?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
+      new:
+        sign_up: Sign up
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
@@ -71,9 +85,11 @@ en:
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
     sessions:
+      already_signed_out: "Signed out successfully."
+      new:
+        sign_in: Sign in
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
     shared:
       links:
         back: Back
@@ -85,6 +101,8 @@ en:
         sign_up: Sign up
       minimum_password_length: "%{count} characters minimum"
     unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."

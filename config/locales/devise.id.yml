@@ -62,14 +62,17 @@ id:
       updated: Password anda telah berhasil diubah. Anda telah sign in.
       updated_not_active: Password berhasil diubah.
     registrations:
+      created:
+        title: Silahkan periksa email Anda
+        message: Konfirmasi telah dikirimkan ke email anda, silahkan periksa email dan klik tautannya
       destroyed: Selamat Tinggal, Akun anda telah di hapus
       edit:
         are_you_sure: Anda yakin?
         cancel_my_account: Batalkan akun saya
         currently_waiting_confirmation_for_email: 'Saat ini menunggu konfirmasi untuk: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: kosongkan jika Anda tidak ingin mengubahnya
+        leave_blank_if_you_don_t_want_to_change_it: Kosongkan jika Anda tidak ingin mengubahnya
         title: Ubah %{resource}
-        unhappy: Tidak senang
+        unhappy: Tidak senang ?
         update: Update
         we_need_your_current_password_to_confirm_your_changes: Mohon masukkan password Anda saat ini untuk menyimpan perubahan
       new:
@@ -82,7 +85,7 @@ id:
       updated: Akun anda telah berhasil diperbaharui.
       updated_but_not_signed_in: Akun telah berhasil diperbarui, namun karena password telah diubah maka Anda harus mengulang sign in.
     sessions:
-      already_signed_out:
+      already_signed_out: Berhasil keluar
       new:
         sign_in: Masuk
       signed_in: Proses sign in berhasil.

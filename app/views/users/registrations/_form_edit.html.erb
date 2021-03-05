@@ -12,11 +12,13 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>
+      <%= t('devise.registrations.edit.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+    </div>
   <% end %>
 
   <div class="mb-3">
-    <%= f.label :password, class: 'd-block' %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.label :password, class: 'd-block' %> <i>(<%= t('devise.registrations.edit.currently_waiting_confirmation_for_email') %>)</i>
     <%= f.password_field :password,
           autocomplete: 'new-password',
           placeholder: t('devise.shared.minimum_password_length', count: @minimum_password_length),
@@ -35,7 +37,7 @@
   </div>
 
   <div class="mb-3">
-    <%= f.label :current_password, class: 'd-block' %> <i>(we need your current password to confirm your changes)</i>
+    <%= f.label :current_password, class: 'd-block' %> <i>(<%= t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %>)</i>
     <%= f.password_field :current_password,
           autocomplete: 'current-password',
           class: render_field_class(resource, :current_password),
