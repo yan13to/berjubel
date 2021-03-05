@@ -3,8 +3,11 @@
 
   <div class="mb-3">
     <%= f.label :email, class: 'd-block' %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",
-          class: render_field_class(resource, :email), required: true %>
+    <%= f.email_field :email,
+          autofocus: true,
+          autocomplete: 'email',
+          class: render_field_class(resource, :email),
+          required: true %>
     <%= render_error_message_for(resource.errors[:email]) %>
   </div>
 
@@ -14,23 +17,29 @@
 
   <div class="mb-3">
     <%= f.label :password, class: 'd-block' %> <i>(leave blank if you don't want to change it)</i>
-    <%= f.password_field :password, autocomplete: "new-password",
+    <%= f.password_field :password,
+          autocomplete: 'new-password',
           placeholder: t('devise.shared.minimum_password_length', count: @minimum_password_length),
-          class: render_field_class(resource, :password), required: true %>
+          class: render_field_class(resource, :password),
+          required: true %>
     <%= render_error_message_for(resource.errors[:password]) %>
   </div>
 
   <div class="mb-3">
     <%= f.label :password_confirmation, class: 'd-block' %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",
-          class: render_field_class(resource, :password_confirmation), required: true %>
+    <%= f.password_field :password_confirmation,
+          autocomplete: 'new-password',
+          class: render_field_class(resource, :password_confirmation),
+          required: true %>
     <%= render_error_message_for(resource.errors[:password_confirmation]) %>
   </div>
 
   <div class="mb-3">
     <%= f.label :current_password, class: 'd-block' %> <i>(we need your current password to confirm your changes)</i>
-    <%= f.password_field :current_password, autocomplete: "current-password",
-          class: render_field_class(resource, :current_password), required: true %>
+    <%= f.password_field :current_password,
+          autocomplete: 'current-password',
+          class: render_field_class(resource, :current_password),
+          required: true %>
     <%= render_error_message_for(resource.errors[:current_password]) %>
   </div>
 
