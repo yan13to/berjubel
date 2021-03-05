@@ -114,10 +114,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     enable_starttls_auto: true,
-    address: 'in-v3.mailjet.com',
-    port: '587',
+    address: ENV['SMTP_SERVER'] || Rails.application.credentials.dig(:smtp, :server),
+    port: ENV['SMTP_PORT'] || Rails.application.credentials.dig(:smtp, :port),
     authentication: :plain,
-    user_name: 'b2e68a38044f83f8ec6ce70540551cc1',
-    password: '54c32250d86a63360ee71bceceb2e903'
+    user_name: ENV['SMTP_USERNAME'] || Rails.application.credentials.dig(:smtp, :username),
+    password: ENV['SMTP_PASSWORD'] || Rails.application.credentials.dig(:smtp, :password)
   }
 end
