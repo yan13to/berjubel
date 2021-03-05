@@ -4,19 +4,21 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="mb-3">
-    <%= f.label :password, "New password", class: 'd-block' %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password",
-          class: render_field_class(resource, :password)
-          placeholder: "#{minimum_password_length} characters minimum", required: true %>
+    <%= f.label :password, t('devise.passwords.edit.new_password'), class: 'd-block' %>
+    <%= f.password_field :password, autofocus: true, autocomplete: 'new-password',
+          class: render_field_class(resource, :password),
+          placeholder: t('devise.shared.minimum_password_length', count: @minimum_password_length),
+          required: true %>
     <%= render_error_message_for(resource.errors[:password]) %>
   </div>
 
   <div class="mb-3">
-    <%= f.label :password_confirmation, "Confirm new password", class: 'd-block' %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",
+    <%= f.label :password_confirmation,
+          t('devise.passwords.edit.confirm_new_password'), class: 'd-block' %>
+    <%= f.password_field :password_confirmation, autocomplete: 'new-password',
           required: true, render_field_class(resource, :password_confirmation) %>
     <%= render_error_message_for(resource.errors[:password_confirmation]) %>
   </div>
 
-  <%= f.submit "Change my password" %>
+  <%= f.submit t('devise.passwords.edit.change_my_password') %>
 <% end %>
