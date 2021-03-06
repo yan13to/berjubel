@@ -8,10 +8,14 @@ en:
   edit: Edit
   empty: Empty
   go: Go
+  good: Good
   hello: Hello
   home: Home
   list: List
   logout: Logout
+  messages:
+    good: All good
+    problem: There was a problem!
   sign_in: Sign in
   sign_up: Sign up
   save: Save

@@ -8,10 +8,14 @@ id:
   edit: Ubah
   empty: Kosong
   go: Lanjut
+  good: Bagus
   hello: Halo
   home: Beranda
   list: Baris
   logout: Keluar
+  messages:
+    good: Semuanya bagus
+    problem: Terdapat kesalahan!
   sign_in: Masuk
   sign_up: Daftar
   save: Simpan

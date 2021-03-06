@@ -2,7 +2,9 @@
   <div class="d-flex align-items-start">
     <i class="bi bi-emoji-sunglasses me-3 heading-icon"></i>
     <div>
-      <h6 class="alert-heading">All good</h6>
+      <h6 class="alert-heading">
+        <%= t('messages.good') %>
+      </h6>
       <% messages.each do |message| %>
         <div>
           <%= message %>

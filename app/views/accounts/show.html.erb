@@ -1,4 +1,4 @@
-<%- @page_title = User::Profile.model_name.human %>
+<%- @page_title = t(:account) %>
 
 <%= render_breadcrumbs([t(:home), User::Profile.model_name.human]) %>
 <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
@@ -6,20 +6,20 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">
-      <%= User::Profile.model_name.human %>
+      <%= t(:account) %>
     </h5>
     <div class="row">
       <div class="col-2">
         <%= render 'user_avatar' %>
       </div>
       <div class="col">
-        <%= render 'profile_tabs' %>
+        <%= render 'profile_tabs', active: 'account' %>
         <div class="tab-content">
-          <div class="tab-pane pt-3 show active" id="profile">
-            <%= render 'profile', profile: @profile %>
+          <div class="tab-pane pt-3" id="profile">
+            <%= render 'profiles/profile', profile: current_user.profile if current_user.profile %>
           </div>
-          <div class="tab-pane pt-3" id="account">
-            <%= render 'accounts/account' %>
+          <div class="tab-pane pt-3 show active" id="account">
+            <%= render 'account' %>
           </div>
         </div>
       </div>
