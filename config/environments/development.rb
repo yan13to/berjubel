@@ -38,7 +38,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -63,4 +63,15 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    enable_starttls_auto: true,
+    address: ENV['SMTP_SERVER'] || Rails.application.credentials.dig(:smtp, :server),
+    port: ENV['SMTP_PORT'] || Rails.application.credentials.dig(:smtp, :port),
+    authentication: :plain,
+    user_name: ENV['SMTP_USERNAME'] || Rails.application.credentials.dig(:smtp, :username),
+    password: ENV['SMTP_PASSWORD'] || Rails.application.credentials.dig(:smtp, :password)
+  }
 end

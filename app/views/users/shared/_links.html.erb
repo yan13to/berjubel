@@ -1,20 +1,20 @@
 <%- if controller_name != 'sessions' %>
   <small>
     <%= link_to t('devise.shared.links.sign_in'), new_session_path(resource_name) %>
-  </small>
+  </small> &#8605; 
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <small>
     <%= link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name) %>
-  </small>
+  </small> &#8605; 
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <small>
     <%= link_to t('devise.shared.links.didn_t_receive_confirmation_instructions'),
           new_confirmation_path(resource_name) %>
-  </small>
+  </small> &#8605; 
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
