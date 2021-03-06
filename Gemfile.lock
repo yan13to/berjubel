@@ -328,6 +328,7 @@ DEPENDENCIES
   devise
   devise_token_auth
   faker
+  geocoder
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   letter_opener
