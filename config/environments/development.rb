@@ -68,10 +68,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     enable_starttls_auto: true,
-    address: ENV['SMTP_SERVER'] || Rails.application.credentials.dig(:smtp, :server),
-    port: ENV['SMTP_PORT'] || Rails.application.credentials.dig(:smtp, :port),
+    address: Rails.application.credentials.dig(:smtp, :server),
+    port: Rails.application.credentials.dig(:smtp, :port),
     authentication: :plain,
-    user_name: ENV['SMTP_USERNAME'] || Rails.application.credentials.dig(:smtp, :username),
-    password: ENV['SMTP_PASSWORD'] || Rails.application.credentials.dig(:smtp, :password)
+    user_name: Rails.application.credentials.dig(:smtp, :username),
+    password: Rails.application.credentials.dig(:smtp, :password)
   }
 end

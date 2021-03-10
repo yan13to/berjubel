@@ -7,6 +7,7 @@ en:
   create: Create
   edit: Edit
   empty: Empty
+  filter: Filter
   go: Go
   good: Good
   hello: Hello
@@ -16,6 +17,10 @@ en:
   messages:
     good: All good
     problem: There was a problem!
+  my_store: My Store
+  price: Price
+  rating: Rating
+  reset: Reset
   sign_in: Sign in
   sign_up: Sign up
   save: Save

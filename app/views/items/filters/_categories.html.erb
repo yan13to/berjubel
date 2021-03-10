@@ -1,0 +1,5 @@
+<%= f.collection_check_boxes :categories_id_in, categories, :id, :name, {}, direct_submit: true do |b| %>
+  <label class="list-group-item">
+    <%= b.check_box %> <span><%= b.object.name %></span>
+  </label>
+<% end %>

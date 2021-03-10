@@ -2,11 +2,15 @@
 
 # Category model
 class Category < ApplicationRecord
+  serialize :names, Hash
+
   belongs_to :parent, class_name: 'Category', foreign_key: :parent_id, optional: true
 
-  has_one_attached :image
-
   has_many :children, class_name: 'Category', foreign_key: :parent_id
+  has_many :item_categories, class_name: 'Item::Category'
+  has_many :items, through: :item_categories
+
+  has_one_attached :image
 
   validates :name, presence: true
 

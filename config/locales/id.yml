@@ -7,6 +7,7 @@ id:
   create: Buat
   edit: Ubah
   empty: Kosong
+  filter: Saring
   go: Lanjut
   good: Bagus
   hello: Halo
@@ -16,6 +17,10 @@ id:
   messages:
     good: Semuanya bagus
     problem: Terdapat kesalahan!
+  my_store: Tokoku
+  price: Harga
+  rating: Penilaian
+  reset: Bersihkan
   sign_in: Masuk
   sign_up: Daftar
   save: Simpan

@@ -17,10 +17,12 @@ module ApplicationHelper
   end
 
   def render_user_avatar
-    if current_user.avatar.attached?
-      image_tag current_user.avatar.variant(resize_to_limit: [40, 40]), class: 'rounded-circle'
+    avatar = current_user.try(:profile).try(:avatar)
+
+    if avatar&.attached?
+      image_tag avatar.variant(resize_to_limit: [40, 40]), class: 'rounded-circle'
     else
-      content_tag(:i, nil, class: 'bi bi-file-person fs-3')
+      image_tag '/default/avatar.svg', width: '34px'
     end
   end
 

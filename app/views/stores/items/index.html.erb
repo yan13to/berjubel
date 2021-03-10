@@ -1,0 +1,44 @@
+<%- @page_title = [Store.model_name.human, @store.name, Item.model_name.human(count: 2)].join(' | ') %>
+
+<%= render_breadcrumbs([
+  link_to(t(:home), root_path),
+  link_to(Store.model_name.human(count: 2), stores_path),
+  @store.name,
+  Item.model_name.human(count: 2)
+]) %>
+
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="card">
+  <div class="card-body">
+    <%#= image_tag @store.avatar %>
+    <h5 class="card-title">
+      <%= link_to '&#8629;'.html_safe, :back %> <%= @store.name %>
+    </h5>
+    <p>
+      <%= @store.description %>
+    </p>
+    <h5>
+      <%= Item.model_name.human(count: 2) %>
+    </h5>
+    <table class="table">
+      <tr>
+        <th><%= Item.human_attribute_name(:id) %></th>
+        <th><%= Item.human_attribute_name(:name) %></th>
+        <th><%= Item.human_attribute_name(:price) %></th>
+        <th><%= Item.human_attribute_name(:stock) %></th>
+        <th><%= Item.human_attribute_name(:sold) %></th>
+      </tr>
+      <%- @items.each do |item| %>
+        <tr>
+          <td><%= item.id %></td>
+          <td><%= item.name %></td>
+          <td><%= item.price %></td>
+          <td><%= item.stock %></td>
+          <td>0</td>
+        </tr>
+      <%- end %>
+    </table>
+    <%= will_paginate(@items, renderer: BerjubelPagination) %>
+  </div>
+</div>

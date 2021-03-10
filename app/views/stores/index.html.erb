@@ -1,0 +1,29 @@
+<%- @page_title = Store.model_name.human(count: 2) %>
+
+<%= render_breadcrumbs([
+  link_to(t(:home), root_path),
+  Store.model_name.human(count: 2)
+]) %>
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= Store.model_name.human(count: 2) %>
+    </h5>
+    <table class="table table-hover align-middle">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Item</th>
+        <th>Created at</th>
+        <th>&nbsp;</th>
+      </tr>
+      <% @stores.each do |store| %>
+        <%= render 'store', store: store %>
+      <% end %>
+    </table>
+  </div>
+</div>
+<%= will_paginate(@stores, renderer: BerjubelPagination) %>
+<br />

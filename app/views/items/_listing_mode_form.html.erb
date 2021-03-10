@@ -1,3 +1,3 @@
-<%= form_for current_user.setting || current_user.build_setting, url: setting_path, html: { id: 'edit_user_setting_top' } do |f| %>
-  <%= f.select :listing_mode, User::Setting.listing_modes.keys.map {|i| [I18n.t(i), i]}, {}, remote: true %>
+<%= form_for current_user.setting || current_user.build_setting, url: setting_path, html: { id: 'edit_user_setting_listing_mode_top' } do |f| %>
+  <%= f.select :listing_mode, User::Setting.listing_modes.keys.map {|i| [I18n.t(i), i]}, {}, direct_submit: true, class: 'form-control' %>
 <% end %>

@@ -3,8 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.integer :store_id
       t.string :name
-      t.decimal :price, precision: 5, scale: 2
-      t.integer :stock, default: 0
+      t.text :description
 
       t.timestamps
     end

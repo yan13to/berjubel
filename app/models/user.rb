@@ -10,8 +10,6 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
-  has_one_attached :avatar
-
   has_one :profile, class_name: 'User::Profile'
   has_one :setting, class_name: 'User::Setting'
 

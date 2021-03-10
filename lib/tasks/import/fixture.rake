@@ -32,13 +32,20 @@ def load_users
   users.each do |params|
     user = User.where(id: params['id']).first_or_create!(params)
 
-    next if user.avatar.attached?
+    next if user.try(:profile).try(:avatar).try(:attached?)
 
     url = 'https://i.pravatar.cc/300'
     filename = File.basename(URI.parse(url).path)
-    file = URI.open(url) rescue nil
 
-    user.avatar.attach(io: file, filename: filename) if file
+    begin
+      file = URI.open(url)
+    rescue Net::OpenTimeout
+      file = nil
+      next
+    end
+
+    user_profile = user.build_profile.save unless user.profile
+    user_profile.avatar.attach(io: file, filename: filename) if file
   end
 
   puts "There are now #{User.count} rows in the users table"
@@ -54,7 +61,13 @@ def load_stores
 
     url = 'https://i.pravatar.cc/300'
     filename = File.basename(URI.parse(url).path)
-    file = URI.open(url) rescue nil
+
+    begin
+      file = URI.open(url)
+    rescue Net::OpenTimeout
+      file = nil
+      next
+    end
 
     store.avatar.attach(io: file, filename: filename) if file
   end
@@ -73,7 +86,13 @@ def load_items
     num_photos = (1..20).to_a.sample
 
     1.upto(num_photos) do |i|
-      file = URI.open(url) rescue nil
+      begin
+        file = URI.open(url)
+      rescue Net::OpenTimeout
+        file = nil
+        next
+      end
+
       item.photos.attach(io: file, filename: "photo-item-#{item.id}-#{i}") if file
     end
   end

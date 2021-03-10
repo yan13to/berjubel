@@ -1,0 +1,31 @@
+<div class="modal" id="photos-item-<%= item.id %>">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header pe-5">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="itemPhotoCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <%- item.photos.each_with_index do |photo, i| %>
+            <div class="carousel-item <%= 'active' if i == 0 %>">
+              <%= image_tag url_for(photo), class: 'd-block w-100', alt: photo.filename %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#itemPhotoCarousel"  data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#itemPhotoCarousel"  data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="modal-footer p-0 d-flex justify-content-center">
+        <% item.photos.each do |photo| %>
+          <%= link_to image_tag(photo.variant(resize_to_limit: [80, 80])) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

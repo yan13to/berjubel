@@ -3,6 +3,5 @@ item_<%= i %>:
   id: <%= i %>
   store_id: <%= (1..100).to_a.sample %>
   name: <%= Faker::Commerce.product_name %>
-  price: <%= Faker::Commerce.price %>
-  stock: <%= (0..10000).to_a.sample %>
+  description: <%= Faker::Restaurant.description %>
 <% end %>

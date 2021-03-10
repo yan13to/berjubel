@@ -6,6 +6,7 @@ id:
       item:
         <<: *common
       user:
+        <<: *common
         confirmation_sent_at: Konfirmasi terkirim pada
         confirmation_token: Token konfirmasi
         confirmed_at: Dikonfirmasi pada

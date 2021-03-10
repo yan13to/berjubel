@@ -21,7 +21,12 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
-  resources :items, only: :index
+  resources :items, only: %I[index show] do
+    resources :photos, module: 'items'
+  end
+  resources :stores, except: :show do
+    resources :items, module: 'stores'
+  end
   resource :account, only: %I[show edit update]
   resource :profile
   resource :setting

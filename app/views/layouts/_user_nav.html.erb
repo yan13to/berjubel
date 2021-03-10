@@ -1,13 +1,18 @@
 <ul class="navbar-nav d-flex align-items-center ms-auto">
-  <% if signed_in? %>
+  <%- if signed_in? %>
     <li class="me-2">
       <%= render_locale_form %>
     </li>
-  <% end %>
-  <li class="dropdown">
-    <%- if signed_in? %>
-      <%= render_user_avatar %>
-      <%= link_to render_user_name, '#', class: 'dropdown-toggle', 'data-bs-toggle': 'dropdown' %>
+    <li class="p-2"> | </li>
+    <li>
+      <%= link_to t(:my_store), stores_path %>
+    </li>
+    <li class="p-2"> | </li>
+    <li class="dropdown">
+      <%= link_to '#', class: 'dropdown-toggle', 'data-bs-toggle': 'dropdown' do %>
+        <%= render_user_avatar %>
+        <%= render_user_name %>
+      <% end %>
       <ul class="dropdown-menu">
         <li>
           <%= link_to User::Profile.model_name.human, profile_path, class: 'dropdown-item' %>
@@ -22,8 +27,10 @@
           <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
         </li>
       </ul>
+    </li>
     <% else %>
-      <%= link_to t(:sign_in), new_user_session_path %>
+      <li>
+        <%= link_to t(:sign_in), new_user_session_path %>
+      </li>
     <% end %>
-  </li>
 </ul>

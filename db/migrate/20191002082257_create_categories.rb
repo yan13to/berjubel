@@ -3,6 +3,7 @@ class CreateCategories < ActiveRecord::Migration[6.0]
     create_table :categories do |t|
       t.integer     :parent_id
       t.string      :name
+      t.text        :names
       t.text        :description
       t.integer     :position
       t.timestamps

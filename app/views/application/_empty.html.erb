@@ -1,1 +1,2 @@
-<h1><%= I18n.t(:empty) %></h1>
+<%- messages ||= t(:empty) %>
+<h3 class="text-muted"><%= messages %></h3>

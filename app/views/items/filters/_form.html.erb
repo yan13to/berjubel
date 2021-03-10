@@ -1,0 +1,32 @@
+<%= search_form_for Item.ransack(params[:q]) do |f| %>
+  <div class="d-flex">
+    <strong class="me-auto"><%= Category.model_name.human(count: 2) %></strong>
+    <a href="#mainModal"
+      data-use-modal="true"
+      data-modal-title="Are you sure want to reset categories?"
+      data-modal-body="<%= items_path %>">reset</a>
+  </div>
+  <div class="list-group">
+    <%- if @parent_categories.any? -%>
+      <%= render 'items/filters/categories', f: f, categories: @parent_categories %>
+    <%- else -%>
+      <div class="list-group-item">
+        <%= render 'empty' %>
+      </div>
+    <%- end -%>
+  </div>
+  <div class="d-flex">
+    <strong class="me-auto"><%= t(:price) %></strong>
+    <a href="#mainModal" data-modal-title="Are sure want to reset prices?" data-use-modal="true">reset</a>
+  </div>
+  <div class="list-group">
+    <%= render 'items/filters/prices', f: f %>
+  </div>
+  <div class="d-flex">
+    <strong class="me-auto"><%= t(:rating) %></strong>
+    <%= link_to t(:reset), '#', data: { confirm: 'Are you sure want to reset ratings?' } %>
+  </div>
+  <div class="list-group">
+    <%= render 'items/filters/ratings', f: f %>
+  </div>
+<% end %>

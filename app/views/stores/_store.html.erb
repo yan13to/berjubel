@@ -1,0 +1,28 @@
+<tr>
+  <td><%= store.id %></td>
+  <td>
+    <div class="d-flex">
+      <div class="pe-3">
+        <%= image_tag store.avatar.variant(resize_to_limit: [80, 80]), class: 'rounded-circle' %>
+      </div>
+      <div>
+        <h5>
+          <%= link_to store.name, store_items_path(store) %>
+        </h5>
+        <%= store.description %>
+      </div>
+    </div>
+  </td>
+  <td>
+    <%= store.items.count %>
+  </td>
+  <td>
+    <%= time_ago_in_words(store.created_at) %> ago
+  </td>
+  <td>
+    <div class="btn-group" role="group">
+      <%= link_to t(:edit), edit_store_path(store), class: 'btn btn-outline-primary' %>
+      <%= link_to t(:delete), store_path(store), class: 'btn btn-outline-primary', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </td>
+</tr>

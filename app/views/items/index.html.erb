@@ -2,20 +2,46 @@
 
 <%= render_search_form %>
 
-<%= render_breadcrumbs([t(:home), Item.model_name.human(count: 2)]) %>
 <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
 
-<div class="card mb-3">
-  <div class="card-body">
-    <div class="d-flex flex-row-reverse pe-3 pb-2">
-      <%= render_listing_items_selector if signed_in? %>
+<div class="row">
+  <div class="col-lg-2 pt-3">
+    <%= render 'items/filters/form' %>
+  </div>
+  <div class="col-lg-10">
+    <%= render 'breadcrumbs', items: [link_to(t(:home), root_path), Item.model_name.human(count: 2)] %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex pb-3">
+
+          <form class="me-auto">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+              <label class="btn btn-outline-secondary" for="btnradio1"><%= t(:all) %></label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="btnradio3">
+                Your stores <span class="badge bg-secondary rounded-pill">14</span>
+              </label>
+            </div>
+          </form>
+
+          <div>
+            <%= render_listing_items_selector if signed_in? %>
+          </div>
+        </div>
+        <div class="<%= build_items_classes %>">
+          <%- if @items.present? %>
+            <% @items.each do |item| %>
+              <%= render item_listing_mode, item: item %>
+            <% end %>
+          <% else %>
+            <%= render 'empty' %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <div class="<%= build_items_classes %>">
-      <% @items.each do |item| %>
-        <%= render item_listing_mode, item: item %>
-      <% end %>
-    </div>
+
+    <%= will_paginate(@items, renderer: BerjubelPagination) %>
   </div>
 </div>
-<%= will_paginate(@items, renderer: BerjubelPagination) %>
-<br />

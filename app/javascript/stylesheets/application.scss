@@ -3,6 +3,10 @@
 body {
   font-size: 14px;
   background-color:#eee;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .img-thumbnail {
@@ -47,17 +51,38 @@ select {
 .floating-alert {
   font-size: small;
   z-index: 99999;
+
+  > div.alert {
+    min-width: 22em;
+  }
+
+  .heading-icon {
+    font-size: 3em;
+    margin-top: -0.3em;
+  }
+
+  .alert-success .heading-icon {
+    color: darkseagreen;
+  }
 }
 
-.floating-alert > div.alert {
-  min-width: 22em;
-}
+form#item_search {
+  div.list-group {
+    label.list-group-item {
+      cursor: pointer;
+      font-size: 0.8rem;
+      position: relative;
 
-.floating-alert .heading-icon {
-  font-size: 3em;
-  margin-top: -0.3em;
-}
+      input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+      }
 
-.floating-alert .alert-success .heading-icon {
-  color: darkseagreen;
+      input[type="checkbox"]:checked + span {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: darkseagreen;
+      }
+    }
+  }
 }
