@@ -9,12 +9,6 @@
     <div>
       <%= link_to(item.store.name, store_path(item.store)) if item.store %>
     </div>
-    <div>
-      <%= Item.human_attribute_name(:price) %>: <%= item.price %>
-    </div>
-    <div>
-      <%= Item.human_attribute_name(:stock) %>: <%= item.stock %>
-    </div>
   </div>
 </div>
 

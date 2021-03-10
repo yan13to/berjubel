@@ -31,6 +31,7 @@ def load_users
 
   users.each do |params|
     user = User.where(id: params['id']).first_or_create!(params)
+    ap user.attributes
 
     next if user.try(:profile).try(:avatar).try(:attached?)
 
@@ -39,13 +40,13 @@ def load_users
 
     begin
       file = URI.open(url)
-    rescue Net::OpenTimeout
+    rescue OpenURI::HTTPError, SocketError
       file = nil
       next
     end
 
-    user_profile = user.build_profile.save unless user.profile
-    user_profile.avatar.attach(io: file, filename: filename) if file
+    user.build_profile.save unless user.profile
+    user.profile.avatar.attach(io: file, filename: filename) if file
   end
 
   puts "There are now #{User.count} rows in the users table"
@@ -64,7 +65,7 @@ def load_stores
 
     begin
       file = URI.open(url)
-    rescue Net::OpenTimeout
+    rescue OpenURI::HTTPError, SocketError
       file = nil
       next
     end
@@ -88,7 +89,7 @@ def load_items
     1.upto(num_photos) do |i|
       begin
         file = URI.open(url)
-      rescue Net::OpenTimeout
+      rescue OpenURI::HTTPError, SocketError
         file = nil
         next
       end
