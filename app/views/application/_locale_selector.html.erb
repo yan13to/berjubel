@@ -1,0 +1,14 @@
+<%- current_path ||= root_path %>
+
+<div class="dropdown">
+  <%= link_to '#', class: 'nav-link dropdown-toggle', 'data-bs-toggle': 'dropdown' do %>
+    <%= t(params[:locale] || I18n.default_locale) %>
+  <% end %>
+  <ul class="dropdown-menu">
+    <%- I18n.available_locales.each do |locale| %>
+      <li>
+        <%= link_to t(locale), current_path, class: 'dropdown-item'  %>
+      </li>
+    <% end %>
+  </ul>
+</div>

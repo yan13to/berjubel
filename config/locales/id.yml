@@ -7,11 +7,13 @@ id:
   create: Buat
   edit: Ubah
   empty: Kosong
+  en: EN
   filter: Saring
   go: Lanjut
   good: Bagus
   hello: Halo
   home: Beranda
+  id: ID
   list: Baris
   logout: Keluar
   messages:

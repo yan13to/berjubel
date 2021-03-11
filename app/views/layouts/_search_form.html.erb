@@ -1,4 +1,4 @@
-<%= search_form_for Item.ransack(params[:q]), html: { style: 'margin-left:58px' } do |f| %>
+<%= search_form_for Item.ransack(params[:q]), html: { style: 'margin-left:170px' } do |f| %>
   <div class="input-group">
     <span class="input-group-text p-0">
       <%= f.collection_select :categories_id_in,

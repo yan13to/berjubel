@@ -8,7 +8,9 @@ Rails.application.routes.draw do
         sessions: 'api/v1/users/sessions'
       }
 
-      resources :items, except: %I[new edit]
+      resources :items, except: %I[new edit] do
+        resources :photos, except: %I[new edit]
+      end
     end
   end
 

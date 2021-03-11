@@ -29,8 +29,9 @@ const directSubmit = () => {
     $(e.target).parents('form').trigger('submit');
   })
 }
-const updateMainModal = (title, body) => {
-  const mainModal = document.getElementById('mainModal');
+const updateModal = (title, body, id = 'mainModal') => {
+  const modalId = id;
+  const mainModal = document.getElementById(modalId);
   const modalHeader = mainModal.querySelector('.modal-header h5');
   const modalBody = mainModal.querySelector('.modal-body')
 
@@ -52,7 +53,7 @@ const useMainModal = () => {
     const title = e.target.getAttribute('data-modal-title');
     const body = e.target.getAttribute('data-modal-body');
 
-    updateMainModal(title, 'loading...')
+    updateModal(title, 'loading...')
 
     const axios = require('axios');
 
@@ -61,10 +62,10 @@ const useMainModal = () => {
       .then(response => {
         console.log(response.data)
 
-        updateMainModal(title, response.data)
+        updateModal(title, response.data)
       })
       .catch(error => {
-        updateMainModal(title, error)
+        updateModal(title, error)
       })
 
     modal.show();

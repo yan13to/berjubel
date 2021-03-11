@@ -3,7 +3,11 @@
 
   <div class="mb-3">
     <%= f.label :email, class: 'd-block' %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+    <%= f.email_field :email,
+      autofocus: true,
+      autocomplete: 'email',
+      class: 'form-control',
+      required: true %>
   </div>
 
   <div class="mb-3">
@@ -13,15 +17,18 @@
         <%= link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name) %>
       </small>
     <% end %>
-    <%= f.password_field :password, autocomplete: "current-password", required: true %>
+    <%= f.password_field :password,
+      autocomplete: 'current-password',
+      class: 'form-control',
+      required: true %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="form-check mb-3">
-      <%= f.check_box :remember_me, class: "form-check-input" %>
-      <%= f.label :remember_me, class: "form-check-label" %>
+      <%= f.check_box :remember_me, class: 'form-check-input' %>
+      <%= f.label :remember_me, class: 'form-check-label' %>
     </div>
   <% end %>
 
-  <%= f.submit t(:sign_in) %>
+  <%= f.submit t(:sign_in), class: 'btn btn-secondary' %>
 <% end %>

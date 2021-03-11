@@ -74,6 +74,10 @@ module ApplicationHelper
     render 'layouts/locale_form'
   end
 
+  def render_locale_selector(current_path)
+    render 'locale_selector', current_path: current_path
+  end
+
   private
 
   def alerty_types

@@ -7,11 +7,13 @@ en:
   create: Create
   edit: Edit
   empty: Empty
+  en: EN
   filter: Filter
   go: Go
   good: Good
   hello: Hello
   home: Home
+  id: ID
   list: List
   logout: Logout
   messages:
