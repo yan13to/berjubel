@@ -23,5 +23,5 @@
     <%= render_error_message_for(resource.errors[:password_confirmation]) %>
   </div>
 
-  <%= f.submit t('devise.passwords.edit.change_my_password') %>
+  <%= f.submit t('devise.passwords.edit.change_my_password'), class: 'btn btn-secondary' %>
 <% end %>

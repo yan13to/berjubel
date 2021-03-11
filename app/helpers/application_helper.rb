@@ -39,7 +39,8 @@ module ApplicationHelper
   end
 
   def render_field_class(object, field)
-    'is-invalid' if object.errors.messages[field].present?
+    'form-control is-invalid' if object.errors.messages[field].present?
+    'form-control'
   end
 
   def render_floating_alert(messages, type = :danger)
@@ -75,7 +76,7 @@ module ApplicationHelper
   end
 
   def render_locale_selector(current_path)
-    render 'locale_selector', current_path: current_path
+    render 'locale_selector', current_path: current_path || 'root_path'
   end
 
   private
