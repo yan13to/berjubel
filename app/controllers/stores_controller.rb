@@ -21,6 +21,8 @@ class StoresController < ApplicationController
 
   def new
     @store = current_user.stores.new
+
+    render layout: false
   end
 
   def create

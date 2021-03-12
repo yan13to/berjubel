@@ -19,7 +19,10 @@ var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
+import React from 'react';
+
 const fadeAlert = () => window.setTimeout(() => $('div.alert').fadeTo(500, 0).slideUp(500, () => $(this).remove()), 2000);
+
 const directSubmit = () => {
   const elements = $('[direct_submit=true]');
 
@@ -29,53 +32,98 @@ const directSubmit = () => {
     $(e.target).parents('form').trigger('submit');
   })
 }
-const updateModal = (title, body, id = 'mainModal') => {
-  const modalId = id;
-  const mainModal = document.getElementById(modalId);
-  const modalHeader = mainModal.querySelector('.modal-header h5');
-  const modalBody = mainModal.querySelector('.modal-body')
 
-  modalHeader.textContent = title || 'Default title';
-  modalBody.textContent = body || 'Default body';
+const addNewStoreForm = () => {
+  const modal = document.getElementById('mainModal');
+  const modalBody = modal.querySelector('.modal-body');
 
-  mainModal.addEventListener('hidden.bs.modal', () => {
-    modalHeader.textContent = '';
-    modalBody.textContent = ''
-  })
+  modalBody.appendChild(loadingIndicator());
+
+  fetch('/stores/new')
+    .then(data => data.text())
+    .then(html => {
+      modalBody.innerHTML = html
+    })
 }
-const useMainModal = () => {
-  const bootstrap = require('bootstrap');
-  const modal = new bootstrap.Modal(document.getElementById('mainModal'));
 
-  $('a[data-use-modal="true"]').on('click', (e) => {
-    e.preventDefault();
+const loadingIndicator = () => {
+  const flex = document.createElement('div'),
+        div = document.createElement('div'),
+        span = document.createElement('span');
+  
+  flex.className = 'd-flex justify-content-center';
+  div.className = 'spinner-grow';
+  span.className = 'visually-hidden'
 
-    const title = e.target.getAttribute('data-modal-title');
-    const body = e.target.getAttribute('data-modal-body');
+  flex.appendChild(div);
+  div.appendChild(span);
 
-    updateModal(title, 'loading...')
+  return flex
+}
 
-    const axios = require('axios');
+const resetSearchCategories = () => {
+  const modal = document.getElementById('mainModal');
+  const modalBody = modal.querySelector('.modal-body');
 
-    axios
-      .get(body)
-      .then(response => {
-        console.log(response.data)
+  const div = document.createElement('div');
+  const text = document.createTextNode('lorem ipsum dolor sit amet')
+  div.appendChild(text);
 
-        updateModal(title, response.data)
-      })
-      .catch(error => {
-        updateModal(title, error)
-      })
+  modalBody.appendChild(div);
+}
 
-    modal.show();
+const mainModalCallback = () => {
+  const mainModal = document.getElementById('mainModal');
+
+  mainModal.addEventListener('show.bs.modal', (event) => {
+    const button = event.relatedTarget,
+          title = button.getAttribute('data-bs-title'),
+          body = button.getAttribute('data-bs-body');
+
+    let fn;
+
+    try {
+      fn = eval(body);
+    } catch (error) {
+      fn = body
+    }
+
+    updateMainModalTitle(title);
+
+    if (typeof fn === 'function') {
+      fn.apply(null, [])
+    } else {
+      updateMainModalBody(fn)
+    }
   })
+
+  mainModal.addEventListener('hide.bs.modal', () => updateMainModal('Modal title', 'Modal body'));
+}
+
+const updateModal = (modal, title, body) => {
+  const modalTitle = modal.querySelector('.modal-title'),
+        modalBody = modal.querySelector('.modal-body');
+
+  modalTitle.innerHTML = title
+  modalBody.innerHTML = body
+}
+
+const updateMainModal = (title, body) => {
+  updateModal(document.getElementById('mainModal'), title, body)
+}
+
+const updateMainModalTitle = (title) => {
+  updateModal(document.getElementById('mainModal'), title, '')
+}
+
+const updateMainModalBody = (body) => {
+  updateModal(document.getElementById('mainModal'), '', body)
 }
 
 const loadApp = () => {
   fadeAlert();
   directSubmit();
-  useMainModal();
+  mainModalCallback();
 }
 
 document.addEventListener('turbolinks:load', loadApp);

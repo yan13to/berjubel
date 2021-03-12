@@ -79,6 +79,14 @@ module ApplicationHelper
     render 'locale_selector', current_path: current_path || 'root_path'
   end
 
+  def link_to_main_modal(name, options = {})
+    link_to name, '#mainModal',
+            'data-bs-toggle': :modal,
+            'data-bs-title': options[:title],
+            'data-bs-body': options[:body],
+            class: options[:class]
+  end
+
   private
 
   def alerty_types

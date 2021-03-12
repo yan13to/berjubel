@@ -8,15 +8,19 @@
 
 <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title">
-      <%= Store.model_name.human(count: 2) %>
-    </h5>
+    <div class="d-flex align-items-center">
+      <h5 class="card-title me-auto"><%= Store.model_name.human(count: 2) %></h5>
+      <%= link_to_main_modal content_tag(:i, nil, class: 'bi bi-plus'),
+            title: 'Add new',
+            body: 'addNewStoreForm',
+            class: 'btn btn-primary' %>
+    </div>
     <table class="table table-hover align-middle">
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Item</th>
-        <th>Created at</th>
+        <th><%= Store.human_attribute_name(:id) %></th>
+        <th><%= Store.human_attribute_name(:name) %></th>
+        <th><%= Store.human_attribute_name(:items_count) %></th>
+        <th><%= Store.human_attribute_name(:created_at) %></th>
         <th>&nbsp;</th>
       </tr>
       <% @stores.each do |store| %>
