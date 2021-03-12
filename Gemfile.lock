@@ -342,7 +342,6 @@ DEPENDENCIES
   ransack
   react-rails
   redis (~> 4.0)
-  ruby-vips
   sass-rails (>= 6)
   selenium-webdriver
   spring
