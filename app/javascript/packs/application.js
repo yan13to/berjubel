@@ -82,10 +82,14 @@ const resetSearchCategories = () => {
 
   btnYes.addEventListener('click', (e) => {
     const searchForm = document.getElementById('item_search_sidebar');
-    const checkboxes = searchForm.querySelectorAll('.list-group-categories input[type="checkbox"]')
+    const checkboxes = searchForm.querySelectorAll('.list-group-categories input[type="checkbox"]:checked')
 
-    checkboxes.forEach(check => check.removeAttribute('checked'));
-    searchForm.submit();
+    if (checkboxes.length > 0) {
+      checkboxes.forEach(check => check.removeAttribute('checked'));
+      searchForm.submit();
+    } else {
+      btnNo.click();
+    }
   })
 
   modalBody.appendChild(div);
