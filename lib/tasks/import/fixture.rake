@@ -23,6 +23,8 @@ def load_categories
     Category.where(id: params['id']).first_or_create!(params)
   end
 
+  ActiveRecord::Base.connection.reset_pk_sequence!('categories')
+
   puts "There are now #{Category.count} rows in the categories table"
 end
 
@@ -49,6 +51,8 @@ def load_users
     user.profile.avatar.attach(io: file, filename: filename) if file
   end
 
+  ActiveRecord::Base.connection.reset_pk_sequence!('users')
+
   puts "There are now #{User.count} rows in the users table"
 end
 
@@ -72,6 +76,8 @@ def load_stores
 
     store.avatar.attach(io: file, filename: filename) if file
   end
+
+  ActiveRecord::Base.connection.reset_pk_sequence!('stores')
 
   puts "There are now #{Store.count} rows in the stores table"
 end
@@ -97,6 +103,8 @@ def load_items
       item.photos.attach(io: file, filename: "photo-item-#{item.id}-#{i}") if file
     end
   end
+
+  ActiveRecord::Base.connection.reset_pk_sequence!('items')
 
   puts "There are now #{Item.count} rows in the items table"
 end
