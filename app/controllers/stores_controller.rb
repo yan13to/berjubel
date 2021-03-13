@@ -15,21 +15,35 @@ class StoresController < ApplicationController
                           .per_page(per_page)
   end
 
-  # def show
-  #   @store = Store.find(params[:id])
-  # end
+  def show
+    @store = Store.find(params[:id])
+
+    redirect_to stores_path and return unless @store
+
+    @items = @store.items
+                   .search(query)
+                   .result(distinct: true)
+                   .order(order)
+                   .page(page)
+                   .per_page(per_page)
+  end
 
   def new
     @store = current_user.stores.new
 
-    render layout: false
+    respond_to do |format|
+      format.html
+      format.js { render layout: false }
+    end
+
+    # render layout: false
   end
 
   def create
     @store = current_user.stores.new(store_params)
 
     if @store.save
-      redirect_to @store, notice: t('stores.create.success')
+      redirect_to stores_path, notice: t('stores.create.success')
     else
       render :new
     end

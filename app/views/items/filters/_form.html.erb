@@ -1,4 +1,4 @@
-<%= search_form_for Item.ransack(params[:q]) do |f| %>
+<%= search_form_for Item.ransack(params[:q]), id: 'item_search_sidebar' do |f| %>
   <div class="d-flex">
     <strong class="me-auto"><%= Category.model_name.human(count: 2) %></strong>
     <%= link_to_main_modal t(:reset),

@@ -1,3 +1,18 @@
-<%= form_with @store do |f| %>
-  <%= f.text_field :name %>
+<%= form_with model: @store do |f| %>
+  <div class="mb-3">
+    <%= f.label :name, class: 'd-block' %>
+    <%= f.text_field :name,
+          class: render_field_class(@store, :name),
+          required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, class: 'd-block' %>
+    <%= f.text_area :description,
+          class: render_field_class(@store, :description) %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit t(:save), class: 'btn btn-secondary' %>
+  </div>
 <% end %>

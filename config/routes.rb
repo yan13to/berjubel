@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :items, only: %I[index show] do
     resources :photos, module: 'items'
   end
-  resources :stores, except: :show do
+  resources :stores do
     resources :items, module: 'stores'
   end
   resource :account, only: %I[show edit update]

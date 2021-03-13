@@ -80,11 +80,17 @@ module ApplicationHelper
   end
 
   def link_to_main_modal(name, options = {})
-    link_to name, '#mainModal',
-            'data-bs-toggle': :modal,
-            'data-bs-title': options[:title],
-            'data-bs-body': options[:body],
-            class: options[:class]
+    link_options = {}
+    link_options.merge!('data-bs-toggle': :modal)
+    link_options.merge!('data-bs-title': options[:title]) if options[:title]
+    link_options.merge!('data-bs-body': options[:body]) if options[:body]
+    link_options.merge!('data-remote': true)
+    link_options.merge!('data-url': options[:url]) if options[:url]
+    link_options.merge!('data-params': options[:params]) if options[:params]
+    link_options.merge!('data-method': options[:method]) if options[:method]
+    link_options.merge!(class: options[:class]) if options[:class]
+
+    link_to name, '#mainModal', link_options
   end
 
   private

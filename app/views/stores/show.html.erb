@@ -8,7 +8,7 @@
 
 <div class="card">
   <div class="card-body">
-    <%= image_tag @store.avatar %>
+    <%= image_tag @store.avatar if @store.avatar.attached? %>
     <h5 class="card-title">
       <%= link_to '&#8629;'.html_safe, :back %> <%= @store.name %>
     </h5>
@@ -22,20 +22,14 @@
       <tr>
         <th><%= Item.human_attribute_name(:id) %></th>
         <th><%= Item.human_attribute_name(:name) %></th>
-        <th><%= Item.human_attribute_name(:price) %></th>
-        <th><%= Item.human_attribute_name(:stock) %></th>
-        <th><%= Item.human_attribute_name(:sold) %></th>
       </tr>
       <%- @items.each do |item| %>
         <tr>
           <td><%= item.id %></td>
           <td><%= item.name %></td>
-          <td><%= item.price %></td>
-          <td><%= item.stock %></td>
-          <td>0</td>
         </tr>
       <%- end %>
     </table>
-    <%= will_paginate(@items, renderer: BerjubelPagination) %>
+    <%#= will_paginate(@items, renderer: BerjubelPagination) %>
   </div>
 </div>

@@ -19,8 +19,6 @@ var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
-import React from 'react';
-
 const fadeAlert = () => window.setTimeout(() => $('div.alert').fadeTo(500, 0).slideUp(500, () => $(this).remove()), 2000);
 
 const directSubmit = () => {
@@ -33,13 +31,15 @@ const directSubmit = () => {
   })
 }
 
-const addNewStoreForm = () => {
+const addNewStoreForm = (url) => {
   const modal = document.getElementById('mainModal');
   const modalBody = modal.querySelector('.modal-body');
 
   modalBody.appendChild(loadingIndicator());
 
-  fetch('/stores/new')
+  if (!url) return;
+
+  fetch(url)
     .then(data => data.text())
     .then(html => {
       modalBody.innerHTML = html
@@ -66,8 +66,27 @@ const resetSearchCategories = () => {
   const modalBody = modal.querySelector('.modal-body');
 
   const div = document.createElement('div');
-  const text = document.createTextNode('lorem ipsum dolor sit amet')
-  div.appendChild(text);
+  const btnYes = document.createElement('button');
+  const textYes = document.createTextNode('Yes');
+  const btnNo = document.createElement('button');
+  const textNo = document.createTextNode('No');
+
+  div.setAttribute('class', 'd-flex justify-content-center');
+  btnYes.setAttribute('class', 'btn btn-primary');
+  btnYes.appendChild(textYes);
+  btnNo.setAttribute('class', 'btn');
+  btnNo.setAttribute('data-bs-dismiss', 'modal');
+  btnNo.appendChild(textNo);
+  div.appendChild(btnYes);
+  div.appendChild(btnNo);
+
+  btnYes.addEventListener('click', (e) => {
+    const searchForm = document.getElementById('item_search_sidebar');
+    const checkboxes = searchForm.querySelectorAll('.list-group-categories input[type="checkbox"]')
+
+    checkboxes.forEach(check => check.removeAttribute('checked'));
+    searchForm.submit();
+  })
 
   modalBody.appendChild(div);
 }
@@ -78,7 +97,9 @@ const mainModalCallback = () => {
   mainModal.addEventListener('show.bs.modal', (event) => {
     const button = event.relatedTarget,
           title = button.getAttribute('data-bs-title'),
-          body = button.getAttribute('data-bs-body');
+          body = button.getAttribute('data-bs-body'),
+          url = button.getAttribute('data-url'),
+          fn_params = [url];
 
     let fn;
 
@@ -91,7 +112,7 @@ const mainModalCallback = () => {
     updateMainModalTitle(title);
 
     if (typeof fn === 'function') {
-      fn.apply(null, [])
+      fn.apply(null, fn_params)
     } else {
       updateMainModalBody(fn)
     }

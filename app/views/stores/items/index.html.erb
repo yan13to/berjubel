@@ -25,17 +25,11 @@
       <tr>
         <th><%= Item.human_attribute_name(:id) %></th>
         <th><%= Item.human_attribute_name(:name) %></th>
-        <th><%= Item.human_attribute_name(:price) %></th>
-        <th><%= Item.human_attribute_name(:stock) %></th>
-        <th><%= Item.human_attribute_name(:sold) %></th>
       </tr>
       <%- @items.each do |item| %>
         <tr>
           <td><%= item.id %></td>
           <td><%= item.name %></td>
-          <td></td>
-          <td></td>
-          <td>0</td>
         </tr>
       <%- end %>
     </table>
