@@ -118,7 +118,7 @@ const mainModalCallback = () => {
     if (typeof fn === 'function') {
       fn.apply(null, fn_params)
     } else {
-      updateMainModalBody(fn)
+      updateMainModal(title, fn)
     }
   })
 
