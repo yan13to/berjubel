@@ -25,8 +25,14 @@
   </td>
   <td>
     <div class="btn-group" role="group">
-      <%= link_to t(:edit), edit_store_path(store), class: 'btn btn-outline-primary' %>
-      <%= link_to t(:delete), store_path(store), class: 'btn btn-outline-primary', method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to t(:edit), edit_store_path(store, from: stores_path), class: 'btn btn-outline-primary' %>
+      <%= link_to 'aaaaaa', store_path(store), data: { method: :delete, confirm: 'are you sure?' }, class: 'btn btn-outline-primary' %>
+      <%= link_to_main_modal t(:delete),
+            title: t(:are_you_sure),
+            body: 'destroyStoreCallback',
+            url: store_path(store),
+            method: :delete,
+            class: 'btn btn-outline-primary'  %>
     </div>
   </td>
 </tr>

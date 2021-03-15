@@ -11,6 +11,6 @@ module ItemHelper
   end
 
   def render_listing_items_selector
-    render 'items/listing_mode_form'
+    render 'listing_mode_form'
   end
 end

@@ -41,19 +41,58 @@ const addNewStoreForm = (url) => {
   fetch(url)
     .then(data => data.text())
     .then(html => {
-      modalBody.innerHTML = html
+      modalBody.innerHTML = html;
+
+      modalBody.querySelector('input[type="submit]').addEventListener('click', (e) => {
+        e.preventDefault();
+
+        console.log('clicked')
+      })
     })
+}
+
+const confirmButtons = (confirmedCallback, unConfirmedCallback) => {
+  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
+
+  const div = document.createElement('div');
+  const btnYes = document.createElement('button');
+  const textYes = document.createTextNode('Yes');
+  const btnNo = document.createElement('button');
+  const textNo = document.createTextNode('No');
+
+  div.setAttribute('class', 'd-flex justify-content-center');
+  btnYes.setAttribute('class', 'btn btn-primary');
+  btnYes.appendChild(textYes);
+  btnNo.setAttribute('class', 'btn');
+  btnNo.setAttribute('data-bs-dismiss', 'modal');
+  btnNo.appendChild(textNo);
+  div.appendChild(btnYes);
+  div.appendChild(btnNo);
+  modalBody.appendChild(div);
+
+  btnYes.addEventListener('click', confirmedCallback);
+  btnNo.addEventListener('click', unConfirmedCallback);
 }
 
 const destroyStoreCallback = (url, method) => {
   const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
 
-  modalBody.appendChild(loadingIndicator());
-
   if (!url) return;
 
-  console.log(url)
-  console.log(method)
+  const confirmedHandle = (e) => {
+    e.preventDefault()
+
+    e.currentTarget.className = 'btn btn-link';
+    e.currentTarget.innerHTML = loadingIndicator().innerHTML;
+
+    fetch(url, {
+      method: method
+    })
+      .then(data => data.text())
+      .then(html => modalBody.appendChild(html))
+  }
+
+  confirmButtons(confirmedHandle);
 }
 
 const loadingIndicator = () => {
@@ -72,26 +111,10 @@ const loadingIndicator = () => {
 }
 
 const resetSearchCategories = () => {
-  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
-
-  const div = document.createElement('div');
-  const btnYes = document.createElement('button');
-  const textYes = document.createTextNode('Yes');
-  const btnNo = document.createElement('button');
-  const textNo = document.createTextNode('No');
-
-  div.setAttribute('class', 'd-flex justify-content-center');
-  btnYes.setAttribute('class', 'btn btn-primary');
-  btnYes.appendChild(textYes);
-  btnNo.setAttribute('class', 'btn');
-  btnNo.setAttribute('data-bs-dismiss', 'modal');
-  btnNo.appendChild(textNo);
-  div.appendChild(btnYes);
-  div.appendChild(btnNo);
-
-  btnYes.addEventListener('click', (e) => {
+  confirmButtons((e) => {
     e.preventDefault();
 
+    const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
     const searchForm = document.getElementById('item_search_sidebar');
     const checkboxes = searchForm.querySelectorAll('.list-group-categories input[type="checkbox"]:checked')
 
@@ -99,11 +122,9 @@ const resetSearchCategories = () => {
       checkboxes.forEach(check => check.removeAttribute('checked'));
       searchForm.submit();
     } else {
-      btnNo.click();
+      modalBody.querySelector('[data-bs-dismiss="modal"]').click();
     }
   })
-
-  modalBody.appendChild(div);
 }
 
 const mainModalCallback = () => {

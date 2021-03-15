@@ -1,12 +1,16 @@
+<%- options = options.present? ? options : { store: true } %>
+
 <div class="p-1 text-wrap w-25">
-  <%= render 'photo', item: item %>
+  <%= render 'items/photo', item: item %>
 
   <h6 class="mb-0">
     <%= link_to item.name, item_path(item) %>
   </h6>
-  <div>
-    <%= link_to(item.store.name, store_items_path(item.store)) if item.store %>
-  </div>
+  <%- if options[:store] %>
+    <div>
+      <%= link_to(item.store.name, store_path(item.store)) if item.store %>
+    </div>
+  <% end %>
 </div>
 
 <%#= render 'photo_modal', item: item %>

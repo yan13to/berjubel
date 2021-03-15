@@ -1,14 +1,18 @@
+<%- options = options.present? ? options : { store: true } %>
+
 <div class="d-flex mb-3">
   <div>
-    <%= render 'photo', item: item %>
+    <%= render 'items/photo', item: item %>
   </div>
   <div class="me-auto p-2 ps-3">
     <h5 class="mb-0">
       <%= link_to item.name, item_path(item) %>
     </h5>
-    <div>
-      <%= link_to(item.store.name, store_path(item.store)) if item.store %>
-    </div>
+    <%- if options[:store] -%>
+      <div>
+        <%= link_to(item.store.name, store_path(item.store)) if item.store %>
+      </div>
+    <%- end -%>
   </div>
 </div>
 

@@ -14,15 +14,15 @@
       </div>
     <%- end -%>
   </div>
+  <!--
   <div class="d-flex">
     <strong class="me-auto"><%= t(:price) %></strong>
-    <a href="#mainModal"
-      data-bs-toggle="modal"
-      data-bs-title="Are sure want to reset prices?"
-      data-bs-body="This is the body from prices"><%= t(:reset) %></a>
+    <%#= link_to_main_modal t(:reset),
+        title: 'Are you sure want to reset prices?',
+        body: 'this the body from prices' %>
   </div>
   <div class="list-group list-group-prices">
-    <%= render 'items/filters/prices', f: f %>
+    <%#= render 'items/filters/prices', f: f %>
   </div>
   <div class="d-flex">
     <strong class="me-auto"><%= t(:rating) %></strong>
@@ -32,6 +32,7 @@
       data-bs-body="This is the body from ratings"><%= t(:reset) %></a>
   </div>
   <div class="list-group list-group-ratings">
-    <%= render 'items/filters/ratings', f: f %>
+    <%#= render 'items/filters/ratings', f: f %>
   </div>
+  -->
 <% end %>

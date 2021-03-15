@@ -6,10 +6,10 @@ class Item < ApplicationRecord
 
   has_many_attached :photos
 
-  has_many :item_categories, class_name: 'Item::Category', inverse_of: :item
+  has_many :item_categories, class_name: 'Item::Category', inverse_of: :item, dependent: :destroy
   has_many :categories, through: :item_categories
-  has_many :prices, class_name: 'Item::Price', inverse_of: :item
-  has_many :variants, class_name: 'Item::Variant', inverse_of: :item
+  has_many :prices, class_name: 'Item::Price', inverse_of: :item, dependent: :destroy
+  has_many :variants, class_name: 'Item::Variant', inverse_of: :item, dependent: :destroy
 
   def default_photo
     photos.first

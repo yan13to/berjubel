@@ -53,6 +53,18 @@ module Stores
       end
     end
 
+    def destroy
+      @item = @store.items.find(params[:id])
+
+      if @item.destroy
+        flash.now[:notice] = t('items.destroy.success')
+      else
+        flash.now[:notice] = t('items.destroy.failed')
+      end
+
+      redirect_to store_path(@store)
+    end
+
     private
 
     def item_params

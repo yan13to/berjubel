@@ -21,7 +21,7 @@
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
               <label class="btn btn-outline-secondary" for="btnradio3">
-                Your stores <span class="badge bg-secondary rounded-pill">14</span>
+                Your stores <span class="badge bg-danger rounded-pill">14</span>
               </label>
             </div>
           </form>
@@ -32,9 +32,7 @@
         </div>
         <div class="<%= build_items_classes %>">
           <%- if @items.present? %>
-            <% @items.each do |item| %>
-              <%= render item_listing_mode, item: item %>
-            <% end %>
+            <%= render_item_listing(@items, store: false) %>
           <% else %>
             <%= render 'empty' %>
           <% end %>

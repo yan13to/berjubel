@@ -33,10 +33,8 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js { render layout: false }
+      format.json { render partial: 'form.html.erb' }
     end
-
-    # render layout: false
   end
 
   def create
@@ -57,7 +55,7 @@ class StoresController < ApplicationController
     @store = current_user.stores.find(params[:id])
 
     if @store.update(store_params)
-      redirect_to @store, notice: t('stores.update.success')
+      redirect_to previous_or_current_path(store_path(@store)), notice: t('stores.update.success')
     else
       render :edit
     end
@@ -69,13 +67,13 @@ class StoresController < ApplicationController
     if @store.destroy
       redirect_to stores_path, notice: t('stores.destroy.success')
     else
-      render @store
+      render stores_path
     end
   end
 
   private
 
   def store_params
-    params.require(:store).permit(:name, :description)
+    params.require(:store).permit(:name, :description, :avatar)
   end
 end

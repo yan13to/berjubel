@@ -10,10 +10,14 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
-  has_one :profile, class_name: 'User::Profile'
-  has_one :setting, class_name: 'User::Setting'
+  has_one :profile, class_name: 'User::Profile', dependent: :destroy
+  has_one :setting, class_name: 'User::Setting', dependent: :destroy
 
-  has_many :stores
+  has_many :stores, dependent: :destroy
+
+  def my_store?(store)
+    stores.include?(store)
+  end
 
   def send_confirmation_instructions(opts = {})
     generate_confirmation_token! unless @raw_confirmation_token

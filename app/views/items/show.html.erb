@@ -12,6 +12,22 @@
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= @item.name %></h5>
+    <div class="row">
+      <div class="col d-flex">
+        <div style="width:80px;">
+          <%- @item.photos.each do |photo| %>
+            <%= link_to image_tag(photo.variant(resize_to_limit: [40, 40]), style: 'margin:5px;border:2px solid blue;'), '#' %>
+          <% end %>
+        </div>
+        <%= image_tag @item.default_photo.variant(resize_to_limit: [414, 414]) %>
+      </div>
+      <div class="col-6">
+        <h5 class="card-title">
+          <%= @item.name %>
+        </h5>
+        <div><%= link_to "Visit #{@item.store.name} store", store_path(@item.store) %></div>
+        <%= @item.description %>
+      </div>
+    </div>
   </div>
 </div>
