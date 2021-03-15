@@ -32,8 +32,7 @@ const directSubmit = () => {
 }
 
 const addNewStoreForm = (url) => {
-  const modal = document.getElementById('mainModal');
-  const modalBody = modal.querySelector('.modal-body');
+  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
 
   modalBody.appendChild(loadingIndicator());
 
@@ -44,6 +43,17 @@ const addNewStoreForm = (url) => {
     .then(html => {
       modalBody.innerHTML = html
     })
+}
+
+const destroyStoreCallback = (url, method) => {
+  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
+
+  modalBody.appendChild(loadingIndicator());
+
+  if (!url) return;
+
+  console.log(url)
+  console.log(method)
 }
 
 const loadingIndicator = () => {
@@ -62,8 +72,7 @@ const loadingIndicator = () => {
 }
 
 const resetSearchCategories = () => {
-  const modal = document.getElementById('mainModal');
-  const modalBody = modal.querySelector('.modal-body');
+  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
 
   const div = document.createElement('div');
   const btnYes = document.createElement('button');
@@ -81,6 +90,8 @@ const resetSearchCategories = () => {
   div.appendChild(btnNo);
 
   btnYes.addEventListener('click', (e) => {
+    e.preventDefault();
+
     const searchForm = document.getElementById('item_search_sidebar');
     const checkboxes = searchForm.querySelectorAll('.list-group-categories input[type="checkbox"]:checked')
 
@@ -102,8 +113,9 @@ const mainModalCallback = () => {
     const button = event.relatedTarget,
           title = button.getAttribute('data-bs-title'),
           body = button.getAttribute('data-bs-body'),
-          url = button.getAttribute('data-url'),
-          fn_params = [url];
+          url = button.getAttribute('data-bs-url'),
+          method = button.getAttribute('data-bs-method'),
+          fn_params = [url, method];
 
     let fn;
 
