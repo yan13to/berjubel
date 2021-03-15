@@ -12,6 +12,10 @@ module ApplicationHelper
     current_user.try(:setting).try(:listing_mode) || 'column'
   end
 
+  def render_item_listing(items, options = {})
+    render "items/#{item_listing_mode.pluralize}", items: items, options: options
+  end
+
   def render_user_name
     current_user.try(:profile).try(:first_name) || current_user.email
   end
@@ -84,10 +88,9 @@ module ApplicationHelper
     link_options.merge!('data-bs-toggle': :modal)
     link_options.merge!('data-bs-title': options[:title]) if options[:title]
     link_options.merge!('data-bs-body': options[:body]) if options[:body]
-    link_options.merge!('data-remote': true)
-    link_options.merge!('data-url': options[:url]) if options[:url]
-    link_options.merge!('data-params': options[:params]) if options[:params]
-    link_options.merge!('data-method': options[:method]) if options[:method]
+    link_options.merge!('data-bs-url': options[:url]) if options[:url]
+    link_options.merge!('data-bs-params': options[:params]) if options[:params]
+    link_options.merge!('data-bs-method': options[:method]) if options[:method]
     link_options.merge!(class: options[:class]) if options[:class]
 
     link_to name, '#mainModal', link_options
