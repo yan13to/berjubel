@@ -48,6 +48,8 @@ class StoresController < ApplicationController
 
   def edit
     @store = current_user.stores.find(params[:id])
+
+    render partial: 'form' and return if request.xhr?
   end
 
   def update
@@ -56,6 +58,8 @@ class StoresController < ApplicationController
     if @store.update(store_params)
       redirect_to previous_or_current_path(store_path(@store)), notice: t('stores.update.success')
     else
+      render partial: 'form', status: :unprocessable_entity and return if request.xhr?
+
       render :edit
     end
   end

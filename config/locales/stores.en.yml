@@ -1,6 +1,9 @@
 en:
   stores:
     create:
+      title: Create new store
       success: Store has been created successfully
+    destroy:
+      success: Store has been destroyed successfully
     update:
       success: Store has been updated successfully
