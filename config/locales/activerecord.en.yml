@@ -2,9 +2,13 @@ en:
   activerecord:
     attributes:
       common: &common
+        id: id
         name: Name
       item:
         <<: *common
+      store:
+        <<: *common
+        item: Item
       user:
         <<: *common
         confirmation_sent_at: Confirmation sent at

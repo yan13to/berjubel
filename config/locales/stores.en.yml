@@ -1,0 +1,6 @@
+en:
+  stores:
+    create:
+      success: Store has been created successfully
+    update:
+      success: Store has been updated successfully

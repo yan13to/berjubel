@@ -21,7 +21,7 @@
     <%= store.items.count %>
   </td>
   <td>
-    <%= time_ago_in_words(store.created_at) %> ago
+    <%= local_time_ago(store.created_at) %>
   </td>
   <td>
     <div class="btn-group" role="group">

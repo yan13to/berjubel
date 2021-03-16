@@ -2,18 +2,18 @@
 
 <%= render_breadcrumbs([
   link_to(t(:home), root_path),
-  Store.model_name.human(count: 2)
+  t(:my_store) 
 ]) %>
 <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <div class="card mb-3">
   <div class="card-body">
     <div class="d-flex align-items-center">
-      <h5 class="card-title me-auto"><%= Store.model_name.human(count: 2) %></h5>
+      <h5 class="card-title me-auto"><%= t(:my_store) %></h5>
       <%= link_to_main_modal content_tag(:i, nil, class: 'bi bi-plus'),
             title: 'Add new',
             body: 'addNewStoreForm',
-            url: new_store_path(format: :json),
+            url: new_store_path,
             class: 'btn btn-primary' %>
     </div>
     <table class="table table-hover align-middle">

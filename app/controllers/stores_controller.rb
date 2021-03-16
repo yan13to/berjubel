@@ -31,10 +31,7 @@ class StoresController < ApplicationController
   def new
     @store = current_user.stores.new
 
-    respond_to do |format|
-      format.html
-      format.json { render partial: 'form.html.erb' }
-    end
+    render partial: 'form' and return if request.xhr?
   end
 
   def create
@@ -43,6 +40,8 @@ class StoresController < ApplicationController
     if @store.save
       redirect_to stores_path, notice: t('stores.create.success')
     else
+      render partial: 'form', status: :unprocessable_entity and return if request.xhr?
+
       render :new
     end
   end

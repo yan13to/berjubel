@@ -4,12 +4,14 @@
     <%= f.text_field :name,
           class: render_field_class(@store, :name),
           required: true %>
+    <%= render_error_message_for(@store.errors[:name]) %>
   </div>
 
   <div class="mb-3">
     <%= f.label :description, class: 'd-block' %>
     <%= f.text_area :description,
           class: render_field_class(@store, :description) %>
+    <%= render_error_message_for(@store.errors[:description]) %>
   </div>
 
   <div class="mb-3">

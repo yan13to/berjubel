@@ -2,7 +2,7 @@
 
 <%= render_breadcrumbs([
   link_to(t(:home), root_path),
-  link_to(Store.model_name.human(count: 2), stores_path), @store.name
+  link_to(t(:my_store), stores_path), @store.name
 ]) %>
 <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
 

@@ -13,6 +13,7 @@ class Category < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 
   scope :parents, -> { where(parent_id: nil) }
 

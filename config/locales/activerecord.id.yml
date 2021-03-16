@@ -2,9 +2,13 @@ id:
   activerecord:
     attributes:
       common: &common
+        id: 'No'
         name: Nama
       item:
         <<: *common
+      store:
+        <<: *common
+        item: Item
       user:
         <<: *common
         confirmation_sent_at: Konfirmasi terkirim pada

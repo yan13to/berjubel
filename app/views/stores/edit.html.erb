@@ -2,7 +2,7 @@
 
 <%= render_breadcrumbs([
   link_to(t(:home), root_path),
-  link_to(Store.model_name.human(count: 2), stores_path),
+  link_to(t(:my_store), stores_path),
   t(:edit),
   @store.name
 ]) %>

@@ -10,6 +10,9 @@ require("channels");
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import LocalTime from "local-time"
+LocalTime.start()
+
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons';
 import '../stylesheets/application';
@@ -31,6 +34,20 @@ const directSubmit = () => {
   })
 }
 
+const submitNewStoreForm = (e) => {
+  const form = e.currentTarget;
+
+  form.addEventListener('ajax:success', (event) => {
+    console.log('success')
+  })
+
+  form.addEventListener('ajax:error', (event) => {
+    const [data, status, xhr] = event.detail;
+
+    document.getElementById('mainModal').querySelector('.modal-body').innerHTML = xhr.response;
+  })
+}
+
 const addNewStoreForm = (url) => {
   const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
 
@@ -38,16 +55,11 @@ const addNewStoreForm = (url) => {
 
   if (!url) return;
 
-  fetch(url)
+  fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
     .then(data => data.text())
     .then(html => {
-      modalBody.innerHTML = html;
-
-      modalBody.querySelector('input[type="submit]').addEventListener('click', (e) => {
-        e.preventDefault();
-
-        console.log('clicked')
-      })
+      modalBody.innerHTML = html
+      modalBody.querySelector('form').addEventListener('submit', submitNewStoreForm)
     })
 }
 

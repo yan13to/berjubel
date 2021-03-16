@@ -22,6 +22,7 @@ en:
     good: All good
     problem: There was a problem!
   my_store: My Store
+  'no': 'No'
   price: Price
   rating: Rating
   reset: Reset
@@ -32,3 +33,4 @@ en:
   send: Send
   submit: Submit
   update: Update
+  'yes': 'Yes'

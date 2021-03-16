@@ -14,6 +14,7 @@ gem 'devise_token_auth'
 gem 'geocoder'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
+gem 'local_time'
 gem 'pg'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
@@ -31,7 +32,7 @@ gem 'react-rails'
 gem 'will_paginate'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %I[mri mingw x64_mingw]
   gem 'faker'
 end
 

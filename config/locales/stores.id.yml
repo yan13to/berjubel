@@ -1,0 +1,6 @@
+id:
+  stores:
+    create:
+      success: Anda telah berhasil membuat toko
+    update:
+      success: Toko Anda telah berhasil di ubah

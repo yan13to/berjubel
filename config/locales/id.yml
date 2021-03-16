@@ -22,6 +22,7 @@ id:
     good: Semuanya bagus
     problem: Terdapat kesalahan!
   my_store: Tokoku
+  'no': Tidak
   price: Harga
   rating: Penilaian
   reset: Bersihkan
@@ -32,3 +33,4 @@ id:
   send: Kirim
   submit: :send
   update: :edit
+  'yes': Ya
