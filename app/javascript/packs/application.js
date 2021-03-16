@@ -25,13 +25,15 @@ ReactRailsUJS.useContext(componentRequireContext);
 const fadeAlert = () => window.setTimeout(() => $('div.alert').fadeTo(500, 0).slideUp(500, () => $(this).remove()), 2000);
 
 const directSubmit = () => {
-  const elements = $('[direct_submit=true]');
+  const elements = document.querySelectorAll('[direct_submit=true]');
 
-  elements.on('change', (e) => {
-    e.preventDefault()
+  for (let i=0; i < elements.length; i++) {
+    elements[i].addEventListener('change', (e) => {
+      e.preventDefault()
 
-    $(e.target).parents('form').trigger('submit');
-  })
+      e.currentTarget.closest('form').submit();
+    })
+  }
 }
 
 const submitNewStoreForm = (e) => {
