@@ -17,5 +17,6 @@ module Berjubel
     # the framework and any gems in your application.
 
     config.eager_load_paths += %W[#{config.root}/lib/berjubel]
+    config.time_zone = 'Jakarta'
   end
 end
