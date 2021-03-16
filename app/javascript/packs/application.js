@@ -36,7 +36,7 @@ const directSubmit = () => {
   }
 }
 
-const submitNewStoreForm = (e) => {
+const submitStoreForm = (e) => {
   const form = e.currentTarget;
 
   form.addEventListener('ajax:success', (event) => {
@@ -50,7 +50,7 @@ const submitNewStoreForm = (e) => {
   })
 }
 
-const addNewStoreForm = (url) => {
+const getStoreForm = (url) => {
   const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
 
   modalBody.appendChild(loadingIndicator());
@@ -61,7 +61,7 @@ const addNewStoreForm = (url) => {
     .then(data => data.text())
     .then(html => {
       modalBody.innerHTML = html
-      modalBody.querySelector('form').addEventListener('submit', submitNewStoreForm)
+      modalBody.querySelector('form').addEventListener('submit', submitStoreForm)
     })
 }
 

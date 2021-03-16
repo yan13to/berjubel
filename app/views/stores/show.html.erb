@@ -24,7 +24,11 @@
       </div>
       <%- if current_user.my_store?(@store) -%>
         <div class="btn-group me-3" role="group" aria-label="Basic outlined example">
-          <%= link_to t(:edit), edit_store_path(@store), class: 'btn btn-outline-primary' %>
+          <%= link_to_main_modal t(:edit),
+                title: t('stores.update.title', name: @store.name),
+                body: 'getStoreForm',
+                url: edit_store_path(@store),
+                class: 'btn btn-outline-primary' %>
           <%= link_to_main_modal t(:delete),
                 title: t(:are_you_sure),
                 body: 'destroyStoreCallback',

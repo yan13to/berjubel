@@ -6,4 +6,5 @@ en:
     destroy:
       success: Store has been destroyed successfully
     update:
+      title: Edit %{name}
       success: Store has been updated successfully

@@ -6,4 +6,5 @@ id:
     destroy:
       success: Toko telah berhasil di hapus
     update:
+      title: Ubah %{name}
       success: Toko Anda telah berhasil di ubah
