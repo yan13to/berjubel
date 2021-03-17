@@ -1,8 +1,16 @@
 <%- @stores.each do |store| %>
-  <li>
-    <%= link_to store.name, store_path(store), class: 'dropdown-item' %>
-  </li>
+  <% cache store do %>
+    <li>
+      <%= link_to store.name, store_path(store), class: 'dropdown-item' %>
+    </li>
+  <% end %>
 <% end %>
+<li>
+  <div class="dropdown-item">...</div>
+</li>
+<li>
+  <hr class="dropdown-divider" />
+</li>
 <li>
   <%= link_to t(:all), stores_path, class: 'dropdown-item' %>
 </li>

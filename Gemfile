@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'activestorage-validator'
 gem 'ahoy_matey'
 gem 'awesome_print'
 gem 'aws-sdk-rails', '~> 3'

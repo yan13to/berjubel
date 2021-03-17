@@ -25,7 +25,9 @@
         <th>&nbsp;</th>
       </tr>
       <% @stores.each do |store| %>
-        <%= render 'store', store: store %>
+        <% cache store do %>
+          <%= render 'store', store: store %>
+        <% end %>
       <% end %>
     </table>
   </div>

@@ -15,6 +15,13 @@
   </div>
 
   <div class="mb-3">
+    <%= f.label :avatar, class: 'd-block' %>
+    <%= f.file_field :avatar,
+          class: render_field_class(@store, :avatar) %>
+    <%= render_error_message_for(@store.errors[:avatar]) %>
+  </div>
+
+  <div class="mb-3">
     <%= f.submit t(:save), class: 'btn btn-secondary' %>
   </div>
 <% end %>
