@@ -13,6 +13,8 @@ class StoresController < ApplicationController
                           .order(order)
                           .page(page)
                           .per_page(per_page)
+
+    render partial: 'stores' and return if request.xhr?
   end
 
   def show

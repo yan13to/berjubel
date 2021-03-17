@@ -4,8 +4,9 @@
       <%= render_locale_form %>
     </li>
     <li class="p-2"> | </li>
-    <li>
-      <%= link_to t(:my_store), stores_path %>
+    <li class="dropdown">
+      <%= link_to_remote_dropdown t(:my_store), stores_path, url: stores_path(per_page: 3) %>
+      <ul class="dropdown-menu p-2">Loading...</ul>
     </li>
     <li class="p-2"> | </li>
     <li class="dropdown">
@@ -13,7 +14,7 @@
         <%= render_user_avatar %>
         <%= render_user_name %>
       <% end %>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-dark">
         <li>
           <%= link_to User::Profile.model_name.human, profile_path, class: 'dropdown-item' %>
         </li>

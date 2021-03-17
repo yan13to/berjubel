@@ -6,7 +6,7 @@
         <%- if store.avatar.attached? -%>
           <%= image_tag store.avatar.variant(resize_to_limit: [80, 80]), class: 'rounded-circle' %>
         <%- else -%>
-          <%= image_tag '/default/camera.svg', width: '80px', class: 'rounded-circle', style: 'border:2px solid black;' %>
+          <%= image_tag '/default/camera.svg', width: '80px' %>
         <%- end -%>
       </div>
       <div>

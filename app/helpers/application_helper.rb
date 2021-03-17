@@ -84,6 +84,16 @@ module ApplicationHelper
   end
 
   def link_to_main_modal(name, options = {})
+    link_to name, '#mainModal', main_modal_options(options)
+  end
+
+  def link_to_remote_dropdown(name, path, options = {})
+    link_to_unless_current name, path, remote_dropdown_options(options)
+  end
+
+  private
+
+  def main_modal_options(options = {})
     link_options = {}
     link_options.merge!('data-bs-toggle': :modal)
     link_options.merge!('data-bs-title': options[:title]) if options[:title]
@@ -92,11 +102,20 @@ module ApplicationHelper
     link_options.merge!('data-bs-params': options[:params]) if options[:params]
     link_options.merge!('data-bs-method': options[:method]) if options[:method]
     link_options.merge!(class: options[:class]) if options[:class]
-
-    link_to name, '#mainModal', link_options
+    link_options
   end
 
-  private
+  def remote_dropdown_options(options = {})
+    html_class = ['dropdown-toggle']
+    html_class << options[:class] if options[:class]
+
+    link_options = {}
+    link_options.merge!(class: html_class.join(' '))
+    link_options.merge!('data-bs-toggle': 'dropdown')
+    link_options.merge!('data-bs-dropdown': 'remote')
+    link_options.merge!('data-bs-url': options[:url])
+    link_options
+  end
 
   def alerty_types
     %i[primary secondary danger success warning info light dark]

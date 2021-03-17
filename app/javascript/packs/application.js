@@ -36,6 +36,25 @@ const directSubmit = () => {
   }
 }
 
+const dropdownCallback = () => {
+  const dropdowns = document.querySelectorAll('[data-bs-dropdown="remote"]');
+
+  for (let i = 0; i < dropdowns.length; i++) {
+    const dropdown = dropdowns[i];
+    const url = dropdown.getAttribute('data-bs-url');
+
+    dropdown.addEventListener('shown.bs.dropdown', (e) => {
+      const dropdownContent = e.currentTarget.nextElementSibling;
+
+      dropdownContent.innerHTML = loadingIndicator().innerHTML;
+
+      fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+        .then(data => data.text())
+        .then(html => dropdownContent.innerHTML = html)
+    })
+  }
+}
+
 const submitStoreForm = (e) => {
   const form = e.currentTarget;
 
@@ -196,6 +215,7 @@ const loadApp = () => {
   fadeAlert();
   directSubmit();
   mainModalCallback();
+  dropdownCallback();
 }
 
 document.addEventListener('turbolinks:load', loadApp);
