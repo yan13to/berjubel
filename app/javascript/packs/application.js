@@ -22,6 +22,8 @@ var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
+const headers = { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
+
 const fadeAlert = () => window.setTimeout(() => $('div.alert').fadeTo(500, 0).slideUp(500, () => $(this).remove()), 2000);
 
 const directSubmit = () => {
@@ -76,7 +78,7 @@ const getStoreForm = (url) => {
 
   if (!url) return;
 
-  fetch(url, { headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+  fetch(url, headers)
     .then(data => data.text())
     .then(html => {
       modalBody.innerHTML = html
@@ -131,14 +133,16 @@ const destroyStoreCallback = (url, method) => {
 const loadingIndicator = () => {
   const flex = document.createElement('div'),
         div = document.createElement('div'),
-        span = document.createElement('span');
+        span = document.createElement('span'),
+        loadingText = document.createTextNode('Loading...');
   
   flex.className = 'd-flex justify-content-center';
   div.className = 'spinner-grow';
   span.className = 'visually-hidden'
 
-  flex.appendChild(div);
+  span.appendChild(loadingText);
   div.appendChild(span);
+  flex.appendChild(div);
 
   return flex
 }
@@ -191,6 +195,27 @@ const mainModalCallback = () => {
   mainModal.addEventListener('hide.bs.modal', () => updateMainModal('Modal title', 'Modal body'));
 }
 
+const photosItemModalCallback = () => {
+  const modals = document.querySelectorAll('[data-bs-photos-item="true"]');
+
+  for(let i = 0; i < modals.length; i++) {
+    const modal = modals[i]
+
+    modal.addEventListener('show.bs.modal', (e) => {
+      const url = e.currentTarget.getAttribute('data-bs-photos-url');
+      const modalContent = modal.querySelector('.modal-content');
+
+      if (!url) return;
+
+      modalContent.innerHTML = loadingIndicator().innerHTML;
+
+      fetch(url, headers)
+        .then(data => data.text())
+        .then(html => modalContent.innerHTML = html)
+    })
+  }
+}
+
 const updateModal = (modal, title, body) => {
   const modalTitle = modal.querySelector('.modal-title'),
         modalBody = modal.querySelector('.modal-body');
@@ -215,6 +240,7 @@ const loadApp = () => {
   fadeAlert();
   directSubmit();
   mainModalCallback();
+  photosItemModalCallback();
   dropdownCallback();
 }
 

@@ -1,7 +1,8 @@
 <%- options = options.present? ? options : { store: true } %>
 
 <div class="p-1 text-wrap w-25">
-  <%= render 'items/photo', item: item %>
+  <%= link_to image_tag(item.default_photo.variant(resize_to_limit: [300, 100]), loading: :lazy),
+        "#photos-item-#{item.id}", 'data-bs-toggle': 'modal' %>
 
   <h6 class="mb-0">
     <%= link_to item.name, item_path(item) %>
@@ -13,4 +14,4 @@
   <% end %>
 </div>
 
-<%#= render 'photo_modal', item: item %>
+<%= render 'items/photo_modal', item: item  %>

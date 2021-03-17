@@ -6,7 +6,9 @@ class Store < ApplicationRecord
 
   has_many :items, dependent: :destroy
 
-  has_one_attached :avatar
+  has_one_attached :avatar do |attachable|
+    attachable.variant :small, resize: '80x80'
+  end
 
   validates :avatar, blob: { content_type: :image, size_range: 1..5.megabytes }
   validates :name, :description, presence: true
