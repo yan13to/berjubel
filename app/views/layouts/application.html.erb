@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Berjubel | Online marketplace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,8 +11,12 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' unless devise_controller? %>
     <div class="container">
+      <%= yield :breadcrumbs %>
+      <%= yield :alert %>
       <%= yield %>
     </div>
+    <%= render 'layouts/main_modal' %>
   </body>
 </html>

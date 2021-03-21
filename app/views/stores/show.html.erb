@@ -1,0 +1,66 @@
+<%- @page_title = [Store.model_name.human, @store.name].join(' | ') %>
+
+<%= render_breadcrumbs([
+  link_to(t(:home), root_path),
+  link_to(t(:my_store), stores_path), @store.name
+]) %>
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="card rounded-pill mb-3">
+  <div class="card-body">
+    <div class="d-flex align-items-center">
+      <% if @store.avatar.attached? %>
+        <%= image_tag @store.avatar.variant(resize_to_limit: [80, 80]), class: 'rounded-circle me-2' %>
+      <%- else -%>
+        <%= image_tag '/default/camera.svg', width: '80px', class: 'me-2' %>
+      <% end %>
+      <div class="me-auto">
+        <h5 class="card-title">
+          <%= @store.name %>
+        </h5>
+        <p>
+          <%= @store.description %>
+        </p>
+      </div>
+      <%- if current_user.my_store?(@store) -%>
+        <div class="btn-group me-3" role="group" aria-label="Basic outlined example">
+          <%= link_to_main_modal t(:edit),
+                title: t('stores.update.title', name: @store.name),
+                body: 'getStoreForm',
+                url: edit_store_path(@store),
+                class: 'btn btn-outline-primary' %>
+          <%= link_to_main_modal t(:delete),
+                title: t(:are_you_sure),
+                body: 'destroyStoreCallback',
+                url: store_path(@store),
+                method: :delete,
+                class: 'btn btn-outline-primary'  %>
+        </div>
+      <% else %>
+        <button class="btn btn-link me-3"><%= t(:follow) %></button>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Item</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Review</a>
+  </li>
+</ul>
+
+<div class="card">
+  <div class="card-body">
+    <div class="<%= build_items_classes %>">
+      <%- if @items.present? %>
+        <%= render_item_listing(@items, store: false) %>
+      <% else %>
+        <%= render 'empty' %>
+      <% end %>
+    </div>
+    <%= will_paginate(@items, renderer: BerjubelPagination) %>
+  </div>
+</div>

@@ -36,3 +36,9 @@ yarn-debug.log*
 .yarn-integrity
 .vscode
 berjubel_development
+
+/config/credentials/development.key
+
+/config/credentials/production.key
+
+/config/database.yml

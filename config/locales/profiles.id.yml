@@ -1,0 +1,6 @@
+id:
+  profiles:
+    create:
+      success: Profile Anda telah berhasil di ubah
+    update:
+      success: :profiles.create.success

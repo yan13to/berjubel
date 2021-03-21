@@ -1,0 +1,20 @@
+<div class="d-flex">
+  <div class="flex-grow-1">
+    <div class="mb-3">
+      <label for="first_name" class="d-block">
+        <%= User::Profile.human_attribute_name(:first_name) %>
+      </label>
+      <%= profile.first_name %>
+    </div>
+
+    <div class="mb-3">
+      <label for="last_name" class="d-block">
+        <%= User::Profile.human_attribute_name(:last_name) %>
+      </label>
+      <%= profile.last_name %>
+    </div>
+  </div>
+  <div>
+    <%= link_to t(:edit), edit_profile_path %>
+  </div>
+</div>

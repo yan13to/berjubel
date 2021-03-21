@@ -1,26 +1,16 @@
-<h2>Log in</h2>
+<%- @page_title = t('devise.sessions.new.sign_in') %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="card w-25" style="margin: 80px auto;">
+  <div class="card-header d-flex align-items-center">
+    <h5 class="card-title mt-2 me-auto">
+      <%= t('devise.sessions.new.sign_in') %>
+    </h5>
+    <%= render_locale_selector('new_user_session_path') %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="card-body">
+    <%= render 'form' %>
   </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="card-footer">
+    <%= render "users/shared/links" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

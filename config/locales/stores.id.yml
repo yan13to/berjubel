@@ -1,0 +1,10 @@
+id:
+  stores:
+    create:
+      title: Buat toko baru
+      success: Anda telah berhasil membuat toko
+    destroy:
+      success: Toko telah berhasil di hapus
+    update:
+      title: Ubah %{name}
+      success: Toko Anda telah berhasil di ubah

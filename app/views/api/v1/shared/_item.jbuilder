@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id item.id
 json.name item.name
 json.price number_to_currency(item.price)

@@ -1,29 +1,16 @@
-<h2>Sign up</h2>
+<%- @page_title = t('devise.registrations.new.sign_up') %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="card w-25" style="margin: 80px auto;">
+  <div class="card-header d-flex align-items-center">
+    <h6 class="card-title mt-2 me-auto">
+      <%= t('devise.registrations.new.sign_up') %>
+    </h6>
+    <%= render_locale_selector('new_user_registration_path') %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="card-body">
+    <%= render 'form_new' %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="card-footer">
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

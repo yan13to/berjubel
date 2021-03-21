@@ -1,0 +1,25 @@
+<div class="d-flex mb-3">
+  <div class="flex-grow-1">
+    <label for="currency" class="d-block">
+      <%= User::Setting.human_attribute_name(:currency) %>
+    </label>
+    <%= setting.currency.upcase %>
+  </div>
+  <div>
+    <%= link_to t(:edit), edit_setting_path %>
+  </div>
+</div>
+
+<div class="mb-3">
+  <label for="listing_mode" class="d-block">
+    <%= User::Setting.human_attribute_name(:listing_mode) %>
+  </label>
+  <%= I18n.t(setting.listing_mode) if setting.listing_mode.present? %>
+</div>
+
+<div class="mb-3">
+  <label for="locale" class="d-block">
+    <%= User::Setting.human_attribute_name(:locale) %>
+  </label>
+  <%= setting.locale.upcase %>
+</div>

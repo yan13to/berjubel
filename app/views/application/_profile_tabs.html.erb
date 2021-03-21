@@ -1,0 +1,14 @@
+<%- active ||= 'profile' %>
+
+<ul class="nav nav-tabs" id="profileTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <%= link_to profile_path, class: "nav-link #{'active' if active == 'profile'}" do %>
+      <%= User::Profile.model_name.human %>
+    <% end %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to account_path, class: "nav-link #{'active' if active == 'account'}" do %>
+      <%= t(:account) %>
+    <% end %>
+  </li>
+</ul>

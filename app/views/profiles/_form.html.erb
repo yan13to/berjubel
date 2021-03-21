@@ -1,0 +1,20 @@
+<%= form_for @profile, url: profile_path do |f| %>
+  <%= render_floating_alert(f.object.errors.full_messages) %>
+
+  <div class="mb-3">
+    <%= f.label :first_name, class: 'd-block' %>
+    <%= f.text_field :first_name, placeholder: User::Profile.human_attribute_name(:first_name) %>
+    <%= render_error_message_for(f.object.errors[:first_name]) %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :last_name, class: 'd-block' %>
+    <%= f.text_field :last_name, placeholder: User::Profile.human_attribute_name(:last_name) %>
+    <%= render_error_message_for(f.object.errors[:last_name]) %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit I18n.t(:save) %>
+    <%= link_to t(:cancel), profile_path %>
+  </div>
+<% end %>

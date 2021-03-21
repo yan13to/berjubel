@@ -12,6 +12,9 @@ Demo
 
 <https://berjubel.herokuapp.com>
 
+SPA (react js)
+
+<https://berjubel-app.web.app>
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

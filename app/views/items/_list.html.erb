@@ -1,0 +1,19 @@
+<%- options = options.present? ? options : { store: true } %>
+
+<div class="d-flex mb-3">
+  <div>
+    <%= link_to image_tag(item.default_photo.variant(resize_to_limit: [300, 100]), loading: :lazy), "#photos-item-#{item.id}", 'data-bs-toggle': 'modal' %>
+  </div>
+  <div class="me-auto p-2 ps-3">
+    <h5 class="mb-0">
+      <%= link_to item.name, item_path(item) %>
+    </h5>
+    <%- if options[:store] -%>
+      <div>
+        <%= link_to(item.store.name, store_path(item.store)) if item.store %>
+      </div>
+    <%- end -%>
+  </div>
+</div>
+
+<%= render 'items/photo_modal', item: item %>

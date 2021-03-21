@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container-fluid">
+    <strong>
+      <%= link_to_unless_current Rails.configuration.x.app_name, root_path, class: 'navbar-brand' do %>
+        <span class="navbar-brand"><%= Rails.configuration.x.app_name %></span>
+      <% end %>
+    </strong>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= yield :search_form %>
+      <%= render 'layouts/user_nav' %>
+    </div>
+  </div>
+</nav>

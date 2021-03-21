@@ -1,0 +1,27 @@
+<%- @page_title = [t(:edit), User::Profile.model_name.human].join(' | ') %>
+
+<%= render_breadcrumbs([t(:home), t(:edit), User::Profile.model_name.human]) %>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= User::Profile.model_name.human %>
+    </h5>
+    <div class="row">
+      <div class="col-2">
+        <%= render_profiles_avatar %>
+      </div>
+      <div class="col">
+        <%= render 'profile_tabs' %>
+        <div class="tab-content">
+          <div class="tab-pane pt-3 show active" id="profile">
+            <%= render 'form' %>
+          </div>
+          <div class="tab-pane pt-3" id="account">
+            <%= render 'accounts/account' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

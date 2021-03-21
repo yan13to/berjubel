@@ -1,0 +1,5 @@
+<% @photos.each do |photo| %>
+  <% cache photo do %>
+    <%= image_tag url_for(photo) %>
+  <% end %>
+<% end %>

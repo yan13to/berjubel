@@ -1,16 +1,16 @@
-<h2>Forgot your password?</h2>
+<%- @page_title = t('devise.passwords.new.forgot_your_password') %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="card w-25" style="margin: 80px auto;">
+  <div class="card-header d-flex align-items-center">
+    <h6 class="card-title mt-2 me-auto">
+      <%= t('devise.passwords.new.forgot_your_password') %>
+    </h6>
+    <%= render_locale_selector('new_user_password_path') %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="card-body">
+    <%= render 'form_new' %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+  <div class="card-footer">
+    <%= render "users/shared/links" %>
+  </div>
+</div>

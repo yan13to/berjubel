@@ -1,8 +1,7 @@
-<% 1.upto(100) do |i| %>
+<% 1.upto(1000) do |i| %>
 item_<%= i %>:
   id: <%= i %>
-  store_id: <%= (1..1000).to_a.sample %>
+  store_id: <%= (1..100).to_a.sample %>
   name: <%= Faker::Commerce.product_name %>
-  price: <%= Faker::Commerce.price(range: 10000.10000000000000000000) %>
-  stock: <%= (0..10000).to_a.sample %>
+  description: <%= Faker::Restaurant.description %>
 <% end %>

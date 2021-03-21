@@ -1,0 +1,26 @@
+<%= form_for current_user, url: account_path do |f| %>
+  <%= render_floating_alert(f.object.errors.full_messages) %>
+
+  <div class="mb-3">
+    <%= f.label :email, class: 'd-block' %>
+    <%= f.email_field :email %>
+    <%= render_error_message_for(f.object.errors[:email]) %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password, class: 'd-block' %>
+    <%= f.password_field :password %>
+    <%= render_error_message_for(f.object.errors[:password]) %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password_confirmation, class: 'd-block' %>
+    <%= f.password_field :password_confirmation %>
+    <%= render_error_message_for(f.object.errors[:password_confirmation]) %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit t(:save) %>&nbsp;
+    <%= link_to t(:cancel), account_path %>
+  </div>
+<% end %>

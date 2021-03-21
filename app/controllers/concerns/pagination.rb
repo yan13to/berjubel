@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Pagination
 module Pagination
   extend ActiveSupport::Concern
 
@@ -8,11 +9,11 @@ module Pagination
   end
 
   def page
-    params[:p] || 1
+    params[:page] || 1
   end
 
   def per_page
-    params[:pp] || 12
+    params[:per_page] || 24
   end
 
   def query

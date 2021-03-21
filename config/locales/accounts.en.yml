@@ -1,0 +1,4 @@
+en:
+  accounts:
+    update:
+      success: Account has been updated successfully

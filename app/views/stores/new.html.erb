@@ -1,0 +1,28 @@
+<%- @page_title = [Store.model_name.human(count: 2), t(:edit), @store.name].join(' | ') %>
+
+<%= render_breadcrumbs([
+  link_to(t(:home), root_path),
+  link_to(t(:my_store), stores_path),
+  t(:new),
+  @store.name
+]) %>
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= t(:new) %>
+    </h5>
+    <div class="row">
+      <div class="col-2">
+        <svg width="180" height="180" style="background-color: #eee;">
+          <circle cx="90" cy="90" r="40" stroke="white" stroke-width="4" fill="green" />
+          Sorry, your browser does not support inline SVG.
+        </svg>
+      </div>
+      <div class="col">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

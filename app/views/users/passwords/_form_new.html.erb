@@ -1,0 +1,12 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render_floating_alert(resource.errors.full_messages) %>
+
+  <div class="mb-3">
+    <%= f.label :email, class: 'd-block' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+          class: render_field_class(resource, :email), required: true %>
+    <%= render_error_message_for(resource.errors[:email]) %>
+  </div>
+
+  <%= f.submit t(:send), class: 'btn btn-secondary' %>
+<% end %>

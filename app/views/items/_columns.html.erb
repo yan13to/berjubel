@@ -1,0 +1,5 @@
+<%- @items.each do |item| %>
+  <% cache item do %>
+    <%= render 'items/column', item: item, options: options %>
+  <% end %>
+<%- end -%>

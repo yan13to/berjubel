@@ -1,0 +1,36 @@
+id:
+  account: Akun
+  all: Semua
+  back: Kembali
+  cancel: Batal
+  column: Kolom
+  create: Buat
+  edit: Ubah
+  empty: Kosong
+  en: EN
+  delete: Hapus
+  filter: Saring
+  follow: Ikuti
+  go: Lanjut
+  good: Bagus
+  hello: Halo
+  home: Beranda
+  id: ID
+  list: Baris
+  logout: Keluar
+  messages:
+    good: Semuanya bagus
+    problem: Terdapat kesalahan!
+  my_store: Tokoku
+  'no': Tidak
+  price: Harga
+  rating: Penilaian
+  reset: Bersihkan
+  sign_in: Masuk
+  sign_up: Daftar
+  save: Simpan
+  search: Cari
+  send: Kirim
+  submit: :send
+  update: :edit
+  'yes': Ya

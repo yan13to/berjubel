@@ -1,16 +1,45 @@
-<div class="modal fade show" tabindex="-1" style="display:block;">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Berjubel API</h5>
-      </div>
-      <div class="modal-body">
-        <p>
-          <a href="https://berjubel-app.web.app/" target="_blank">Frontend in react js</a>
-        </p>
+<%- @page_title = Item.model_name.human(count: 2) %>
+
+<%= render_search_form %>
+
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="row">
+  <div class="col-lg-2 pt-3">
+    <%= render 'items/filters/form' %>
+  </div>
+  <div class="col-lg-10">
+    <%= render 'breadcrumbs', items: [link_to(t(:home), root_path), Item.model_name.human(count: 2)] %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex pb-3">
+
+          <form class="me-auto">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+              <label class="btn btn-outline-secondary" for="btnradio1"><%= t(:all) %></label>
+
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-secondary" for="btnradio3">
+                Your stores <span class="badge bg-danger rounded-pill">14</span>
+              </label>
+            </div>
+          </form>
+
+          <div>
+            <%= render_listing_items_selector if signed_in? %>
+          </div>
+        </div>
+        <div class="<%= build_items_classes %>">
+          <%- if @items.present? %>
+            <%= render_item_listing(@items, store: false) %>
+          <% else %>
+            <%= render 'empty' %>
+          <% end %>
+        </div>
       </div>
     </div>
+
+    <%= will_paginate(@items, renderer: BerjubelPagination, class: 'pagination justify-content-center') %>
   </div>
 </div>
-
-<%#= react_component 'items/listing' %>

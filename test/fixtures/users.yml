@@ -7,7 +7,7 @@ user_1:
 <% 2.upto(50) do |i| %>
 user_<%= i %>:
   id: <%= i %>
-  email: <%= Faker::Internet.email(separators: i.to_s) %>
+  email: <%= Faker::Internet.email(domain: 'berjubel.com', separators: i.to_s) %>
   password: 'password'
   password_confirmation: 'password'
 <% end %>

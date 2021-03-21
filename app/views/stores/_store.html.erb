@@ -1,0 +1,38 @@
+<tr>
+  <td><%= store.id %></td>
+  <td>
+    <div class="d-flex">
+      <div class="pe-3">
+        <%- if store.avatar.attached? -%>
+          <%= image_tag store.avatar.variant(resize_to_limit: [80, 80]), class: 'rounded-circle' %>
+        <%- else -%>
+          <%= image_tag '/default/camera.svg', width: '80px' %>
+        <%- end -%>
+      </div>
+      <div>
+        <h5>
+          <%= link_to store.name, store_path(store) %>
+        </h5>
+        <%= store.description %>
+      </div>
+    </div>
+  </td>
+  <td>
+    <%= store.items.count %>
+  </td>
+  <td>
+    <%= local_time_ago(store.created_at) %>
+  </td>
+  <td>
+    <div class="btn-group" role="group">
+      <%= link_to t(:edit), edit_store_path(store, from: stores_path), class: 'btn btn-outline-primary' %>
+      <%= link_to 'aaaaaa', store_path(store), data: { method: :delete, confirm: 'are you sure?' }, class: 'btn btn-outline-primary' %>
+      <%= link_to_main_modal t(:delete),
+            title: t(:are_you_sure),
+            body: 'destroyStoreCallback',
+            url: store_path(store),
+            method: :delete,
+            class: 'btn btn-outline-primary'  %>
+    </div>
+  </td>
+</tr>

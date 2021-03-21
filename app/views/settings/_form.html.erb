@@ -1,0 +1,21 @@
+<%= form_for @setting, url: setting_path do |f| %>
+  <div class="mb-3">
+    <%= f.label :currency, class: 'd-block' %>
+    <%= f.select :currency, [['USD', 'usd'], ['IDR', 'idr']] %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :listing_mode, class: 'd-block' %>
+    <%= f.select :listing_mode, User::Setting.listing_modes.keys.map {|i| [I18n.t(i), i]} %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :locale, class: 'd-block' %>
+    <%= f.select :locale, [['EN', :en], ['ID', :id]] %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit I18n.t(:save) %>
+    <%= link_to t(:cancel), setting_path %>
+  </div>
+<% end %>
