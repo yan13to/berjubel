@@ -57,6 +57,46 @@ const dropdownCallback = () => {
   }
 }
 
+const handleStoreForm = (modalBody) => {
+  const invalidClass = 'is-invalid';
+  const validClass = 'is-valid';
+  const form = modalBody.querySelector('form');
+
+  const inputName = form.querySelector('input[name="store[name]"]');
+  const sourceFormGroup = inputName.closest('div.form-group');
+
+  const inputDomainName = form.querySelector('input[name="store[domain_name]"]');
+
+  form.addEventListener('submit', submitStoreForm);
+
+  inputName.addEventListener('input', (e) => {
+    target.value = e.currentTarget.value.trim();
+
+    if (e.currentTarget.value.trim().length === 0) {
+      e.currentTarget.classList.remove(validClass);
+      e.currentTarget.classList.add(invalidClass);
+
+      target.classList.remove(validClass);
+      target.classList.add(invalidClass);
+    } else {
+      const fieldWithErrors = sourceFormGroup.querySelectorAll('.field_with_errors');
+      const invalidFeedback = sourceFormGroup.querySelector('.invalid-feedback');
+
+      invalidFeedback.textContent = '';
+
+      for (let i = 0; i < fieldWithErrors.length; i++) {
+        fieldWithErrors[i].removeAttribute('class')
+      }
+
+      e.currentTarget.classList.remove(invalidClass);
+      e.currentTarget.classList.add(validClass);
+
+      target.classList.remove(invalidClass)
+      target.classList.add(validClass)
+    }
+  })
+}
+
 const submitStoreForm = (e) => {
   const form = e.currentTarget;
 
@@ -66,8 +106,10 @@ const submitStoreForm = (e) => {
 
   form.addEventListener('ajax:error', (event) => {
     const [data, status, xhr] = event.detail;
+    const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
 
-    document.getElementById('mainModal').querySelector('.modal-body').innerHTML = xhr.response;
+    modalBody.innerHTML = xhr.response;
+    handleStoreForm(modalBody);
   })
 }
 
@@ -81,8 +123,8 @@ const getStoreForm = (url) => {
   fetch(url, headers)
     .then(data => data.text())
     .then(html => {
-      modalBody.innerHTML = html
-      modalBody.querySelector('form').addEventListener('submit', submitStoreForm)
+      modalBody.innerHTML = html;
+      handleStoreForm(modalBody);
     })
 }
 
@@ -201,7 +243,7 @@ const photosItemModalCallback = () => {
   for(let i = 0; i < modals.length; i++) {
     const modal = modals[i]
 
-    modal.addEventListener('show.bs.modal', (e) => {
+    modal.addEventListener('shown.bs.modal', (e) => {
       const url = e.currentTarget.getAttribute('data-bs-photos-url');
       const modalContent = modal.querySelector('.modal-content');
 

@@ -2,12 +2,15 @@ id:
   activerecord:
     attributes:
       common: &common
+        avatar: Gambar
         id: 'No'
         name: Nama
       item:
         <<: *common
       store:
         <<: *common
+        description: Deskripsi
+        domain_name: Nama Domain
         item: Item
       user:
         <<: *common

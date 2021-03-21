@@ -34,12 +34,16 @@ module ApplicationHelper
     render 'success_message', messages: messages if messages.present?
   end
 
+  def render_success_message_for(model, field)
+    render 'success_message_for', model: model, field: field # if messages.present?
+  end
+
   def render_error_message(messages)
     render 'error_message', messages: messages if messages.present?
   end
 
   def render_error_message_for(messages)
-    render 'error_message_for', messages: messages if messages.present?
+    render 'error_message_for', messages: messages # if messages.present?
   end
 
   def render_field_class(object, field)

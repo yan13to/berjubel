@@ -16,7 +16,7 @@
       <div class="col d-flex align-items-center">
         <div style="width:80px;">
           <%- @item.photos.each do |photo| %>
-            <%= link_to image_tag(photo.variant(resize_to_limit: [40, 40]), style: 'margin:5px;border:2px solid blue;'), '#' %>
+            <%= link_to image_tag(photo.variant(resize_to_limit: [40, 40]), style: 'margin:5px auto;border:2px solid blue;'), '#' %>
           <% end %>
         </div>
         <div>
