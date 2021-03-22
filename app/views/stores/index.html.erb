@@ -12,7 +12,7 @@
       <h5 class="card-title me-auto"><%= t(:my_store) %></h5>
       <%= link_to_main_modal content_tag(:i, nil, class: 'bi bi-plus'),
             title: t('stores.create.title'),
-            body: 'getStoreForm',
+            processor: 'store/fetch-form',
             url: new_store_path,
             class: 'btn btn-primary' %>
     </div>

@@ -3,7 +3,7 @@
   <td>
     <div class="d-flex">
       <div class="pe-3">
-        <%- if store.avatar.attached? -%>
+        <%- if store.avatar.previewable? -%>
           <%= image_tag store.avatar.variant(resize_to_limit: [80, 80]), class: 'rounded-circle' %>
         <%- else -%>
           <%= image_tag '/default/camera.svg', width: '80px' %>

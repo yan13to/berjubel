@@ -101,7 +101,7 @@ module ApplicationHelper
     link_options = {}
     link_options.merge!('data-bs-toggle': :modal)
     link_options.merge!('data-bs-title': options[:title]) if options[:title]
-    link_options.merge!('data-bs-body': options[:body]) if options[:body]
+    link_options.merge!('data-bs-processor': options[:processor]) if options[:processor]
     link_options.merge!('data-bs-url': options[:url]) if options[:url]
     link_options.merge!('data-bs-params': options[:params]) if options[:params]
     link_options.merge!('data-bs-method': options[:method]) if options[:method]

@@ -17,6 +17,7 @@ id:
   home: Beranda
   id: ID
   list: Baris
+  loading: Memuat
   logout: Keluar
   messages:
     good: Semuanya bagus

@@ -3,7 +3,7 @@
     <strong class="me-auto"><%= Category.model_name.human(count: 2) %></strong>
     <%= link_to_main_modal t(:reset),
         title: 'Are you sure want to reset categories?',
-        body: 'resetSearchCategories' %>
+        processor: 'filter/reset-categories' %>
   </div>
   <div class="list-group list-group-categories">
     <%- if @parent_categories.any? -%>

@@ -17,6 +17,7 @@ en:
   home: Home
   id: ID
   list: List
+  loading: Loading
   logout: Logout
   messages:
     good: All good

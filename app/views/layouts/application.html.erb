@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <div id="upper-alert" class="alert-warning p-1 mt-1" role="alert">
+      <strong><%= t(:loading) %>...</strong>
+    </div>
     <%= render 'layouts/header' unless devise_controller? %>
     <div class="container">
       <%= yield :breadcrumbs %>
