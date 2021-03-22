@@ -29,27 +29,6 @@ var componentRequireContext = require.context("components", true);
 var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
-const destroyStoreCallback = (url, method) => {
-  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
-
-  if (!url) return;
-
-  const confirmedHandle = (e) => {
-    e.preventDefault()
-
-    e.currentTarget.className = 'btn btn-link';
-    e.currentTarget.innerHTML = loadingIndicator().innerHTML;
-
-    fetch(url, {
-      method: method
-    })
-      .then(data => data.text())
-      .then(html => modalBody.appendChild(html))
-  }
-
-  confirmButtons(confirmedHandle);
-}
-
 const loadApp = () => {
   DirectSubmit();
   DropdownCallback();

@@ -29,7 +29,7 @@
       <%= link_to 'aaaaaa', store_path(store), data: { method: :delete, confirm: 'are you sure?' }, class: 'btn btn-outline-primary' %>
       <%= link_to_main_modal t(:delete),
             title: t(:are_you_sure),
-            body: 'destroyStoreCallback',
+            processor: 'store/destroy',
             url: store_path(store),
             method: :delete,
             class: 'btn btn-outline-primary'  %>
