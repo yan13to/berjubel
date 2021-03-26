@@ -1,21 +1,30 @@
 <%= form_for @setting, url: setting_path do |f| %>
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :currency, class: 'd-block' %>
-    <%= f.select :currency, [['USD', 'usd'], ['IDR', 'idr']] %>
+    <%= f.select :currency, [['USD', 'usd'], ['IDR', 'idr']],
+          {}, class: render_field_class(@setting, :currency) %>
+    <%= render_error_message_for(@setting, :currency) %>
+    <%= render_success_message_for(User::Setting, :currency) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :listing_mode, class: 'd-block' %>
-    <%= f.select :listing_mode, User::Setting.listing_modes.keys.map {|i| [I18n.t(i), i]} %>
+    <%= f.select :listing_mode, User::Setting.listing_modes.keys.map {|i| [I18n.t(i), i]},
+          {}, class: render_field_class(@setting, :listing_mode) %>
+    <%= render_error_message_for(@setting, :listing_mode) %>
+    <%= render_success_message_for(User::Setting, :listing_mode) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :locale, class: 'd-block' %>
-    <%= f.select :locale, [['EN', :en], ['ID', :id]] %>
+    <%= f.select :locale, [['EN (English)', :en], ['ID (Bahasa Indonesia)', :id]],
+          {}, class: render_field_class(@setting, :locale) %>
+    <%= render_error_message_for(@setting, :locale) %>
+    <%= render_success_message_for(User::Setting, :locale) %>
   </div>
 
   <div class="mb-3">
-    <%= f.submit I18n.t(:save) %>
+    <%= f.submit I18n.t(:save), class: 'btn btn-secondary' %>
     <%= link_to t(:cancel), setting_path %>
   </div>
 <% end %>

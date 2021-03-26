@@ -3,6 +3,7 @@
 # Category model
 class Category < ApplicationRecord
   serialize :name, Hash
+  serialize :description, Hash
 
   belongs_to :parent, class_name: 'Category', foreign_key: :parent_id, optional: true
 

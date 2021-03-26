@@ -1,26 +1,26 @@
 <%= form_for current_user, url: account_path do |f| %>
   <%= render_floating_alert(f.object.errors.full_messages) %>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :email, class: 'd-block' %>
-    <%= f.email_field :email %>
-    <%= render_error_message_for(f.object.errors[:email]) %>
+    <%= f.email_field :email, class: render_field_class(f.object, :email) %>
+    <%= render_error_message_for(f.object, :email) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :password, class: 'd-block' %>
-    <%= f.password_field :password %>
-    <%= render_error_message_for(f.object.errors[:password]) %>
+    <%= f.password_field :password, class: render_field_class(f.object, :password) %>
+    <%= render_error_message_for(f.object, :password) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :password_confirmation, class: 'd-block' %>
-    <%= f.password_field :password_confirmation %>
-    <%= render_error_message_for(f.object.errors[:password_confirmation]) %>
+    <%= f.password_field :password_confirmation, class: render_field_class(f.object, :password_confirmation) %>
+    <%= render_error_message_for(f.object, :password_confirmation) %>
   </div>
 
   <div class="mb-3">
-    <%= f.submit t(:save) %>&nbsp;
+    <%= f.submit t(:save), class: 'btn btn-secondary' %>&nbsp;
     <%= link_to t(:cancel), account_path %>
   </div>
 <% end %>

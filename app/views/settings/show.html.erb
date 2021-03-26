@@ -5,7 +5,12 @@
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title"><%= User::Setting.model_name.human %></h5>
-    <%= render 'setting', setting: @setting %>
+    <h5 class="card-title">
+      <%= User::Setting.model_name.human %>
+    </h5>
+    <%= render 'setting_tabs' %>
+    <div class="pt-3">
+      <%= render 'setting', setting: @setting %>
+    </div>
   </div>
 </div>

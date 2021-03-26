@@ -5,6 +5,8 @@ class Store < ApplicationRecord
   belongs_to :user
 
   has_many :items, dependent: :destroy
+  has_many :item_labels, class_name: 'Item::Label', dependent: :destroy
+  has_many :labels, through: :item_labels
 
   has_one_attached :avatar do |attachable|
     attachable.variant :small, resize: '80x80'

@@ -2,11 +2,10 @@
   <%= image_tag avatar.variant(resize_to_limit: [180, 180]), class: 'rounded-circle' %>
 <%- else -%>
   <svg width="180" height="180" style="background-color: #eee;">
-    <circle cx="90" cy="90" r="40" stroke="white" stroke-width="4" fill="green" />
     Sorry, your browser does not support inline SVG.
   </svg>
 <% end %>
-
-<%= form_for current_user.profile || current_user.build_profile, url: profile_path do |f| %>
-  <%= f.file_field :avatar, direct_upload: true, direct_submit: true %>
+<%= form_with model: (current_user.profile || current_user.build_profile), url: profile_path, class: 'mt-2' do |f| %>
+  <%= f.file_field :avatar, direct_upload: true, direct_submit: true,
+        class: render_field_class(f.object, :avatar) %>
 <% end %>

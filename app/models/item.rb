@@ -8,6 +8,10 @@ class Item < ApplicationRecord
 
   has_many :item_categories, class_name: 'Item::Category', inverse_of: :item, dependent: :destroy
   has_many :categories, through: :item_categories
+
+  has_many :item_labels, class_name: 'Item::Label', inverse_of: :item, dependent: :destroy
+  has_many :lables, through: :item_labels
+
   has_many :prices, class_name: 'Item::Price', inverse_of: :item, dependent: :destroy
   has_many :variants, class_name: 'Item::Variant', inverse_of: :item, dependent: :destroy
 

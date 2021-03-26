@@ -1,16 +1,17 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render_floating_alert([flash.now[:alert]].compact) %>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :email, class: 'd-block' %>
     <%= f.email_field :email,
       autofocus: true,
       autocomplete: 'email',
       class: 'form-control',
       required: true %>
+    <%= render_error_message_for(resource, :email) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :password %>
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <small>
@@ -21,12 +22,14 @@
       autocomplete: 'current-password',
       class: 'form-control',
       required: true %>
+    <%= render_error_message_for(resource, :password) %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="form-check mb-3">
+    <div class="form-check mb-3 form-group">
       <%= f.check_box :remember_me, class: 'form-check-input' %>
       <%= f.label :remember_me, class: 'form-check-label' %>
+      <%= render_error_message_for(resource, :remember_me) %>
     </div>
   <% end %>
 

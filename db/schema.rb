@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_142410) do
+ActiveRecord::Schema.define(version: 2021_03_26_124611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,18 @@ ActiveRecord::Schema.define(version: 2021_03_19_142410) do
     t.index ["item_id"], name: "index_item_categories_on_item_id"
   end
 
+  create_table "item_labels", force: :cascade do |t|
+    t.bigint "store_id"
+    t.bigint "item_id"
+    t.bigint "label_id"
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_item_labels_on_item_id"
+    t.index ["label_id"], name: "index_item_labels_on_label_id"
+    t.index ["store_id"], name: "index_item_labels_on_store_id"
+  end
+
   create_table "item_prices", force: :cascade do |t|
     t.bigint "item_id"
     t.string "name"
@@ -127,6 +139,13 @@ ActiveRecord::Schema.define(version: 2021_03_19_142410) do
     t.integer "store_id"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.boolean "active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

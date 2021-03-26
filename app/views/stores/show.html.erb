@@ -9,10 +9,10 @@
 <div class="card rounded-pill mb-3">
   <div class="card-body">
     <div class="d-flex align-items-center">
-      <% if @store.avatar.previewable? %>
+      <% if @store.avatar.attached? %>
         <%= image_tag @store.avatar.variant(resize_to_limit: [80, 80]), class: 'rounded-circle me-2' %>
       <%- else -%>
-        <%= image_tag '/default/camera.svg', width: '80px', class: 'me-2' %>
+        <%= image_tag '/default/camera.svg', width: '80px', class: 'me-2', style: 'opacity:0.1' %>
       <% end %>
       <div class="me-auto">
         <h5 class="card-title">
@@ -43,16 +43,16 @@
   </div>
 </div>
 
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs border-bottom-0">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Item</a>
+    <%= link_to Item.model_name.human(count: 2), '#', class: 'nav-link active', 'aria-current': 'page' %>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Review</a>
+    <%= link_to 'Review', '#', class: 'nav-link' %>
   </li>
 </ul>
 
-<div class="card">
+<div class="card border-top-0">
   <div class="card-body">
     <div class="<%= build_items_classes %>">
       <%- if @items.present? %>

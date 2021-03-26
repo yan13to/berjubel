@@ -1,17 +1,15 @@
 # frozen_string_literal: true
 
-namespace :import do
-  namespace :from do
-    desc 'Import sample data from fixtures'
-    task fixtures: :environment do
-      models = ENV['MODELS'].present? ? ENV['MODELS'].split(',').map(&:to_sym) : []
+namespace :berjubel do
+  desc 'Import sample data from fixtures'
+  task fixtures: :environment do
+    models = ENV['MODELS'].present? ? ENV['MODELS'].split(',').map(&:to_sym) : []
 
-      if models.present?
-        load_categories if models.include?(:categories)
-        load_users if models.include?(:users)
-        load_stores if models.include?(:stores)
-        load_items if models.include?(:items)
-      end
+    if models.present?
+      load_categories if models.include?(:categories)
+      load_users if models.include?(:users)
+      load_stores if models.include?(:stores)
+      load_items if models.include?(:items)
     end
   end
 end

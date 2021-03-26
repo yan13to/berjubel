@@ -42,7 +42,12 @@ module ApplicationHelper
     render 'error_message', messages: messages if messages.present?
   end
 
-  def render_error_message_for(messages)
+  def render_error_message_for(model, field)
+    messages = if model.errors[field].present?
+                 model.errors[field]
+               else
+                 [[model.class.human_attribute_name(field), I18n.t('errors.messages.invalid')].join(' ')]
+               end
     render 'error_message_for', messages: messages # if messages.present?
   end
 

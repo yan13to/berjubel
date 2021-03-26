@@ -8,7 +8,7 @@
           autocomplete: 'email',
           class: render_field_class(resource, :email),
           required: true %>
-    <%= render_error_message_for(resource.errors[:email]) %>
+    <%= render_error_message_for(resource, :email) %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -24,25 +24,25 @@
           placeholder: t('devise.shared.minimum_password_length', count: @minimum_password_length),
           class: render_field_class(resource, :password),
           required: true %>
-    <%= render_error_message_for(resource.errors[:password]) %>
+    <%= render_error_message_for(resource, :password) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :password_confirmation, class: 'd-block' %>
     <%= f.password_field :password_confirmation,
           autocomplete: 'new-password',
           class: render_field_class(resource, :password_confirmation),
           required: true %>
-    <%= render_error_message_for(resource.errors[:password_confirmation]) %>
+    <%= render_error_message_for(resource, :password_confirmation) %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :current_password, class: 'd-block' %> <i>(<%= t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %>)</i>
     <%= f.password_field :current_password,
           autocomplete: 'current-password',
           class: render_field_class(resource, :current_password),
           required: true %>
-    <%= render_error_message_for(resource.errors[:current_password]) %>
+    <%= render_error_message_for(resource, :current_password) %>
   </div>
 
   <%= f.submit t(:update), class: 'btn btn-secondary' %>

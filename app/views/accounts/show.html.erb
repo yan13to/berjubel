@@ -13,14 +13,9 @@
         <%= render_profiles_avatar %>
       </div>
       <div class="col">
-        <%= render 'profile_tabs', active: 'account' %>
-        <div class="tab-content">
-          <div class="tab-pane pt-3" id="profile">
-            <%= render 'profiles/profile', profile: current_user.profile if current_user.profile %>
-          </div>
-          <div class="tab-pane pt-3 show active" id="account">
-            <%= render 'account' %>
-          </div>
+        <%= render 'profile_tabs' %>
+        <div class="pt-3">
+          <%= render 'account' %>
         </div>
       </div>
     </div>

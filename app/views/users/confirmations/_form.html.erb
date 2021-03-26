@@ -1,12 +1,12 @@
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render_floating_alert(resource.errors.full_messages) %>
 
-  <div class="mb-3">
+  <div class="mb-3 form-group">
     <%= f.label :email, class: 'd-block' %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', required: true,
           value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
           class: render_field_class(resource, :email) %>
-    <%= render_error_message_for(resource.errors[:email]) %>
+    <%= render_error_message_for(resource, :email) %>
   </div>
 
   <%= f.submit t(:send), class: 'btn btn-secondary' %>
