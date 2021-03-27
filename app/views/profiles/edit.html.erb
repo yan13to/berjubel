@@ -13,12 +13,14 @@
       </div>
       <div class="col">
         <%= render 'profile_tabs' %>
-        <div class="tab-content">
-          <div class="tab-pane pt-3 show active" id="profile">
-            <%= render 'form' %>
-          </div>
-          <div class="tab-pane pt-3" id="account">
-            <%= render 'accounts/account' %>
+        <div class="pt-3">
+          <div class="d-flex">
+            <div class="flex-grow-1">
+              <%= render 'form' %>
+            </div>
+            <div>
+              <%= link_to t(:cancel), profile_path %>
+            </div>
           </div>
         </div>
       </div>

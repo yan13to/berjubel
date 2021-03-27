@@ -9,9 +9,15 @@
   <li>
     <hr class="dropdown-divider" />
   </li>
-  <li>
-    <%= link_to t(:all), stores_path, class: 'dropdown-item' %>
-  </li>
+  <% if @stores.count == per_page %>
+    <li>
+      <%= link_to t(:all), stores_path, class: 'dropdown-item' %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to t('stores.create.title'), new_store_path, class: 'dropdown-item' %>
+    </li>
+  <% end %>
 <% else %>
   <li>
     <%= link_to t('stores.create.title'), new_store_path, class: 'btn btn-primary' %>

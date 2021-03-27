@@ -11,7 +11,7 @@ module Stores
     def index
       @store = Store.where(id: params[:store_id]).first
 
-      redirect_to items_path and return unless @store
+      redirect_to stores_path and return unless @store
 
       @items = @store.items
                      .ransack(query)

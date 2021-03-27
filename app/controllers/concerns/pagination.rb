@@ -4,6 +4,10 @@
 module Pagination
   extend ActiveSupport::Concern
 
+  included do
+    helper_method :per_page
+  end
+
   def order
     params[:order] || 'updated_at DESC'
   end
