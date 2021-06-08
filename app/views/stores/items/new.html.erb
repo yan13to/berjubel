@@ -1,0 +1,19 @@
+<%- @page_title = Item.model_name.human %>
+
+<%= render_breadcrumbs([
+  link_to(t(:home), root_path),
+  link_to(t(:my_store), stores_path),
+  link_to(@store.name, store_path(@store)),
+  Item.model_name.human(count: 2),
+  t(:new)
+]) %>
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= Item.model_name.human %>
+    </h5>
+    <%= render 'form', local: true %>
+  </div>
+</div>

@@ -18,6 +18,8 @@ def load_categories
   categories = YAML.safe_load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'categories.yml'))).result).map(&:values).flatten
 
   categories.each do |params|
+    params['name'] = { en: params['name'], id: params['name'] }
+    params['description'] = { en: params['description'], id: params['description'] }
     Category.where(id: params['id']).first_or_create!(params)
   end
 

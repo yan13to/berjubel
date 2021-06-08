@@ -1,4 +1,6 @@
 <%= form_with model: @store, local: false, data: { 'bj-remote': true, 'bj-processor': 'store/validate-form' } do |f| %>
+  <%= render_error_message(@store.errors.full_messages) %>
+
   <div class="mb-3 form-group">
     <%= f.label :name, class: 'd-block' %>
     <%= f.text_field :name, class: render_field_class(@store, :name) %>
@@ -15,18 +17,21 @@
       <%= f.text_field :domain_name, class: "#{render_field_class(@store, :domain_name)} ps-0" %>
     </div>
     <%= render_error_message_for(@store, :domain_name) %>
+    <%= render_success_message_for(Store, :domain_name) %>
   </div>
 
   <div class="mb-3 form-group">
     <%= f.label :description, class: 'd-block' %>
     <%= f.text_area :description, class: render_field_class(@store, :description) %>
     <%= render_error_message_for(@store, :description) %>
+    <%= render_success_message_for(Store, :description) %>
   </div>
 
   <div class="mb-3 form-group">
     <%= f.label :avatar, class: 'd-block' %>
     <%= f.file_field :avatar, class: render_field_class(@store, :avatar) %>
     <%= render_error_message_for(@store, :avatar) %>
+    <%= render_success_message_for(Store, :avatar) %>
   </div>
 
   <div class="mb-3">

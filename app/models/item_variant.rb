@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
-class Item::Variant < ApplicationRecord
+# ItemVariant
+class ItemVariant < ApplicationRecord
   belongs_to :item
 end

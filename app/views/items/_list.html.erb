@@ -2,7 +2,11 @@
 
 <div class="d-flex mb-3">
   <div>
-    <%= link_to image_tag(item.default_photo.variant(resize_to_limit: [300, 100]), loading: :lazy), "#photos-item-#{item.id}", 'data-bs-toggle': 'modal' %>
+    <% if item.photos.attached? %>
+      <%= link_to image_tag(item.default_photo.variant(resize_to_limit: [300, 100]), loading: :lazy), "#photos-item-#{item.id}", 'data-bs-toggle': 'modal' %>
+    <% else %>
+      <%= image_tag '/default/camera.svg', width: '150px', height: '100px', style: 'opacity: 0.1' %>
+    <% end %>
   </div>
   <div class="me-auto p-2 ps-3">
     <h5 class="mb-0">
@@ -13,6 +17,27 @@
         <%= link_to(item.store.name, store_path(item.store)) if item.store %>
       </div>
     <%- end -%>
+    <div class="text-truncate" style="max-width:670px;">
+      <%= item.description %>
+    </div>
+  </div>
+  <div>
+    <%- if current_user.my_store?(item.store) %>
+      <div class="dropdown">
+        <%= link_to '#', 'data-bs-toggle': 'dropdown' do %>
+          <i class="bi bi-three-dots"></i>
+        <% end %>
+
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+          <li>
+            <%= link_to t(:edit), edit_store_item_path(item.store, item), class: 'dropdown-item' %>
+          </li>
+          <li>
+            <%= link_to t(:delete), '#', class: 'dropdown-item' %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
 

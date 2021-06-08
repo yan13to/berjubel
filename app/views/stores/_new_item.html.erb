@@ -1,0 +1,6 @@
+<%= @store.name %> doen't have any items yet.&nbsp;
+<%= link_to_main_modal 'Create new item',
+      title: t(:new),
+      processor: 'item/fetch-form',
+      url: new_store_item_path(@store),
+      class: 'btn btn-primary' %>

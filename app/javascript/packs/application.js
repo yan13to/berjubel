@@ -18,6 +18,7 @@ import DropdownCallback from './bj/dropdown-callback';
 import FadeAlert from './bj/fade-alert';
 import FormCallback from './bj/form-callback';
 import MainModalCallback from './bj/main-modal-callback';
+import NestedDropdown from './bj/nested-dropdown';
 import PhotosModalCallback from './bj/photos-modal-callback';
 
 import 'bootstrap';
@@ -35,6 +36,7 @@ const loadApp = () => {
   FormCallback();
   FadeAlert();
   MainModalCallback();
+  NestedDropdown();
   PhotosModalCallback();
 
   // import('./bj/*')

@@ -13,18 +13,12 @@
     <div class="card mb-3">
       <div class="card-body">
         <% if @items.count.positive? %>
-          <div class="d-flex pb-3">
-            <form class="me-auto">
-              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                <label class="btn btn-outline-secondary" for="btnradio1"><%= t(:all) %></label>
-
-                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="btnradio3">
-                  Your stores <span class="badge bg-danger rounded-pill">14</span>
-                </label>
-              </div>
-            </form>
+          <div class="d-flex align-items-center">
+            <div class="me-auto fs-5">
+              <%= link_to t(:all), '#', class: 'badge rounded-pill bg-primary' %>
+              <%= link_to 'Following <span class="badge bg-danger">7</span>'.html_safe, '#', class: 'badge rounded-pill bg-info' %>
+              <%= link_to 'My Items', '#', class: 'badge rounded-pill bg-info' %>
+            </div>
             <div>
               <%= render_listing_items_selector if signed_in? %>
             </div>

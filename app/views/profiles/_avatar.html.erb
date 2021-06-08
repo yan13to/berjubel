@@ -1,5 +1,5 @@
 <%- if avatar&.attached? %>
-  <%= image_tag avatar.variant(resize_to_limit: [180, 180]), class: 'rounded-circle' %>
+  <%= image_tag avatar.variant(resize_to_limit: [180, 180]) %>
 <%- else -%>
   <svg width="180" height="180" style="background-color: #eee;">
     Sorry, your browser does not support inline SVG.

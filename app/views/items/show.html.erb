@@ -13,24 +13,25 @@
 <div class="card">
   <div class="card-body">
     <div class="row">
-      <div class="col d-flex align-items-center">
+      <div class="col d-flex align-items-start">
         <div style="width:80px;">
           <%- @item.photos.each do |photo| %>
             <%= link_to image_tag(photo.variant(resize_to_limit: [40, 40]), style: 'margin:5px auto;border:2px solid blue;'), '#' %>
           <% end %>
         </div>
-        <div>
-          <%= image_tag @item.default_photo.variant(resize_to_limit: [414, 414]) %>
+        <div class="mt-4">
+          <%= image_tag @item.default_photo.variant(resize_to_limit: [414, 414]) if @item.photos.attached? %>
         </div>
       </div>
       <div class="col-6">
-        <h5 class="card-title">
-          <%= @item.name %>
+        <h5 class="card-title d-flex">
+          <span class="me-auto"><%= @item.name %></span>
+          <%= render_item_action(@item) %>
         </h5>
         <div>
           <%= link_to "Visit #{@item.store.name} store", store_path(@item.store) %>
         </div>
-        <%= @item.description %>
+        <%= simple_format(@item.description) %>
       </div>
     </div>
   </div>

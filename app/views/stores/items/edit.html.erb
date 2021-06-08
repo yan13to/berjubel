@@ -1,0 +1,22 @@
+<%- @page_title = [Item.model_name.human, @item.name].join(' | ') %>
+
+<%= render_breadcrumbs([
+  link_to(t(:home), root_path),
+  link_to(t(:my_store), stores_path),
+  link_to(@store.name, store_path(@store)),
+  @item.name,
+  t(:edit)
+]) %>
+<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex align-items-center">
+      <h5 class="card-title me-auto">
+        <%= [t(:edit), content_tag(:i, @item.name)].join(' ').html_safe %>
+      </h5>
+      <%= link_to t(:cancel), :back, class: 'btn btn-link' %>
+    </div>
+    <%= render 'form', local: true %>
+  </div>
+</div>

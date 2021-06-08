@@ -1,5 +1,5 @@
-<%= f.collection_check_boxes :categories_id_in, categories, :id, :name, {}, direct_submit: true do |b| %>
+<%= f.collection_check_boxes :categories_id_in, categories, :id, :translated_name, {}, direct_submit: true do |b| %>
   <label class="list-group-item">
-    <%= b.check_box %> <span><%= b.object.name %></span>
+    <%= b.check_box %> <span><%= b.object.translated_name %></span>
   </label>
 <% end %>

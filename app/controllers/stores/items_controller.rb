@@ -23,44 +23,60 @@ module Stores
 
     def show
       @item = @store.items.find(params[:id])
+
+      render 'items/show'
     end
 
     def new
       @item = @store.items.new
+      build_related_fields
+
+      render partial: 'stores/items/form' if request.xhr?
     end
 
     def create
       @item = @store.items.new(item_params)
+      build_related_fields
 
       if @item.save
-        redirect_to store_items_path(@store), notice: t('items.create.success')
+        redirect_to store_path(@store), notice: t('items.create.success')
       else
+        render partial: 'stores/items/form', status: :unprocessable_entity and return if request.xhr?
+
         render :new
       end
     end
 
     def edit
       @item = @store.items.find(params[:id])
+      build_related_fields
+
+      render partial: 'stores/items/form' if request.xhr?
     end
 
     def update
       @item = @store.items.find(params[:id])
+      build_related_fields
 
       if @item.update(item_params)
-        redirect_to store_items_path(@store), notice: t('items.update.success')
+        if request.xhr?
+          render partial: 'stores/items/form'
+        else
+          redirect_to store_path(@store), notice: t('items.update.success')
+        end
       else
-        render :edit
+        if request.xhr?
+          render partial: 'stores/items/form'
+        else
+          render :edit
+        end
       end
     end
 
     def destroy
       @item = @store.items.find(params[:id])
 
-      if @item.destroy
-        flash.now[:notice] = t('items.destroy.success')
-      else
-        flash.now[:notice] = t('items.destroy.failed')
-      end
+      flash.now[:notice] = @item.destroy ? t('items.destroy.success') : t('items.destroy.failed')
 
       redirect_to store_path(@store)
     end
@@ -68,7 +84,17 @@ module Stores
     private
 
     def item_params
-      params.require(:item).permit(:name)
+      params.require(:item).permit(
+        :name,
+        :description,
+        item_categories_attributes: %i[id category_id _destroy],
+        item_labels_attributes: %i[id label_id _destroy],
+        photos: []
+      )
+    end
+
+    def build_related_fields
+      @item_categories = @item.item_categories.present? ? @item.item_categories : @item.item_categories.build
     end
 
     def find_store

@@ -28,7 +28,7 @@ export default function MainModalCallback() {
 
     import('../processor/'+ processor)
       .then(module => module.default(url, method))
-      .catch(error => console.log(error))
+      .catch(error => updateMainModal('error', error))
   })
 
   mainModal.addEventListener('hide.bs.modal', () => updateMainModal('Modal title', 'Modal body'));

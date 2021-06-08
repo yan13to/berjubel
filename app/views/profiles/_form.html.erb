@@ -1,4 +1,6 @@
-<%= form_for @profile, url: profile_path do |f| %>
+<%- local ||= false %>
+
+<%= form_with model: @profile, url: profile_path, local: local do |f| %>
   <%= render_floating_alert(f.object.errors.full_messages) %>
 
   <div class="mb-3 form-group">

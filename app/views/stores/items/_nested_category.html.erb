@@ -1,0 +1,18 @@
+<% path_ids ||= [] %>
+
+<ul class="dropdown-menu">
+  <% categories.each do | category| %>
+    <%- children = category.children %>
+    <li class="dropdown <%= 'dropend' if children.present? %> <%= 'active' if path_ids.include?(category.id) %>">
+      <span
+        class="dropdown-item <%= 'dropdown-toggle' if children.present? %>"
+        data-bs-toggle="dropdown"
+        data-value="<%= category.id %>"
+        data-label="<%= category.translated_name %>"
+        data-path="<%= [category.parent.try(:translated_name), category.translated_name].compact.join(' &rArr; ').html_safe %>">
+        <%= category.translated_name %>
+      </span>
+      <%= render 'stores/items/nested_category', categories: children if children.present? %>
+    </li>
+  <% end %>
+</ul>

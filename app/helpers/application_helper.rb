@@ -24,7 +24,7 @@ module ApplicationHelper
     avatar = current_user.try(:profile).try(:avatar)
 
     if avatar&.attached?
-      image_tag avatar.variant(resize_to_limit: [40, 40]), class: 'rounded-circle'
+      image_tag avatar.variant(resize_to_limit: [40, 40], crop: '40x40+0+0')
     else
       image_tag '/default/avatar.svg', width: '34px'
     end
@@ -52,8 +52,7 @@ module ApplicationHelper
   end
 
   def render_field_class(object, field)
-    'form-control is-invalid' if object.errors.messages[field].present?
-    'form-control'
+    object.errors.messages[field].present? ? 'form-control is-invalid' : 'form-control'
   end
 
   def render_floating_alert(messages, type = :danger)

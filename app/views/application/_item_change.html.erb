@@ -1,0 +1,13 @@
+<%- options ||= {} %>
+
+<div class="dropdown <%= options[:class] %>">
+  <%= link_to content_tag(:i, nil, class: 'bi bi-three-dots'), '#', 'data-bs-toggle': 'dropdown' %>
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+    <li>
+      <%= link_to t(:edit), edit_store_item_path(item.store, item), class: 'dropdown-item' %>
+    </li>
+    <li>
+      <%= link_to t(:delete), '#', class: 'dropdown-item' %>
+    </li>
+  </ul>
+</div>

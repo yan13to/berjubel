@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_one :profile, class_name: 'User::Profile', dependent: :destroy
   has_one :setting, class_name: 'User::Setting', dependent: :destroy
 
+  has_many :item_labels, class_name: 'Item::Label'
+  has_many :labels, through: :item_labels
   has_many :stores, dependent: :destroy
 
   def my_store?(store)

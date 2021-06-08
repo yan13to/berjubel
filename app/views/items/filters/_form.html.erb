@@ -1,15 +1,15 @@
 <%= search_form_for Item.ransack(params[:q]), id: 'item_search_sidebar' do |f| %>
   <div class="d-flex">
     <strong class="me-auto"><%= Category.model_name.human(count: 2) %></strong>
-    <% if @parent_categories.present? %>
+    <% if Category.parents.present? %>
       <%= link_to_main_modal t(:reset),
           title: 'Are you sure want to reset categories?',
           processor: 'filter/reset-categories' %>
     <% end %>
   </div>
   <div class="list-group list-group-categories">
-    <%- if @parent_categories.any? -%>
-      <%= render 'items/filters/categories', f: f, categories: @parent_categories %>
+    <%- if Category.parents.any? -%>
+      <%= render 'items/filters/categories', f: f, categories: Category.parents %>
     <%- else -%>
       <div class="list-group-item">
         <%= render 'empty' %>
