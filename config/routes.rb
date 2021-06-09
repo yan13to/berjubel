@@ -3,10 +3,10 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      mount_devise_token_auth_for 'User', at: 'users', controllers: {
-        registrations: 'api/v1/users/registrations',
-        sessions: 'api/v1/users/sessions'
-      }
+      # mount_devise_token_auth_for 'User', at: 'users', controllers: {
+      #   registrations: 'api/v1/users/registrations',
+      #   sessions: 'api/v1/users/sessions'
+      # }
 
       resources :items, except: %I[new edit] do
         resources :photos, except: %I[new edit]

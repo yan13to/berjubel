@@ -136,10 +136,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise_token_auth (1.1.5)
-      bcrypt (~> 3.0)
-      devise (> 3.5.2, < 5)
-      rails (>= 4.2.0, < 6.2)
     errbase (0.2.1)
     erubi (1.10.0)
     execjs (2.8.1)
@@ -395,7 +391,6 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-  devise_token_auth
   faker
   geocoder
   google-cloud-translate

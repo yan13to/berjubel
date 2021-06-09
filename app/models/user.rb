@@ -8,12 +8,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
-  # include DeviseTokenAuth::Concerns::User
-
   has_one :profile, class_name: 'User::Profile', dependent: :destroy
   has_one :setting, class_name: 'User::Setting', dependent: :destroy
 
-  has_many :item_labels, class_name: 'Item::Label'
+  has_many :item_labels, class_name: 'ItemLabel'
   has_many :labels, through: :item_labels
   has_many :stores, dependent: :destroy
 

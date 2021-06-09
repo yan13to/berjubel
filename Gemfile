@@ -11,7 +11,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
-gem 'devise_token_auth'
+# gem 'devise_token_auth'
 gem 'geocoder'
 gem 'google-cloud-translate'
 gem 'image_processing', '~> 1.2'
