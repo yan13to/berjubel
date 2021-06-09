@@ -14,7 +14,6 @@
     "jquery": "^3.4.1",
     "jquery-lazy": "^1.7.10",
     "local-time": "^2.1.0",
-    "popper.js": "^1.15.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
