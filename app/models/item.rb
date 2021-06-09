@@ -13,8 +13,8 @@ class Item < ApplicationRecord
   has_many :categories, through: :item_categories
   has_many :item_labels, inverse_of: :item, dependent: :destroy
   has_many :labels, through: :item_labels
-  has_many :prices, class_name: 'Item::Price', inverse_of: :item, dependent: :destroy
-  has_many :variants, class_name: 'Item::Variant', inverse_of: :item, dependent: :destroy
+  has_many :prices, class_name: 'ItemPrice', inverse_of: :item, dependent: :destroy
+  has_many :variants, class_name: 'ItemVariant', inverse_of: :item, dependent: :destroy
 
   accepts_nested_attributes_for :item_categories, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :item_labels, allow_destroy: true, reject_if: :all_blank
@@ -25,6 +25,8 @@ class Item < ApplicationRecord
   before_validation do |record|
     record.user = record.store.user
   end
+
+  ransack_alias :all, :id_or_name_or_description
 
   def default_photo
     photos.first

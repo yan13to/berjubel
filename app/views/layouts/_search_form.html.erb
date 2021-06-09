@@ -9,7 +9,7 @@
         <%= render 'stores/items/nested_category', categories: Category.parents %>
       </div>
 
-      <%= f.hidden_field :categories_id_in %>
+      <%= f.hidden_field :all_cont %>
     </span>
     <%= f.search_field :name_cont, class: 'form-control' %>
     <%= f.submit t(:search), class: 'btn btn-primary' %>
