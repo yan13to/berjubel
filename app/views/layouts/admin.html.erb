@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= admin_page_title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="mask-icon" href="/favicon.svg" color="#000000">
+
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body <%= body_class %>>
+    <%= render_upper_alert %>
+    <%= render_admin_header %>
+    <%= yield :main_nav %>
+    <%= yield :breadcrumbs %>
+    <div class="container-fluid">
+      <%= yield :alert %>
+      <%= yield %>
+    </div>
+    <%= render 'footer' %>
+    <%= render_main_modal %>
+  </body>
+</html>

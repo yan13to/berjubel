@@ -1,39 +1,43 @@
-<%- @page_title = Item.model_name.human(count: 2) %>
+<% @page_title = Item.model_name.human(count: 2) %>
+<% render_search_form %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% render_breadcrumbs([link_to(t(:home), root_path, class: 'text-decoration-none'), Item.model_name.human(count: 2)]) %>
 
-<%= render_search_form %>
-
-<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
-
-<div class="row">
-  <div class="col-lg-2 pt-3">
-    <%= render 'items/filters/form' %>
+<div class="d-flex align-items-center">
+  <div class="me-auto fs-5">
+    <%= link_to t(:all), items_path, class: 'badge rounded-pill bg-primary text-decoration-none' %>
+    <%= link_to following_items_path, class: 'badge rounded-pill bg-info text-decoration-none position-relative' do %>
+      Following
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99+
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    <% end %>
+    <%= link_to 'My Items', me_items_path, class: 'badge rounded-pill bg-info text-decoration-none' %>
   </div>
-  <div class="col-lg-10">
-    <%= render 'breadcrumbs', items: [link_to(t(:home), root_path), Item.model_name.human(count: 2)] %>
-    <div class="card mb-3">
-      <div class="card-body">
-        <% if @items.count.positive? %>
-          <div class="d-flex align-items-center">
-            <div class="me-auto fs-5">
-              <%= link_to t(:all), '#', class: 'badge rounded-pill bg-primary' %>
-              <%= link_to 'Following <span class="badge bg-danger">7</span>'.html_safe, '#', class: 'badge rounded-pill bg-info' %>
-              <%= link_to 'My Items', '#', class: 'badge rounded-pill bg-info' %>
-            </div>
-            <div>
-              <%= render_listing_items_selector if signed_in? %>
-            </div>
-          </div>
-        <% end %>
-        <div class="<%= build_items_classes %>">
-          <%- if @items.present? %>
-            <%= render_item_listing(@items, store: false) %>
-          <% else %>
-            <%= render 'empty' %>
-          <% end %>
-        </div>
-      </div>
-    </div>
+  <div>
+    <%= render_listing_items_selector if signed_in? %>
+  </div>
+</div>
 
-    <%= will_paginate(@items, renderer: BerjubelPagination, class: 'pagination justify-content-center') %>
+<div class="my-3">
+  <div class="<%= build_items_classes %>">
+    <%- if @items.present? %>
+      <%= render_item_listing(@items, store: false) %>
+    <% else %>
+      <%= render 'empty' %>
+    <% end %>
+  </div>
+</div>
+
+<%= render_records_navigation @items %>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasMainLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasMainLabel">Filter</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <%= render 'items/filters/form' %>
   </div>
 </div>

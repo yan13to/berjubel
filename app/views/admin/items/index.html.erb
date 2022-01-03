@@ -1,0 +1,44 @@
+<% render_admin_page_title(Item.model_name.human(count: 2)) %>
+<% render_admin_main_nav(:items) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), Item.model_name.human(count: 2)]) %>
+
+<h3><%= Item.model_name.human(count: 2) %></h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">
+        <%= sort_link(@search, :id, {}, { class: 'text-decoration-none' }) %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@search, :name, {}, { class: 'text-decoration-none' }) %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@search, :store_name, {}, { class: 'text-decoration-none' }) %>
+      </th>
+      <th scope="col">
+        <%= sort_link(@search, :description, {}, { class: 'text-decoration-none' }) %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <%= item.name %>
+        </td>
+        <td>
+          <%= item.store.try(:name) %>
+        </td>
+        <td>
+          <%= item.description %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render_records_navigation @items %>

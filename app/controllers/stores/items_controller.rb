@@ -13,12 +13,11 @@ module Stores
 
       redirect_to stores_path and return unless @store
 
-      @items = @store.items
-                     .ransack(query)
-                     .result(distinct: true)
-                     .order(order)
-                     .page(page)
-                     .per_page(per_page)
+      @search = @store.items.ransack(query)
+      @items = @search.result(distinct: true)
+                      .order(order)
+                      .page(page)
+                      .per(per_page)
     end
 
     def show
@@ -29,14 +28,12 @@ module Stores
 
     def new
       @item = @store.items.new
-      build_related_fields
 
       render partial: 'stores/items/form' if request.xhr?
     end
 
     def create
       @item = @store.items.new(item_params)
-      build_related_fields
 
       if @item.save
         redirect_to store_path(@store), notice: t('items.create.success')
@@ -49,14 +46,12 @@ module Stores
 
     def edit
       @item = @store.items.find(params[:id])
-      build_related_fields
 
       render partial: 'stores/items/form' if request.xhr?
     end
 
     def update
       @item = @store.items.find(params[:id])
-      build_related_fields
 
       if @item.update(item_params)
         if request.xhr?
@@ -64,21 +59,19 @@ module Stores
         else
           redirect_to store_path(@store), notice: t('items.update.success')
         end
+      elsif request.xhr?
+        render partial: 'stores/items/form'
       else
-        if request.xhr?
-          render partial: 'stores/items/form'
-        else
-          render :edit
-        end
+        render :edit
       end
     end
 
     def destroy
       @item = @store.items.find(params[:id])
 
-      flash.now[:notice] = @item.destroy ? t('items.destroy.success') : t('items.destroy.failed')
+      notice = @item.destroy ? t('items.destroy.success') : t('items.destroy.failed')
 
-      redirect_to store_path(@store)
+      redirect_to store_path(@store), notice: notice
     end
 
     private
@@ -87,20 +80,19 @@ module Stores
       params.require(:item).permit(
         :name,
         :description,
-        item_categories_attributes: %i[id category_id _destroy],
+        :category_id,
+        :label_id,
         item_labels_attributes: %i[id label_id _destroy],
         photos: []
       )
     end
 
-    def build_related_fields
-      @item_categories = @item.item_categories.present? ? @item.item_categories : @item.item_categories.build
-    end
-
     def find_store
       @store = current_user.stores.where(id: params[:store_id]).first
 
-      redirect_to stores_path and return unless @store
+      respond_to do |format|
+        format.html { redirect_to stores_path and return unless @store }
+      end
     end
   end
 end

@@ -1,7 +1,6 @@
-<%- @page_title = t(:account) %>
-
-<%= render_breadcrumbs([t(:home), User::Profile.model_name.human]) %>
-<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% @page_title = t(:account) %>
+<% render_breadcrumbs([t(:home), User::Profile.model_name.human]) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <div class="card">
   <div class="card-body">

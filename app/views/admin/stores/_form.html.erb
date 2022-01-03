@@ -1,0 +1,10 @@
+<%= form_with model: @store, local: local, url: url, builder: BerjubelFormBuilder, data: { 'bj-remote': !local, 'bj-processor': 'store/validate-form' } do |f| %>
+  <%= f.alert %>
+  <%= f.select_form_group :user_id, User.all.map{|u| [u.email, u.id]}, include_blank: t('.select_user') %>
+  <%= f.text_form_group :name %>
+  <%= f.domain_form_group :domain_name %>
+  <%= f.text_area_form_group :description %>
+  <%= f.check_box_form_group :active %>
+  <%= f.file_form_group :avatar %>
+  <%= f.action_form_group :save %>
+<% end %>

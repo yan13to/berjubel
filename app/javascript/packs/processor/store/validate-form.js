@@ -1,6 +1,8 @@
 import submitStoreForm from './submit-form';
 
 export default function validateStoreForm(form) {
+  if (!form) return;
+
   form.addEventListener('submit', submitStoreForm);
 
   const invalidClass = 'is-invalid';

@@ -1,0 +1,67 @@
+<% render_admin_page_title(Category.model_name.human(count: 2)) %>
+<% render_admin_main_nav(:categories) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), Category.model_name.human(count: 2)]) %>
+
+<div class="d-flex justify-content-between align-items-center my-2">
+  <h3><%= Category.model_name.human(count: 2) %></h3>
+  <div class="btn-group" role="group" aria-label="Actions">
+    <button class="btn btn-secondary">
+      <i class="bi bi-search"></i>
+    </button>
+    <button class="btn btn-danger">
+      <i class="bi bi-caret-down"></i>
+    </button>
+    <button class="btn btn-primary">
+      <i class="bi bi-grid"></i>
+    </button>
+    <%= link_to new_admin_category_path, class: 'btn btn-success' do %>
+      <i class="bi bi-plus"></i>
+    <% end %>
+  </div>
+</div>
+
+<table class="table table-hover align-middle">
+  <thead>
+    <%= render 'tr_head' %>
+  </thead>
+  <tbody class="accordion">
+    <% @categories.each do |category| %>
+      <%= render 'tr_body', category: category %>
+
+      <% category.children.each do |child| %>
+        <tr id="collapse-<%= category.id %>" class="accordion-collapse collapse">
+          <td>&nbsp;</td>
+          <td>
+            <%= child.id %>
+          </td>
+          <td>
+            <svg class="img-fluid" width="60" height="60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="<%= child.image.filename.to_s %>" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <rect width="60" height="60" fill="none" />
+              <% if child.image.attached? %>
+                <image href="<%= rails_blob_path(child.image) %>" width="60" height="60" />
+              <% end %>
+            </svg>
+          </td>
+          <td>
+            <%= ['<i class="bi bi-arrow-return-right"></i>', link_to(child.translated_name, admin_category_path(child), class: 'text-decoration-none')].join('&nbsp;').html_safe %>
+          </td>
+          <td>
+            <%= child.translated_description %>
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="User's actions">
+              <%= link_to edit_admin_category_path(child), class: 'btn btn-success' do %>
+                <i class="bi bi-pencil-fill"></i>
+              <% end %>
+              <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+
+    <% end %>
+  </tbody>
+</table>
+
+<%= render_records_navigation @categories %>

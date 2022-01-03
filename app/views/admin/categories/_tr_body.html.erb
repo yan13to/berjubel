@@ -1,0 +1,32 @@
+<tr>
+  <td>
+    <button class="btn accordion-btn collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-<%= category.id %>" aria-expanded="true" aria-controls="collapse-<%= category.id %>">
+      &nbsp;
+    </button>
+  </td>
+  <td>
+    <%= category.id %>
+  </td>
+  <td>
+    <svg class="img-fluid" width="60" height="60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="<%= category.image.filename.to_s %>" preserveAspectRatio="xMidYMid slice" focusable="false">
+      <rect width="60" height="60" fill="none" />
+      <% if category.image.attached? %>
+        <image href="<%= rails_blob_path(category.image) %>" width="60" height="60" />
+      <% end %>
+    </svg>
+  </td>
+  <td>
+    <%= link_to [(category.icon || '<i class="bi bi-app"></i>'), category.translated_name].join('&nbsp;').html_safe, admin_category_path(category), class: 'text-decoration-none' %>
+  </td>
+  <td>
+    <%= category.translated_description %>
+  </td>
+  <td>
+    <div class="btn-group btn-group-sm" role="group" aria-label="User's actions">
+      <%= link_to edit_admin_category_path(category), class: 'btn btn-success' do %>
+        <i class="bi bi-pencil-fill"></i>
+      <% end %>
+      <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+    </div>
+  </td>
+</tr>

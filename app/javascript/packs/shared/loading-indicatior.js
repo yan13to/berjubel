@@ -12,5 +12,5 @@ export default function LoadingIndicator() {
   div.appendChild(span);
   flex.appendChild(div);
 
-  return flex
+  return flex.innerHTML
 }

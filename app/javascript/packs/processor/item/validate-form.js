@@ -1,6 +1,8 @@
 import submitItemForm from './submit-form';
 
 export default function validateItemForm(form) {
+  if (!form) return;
+
   form.addEventListener('submit', submitItemForm);
 
   const invalidClass = 'is-invalid';
@@ -8,6 +10,7 @@ export default function validateItemForm(form) {
 
   const inputName = form.querySelector('input[name="item[name]"]');
   const inputNameFormGroup = inputName.closest('div.form-group');
+  if (!inputNameFormGroup) return;
   const inputNameFieldWithErrors = inputNameFormGroup.querySelectorAll('.field_with_errors');
   const inputNameInvalidFeedback = inputNameFormGroup.querySelector('.invalid-feedback');
 

@@ -1,0 +1,37 @@
+<tr>
+  <td>
+    <%= store.id %>
+  </td>
+  <td>
+    <%= link_to store.name, admin_store_path(store) %>
+  </td>
+  <td>
+    <%= link_to store.domain_name, ('http://' + Rails.application.config.x.host_name + '/' + store.domain_name), target: :blank if store.domain_name.present? %>
+  </td>
+  <td>
+    <div class="dsc">
+      <%= simple_format store.description %>
+    </div>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= store.created_at.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(store.created_at) %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= store.updated_at.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(store.updated_at) %>
+    </span>
+  </td>
+  <td>
+    <%= I18n.t(store.active?.to_s) %>
+  </td>
+  <td>
+    <div class="btn-group btn-group-sm" role="group" aria-label="User's actions">
+      <%= link_to edit_admin_store_path(store), class: 'btn btn-success' do %>
+        <i class="bi bi-pencil-fill"></i>
+      <% end %>
+      <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+    </div>
+  </td>
+</tr>

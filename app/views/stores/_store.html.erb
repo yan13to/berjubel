@@ -1,21 +1,19 @@
 <tr>
-  <td><%= store.id %></td>
   <td>
-    <div class="d-flex">
-      <div class="pe-3">
-        <%- if store.avatar.attached? -%>
-          <%= image_tag store.avatar.variant(resize_to_limit: [80, 80]) %>
-        <%- else -%>
-          <%= image_tag '/default/camera.svg', width: '80px', style: 'opacity:0.1' %>
-        <%- end -%>
-      </div>
-      <div>
-        <h5>
-          <%= link_to store.name, store_path(store) %>
-        </h5>
-        <%= store.description %>
-      </div>
-    </div>
+    <%= store.id %>
+  </td>
+  <td>
+    <%- if store.avatar.attached? -%>
+      <%= image_tag store.avatar.variant(resize_to_limit: [80, 80]) %>
+    <%- else -%>
+      <%= image_tag '/default/camera.svg', width: '80px', style: 'opacity:0.1' %>
+    <%- end -%>
+  </td>
+  <td>
+    <%= link_to store.name, store_path(store) %>
+  </td>
+  <td>
+    <%= simple_format store.description %>
   </td>
   <td>
     <%= store.items.count %>
@@ -26,7 +24,6 @@
   <td>
     <div class="btn-group" role="group">
       <%= link_to t(:edit), edit_store_path(store, from: stores_path), class: 'btn btn-outline-primary' %>
-      <%= link_to 'aaaaaa', store_path(store), data: { method: :delete, confirm: 'are you sure?' }, class: 'btn btn-outline-primary' %>
       <%= link_to_main_modal t(:delete),
             title: t(:are_you_sure),
             processor: 'store/destroy',

@@ -2,23 +2,33 @@
 
 # AccountsController
 class AccountsController < ApplicationController
-  before_action :authenticate_user!
+  include Authentication
 
   def show
     @account = current_user
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   def edit
     @account = current_user
+
+    respond_to do |format|
+      format.html
+    end
   end
 
   def update
     @account = current_user
 
-    if @account.update(user_params)
-      redirect_to account_path, notice: t('accounts.update.success')
-    else
-      render :edit
+    respond_to do |format|
+      if @account.update(user_params)
+        format.html { redirect_to account_path, notice: t('accounts.update.success') }
+      else
+        format.html { render :edit }
+      end
     end
   end
 

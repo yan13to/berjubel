@@ -9,6 +9,7 @@ id:
   empty: Kosong
   en: EN
   delete: Hapus
+  false: 'Tidak'
   filter: Saring
   follow: Ikuti
   go: Lanjut
@@ -23,6 +24,7 @@ id:
     good: Semuanya bagus
     problem: Terdapat kesalahan!
   my_store: Tokoku
+  new: Baru
   'no': Tidak
   price: Harga
   rating: Penilaian
@@ -33,5 +35,6 @@ id:
   search: Cari
   send: Kirim
   submit: :send
+  true: 'Ya'
   update: :edit
   'yes': Ya

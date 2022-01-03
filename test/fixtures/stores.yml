@@ -4,4 +4,5 @@ store_<%= i %>:
   user_id: <%= (1..50).to_a.sample %>
   name: <%= Faker::Commerce.department %>
   description: <%= Faker::Lorem.paragraph %>
+  active: <%= [0, 1].sample %>
 <% end %>

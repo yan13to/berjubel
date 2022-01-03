@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.3'
 
 gem 'activestorage-validator'
-gem 'ahoy_matey'
+# gem 'ahoy_matey'
 gem 'awesome_print'
 gem 'aws-sdk-rails', '~> 3'
 gem 'aws-sdk-s3', '~> 1'
@@ -16,6 +16,7 @@ gem 'geocoder'
 gem 'google-cloud-translate'
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
+gem 'kaminari'
 gem 'letter_opener'
 gem 'local_time'
 gem 'pg'
@@ -32,7 +33,7 @@ gem 'money-rails', '~> 1.12'
 gem 'rack-cors', require: 'rack/cors'
 gem 'ransack'
 gem 'react-rails'
-gem 'will_paginate'
+gem 'sqlite3', '~> 1.4'
 
 group :development, :test do
   gem 'byebug', platforms: %I[mri mingw x64_mingw]

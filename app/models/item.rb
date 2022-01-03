@@ -2,31 +2,30 @@
 
 # Item model
 class Item < ApplicationRecord
-  enum status: { draft: 0, active: 1, inactive: 2 }
+  include ActivityControl
 
-  belongs_to :user
+  belongs_to :category
   belongs_to :store
+  belongs_to :user
 
   has_many_attached :photos
 
-  has_many :item_categories, inverse_of: :item, dependent: :destroy
-  has_many :categories, through: :item_categories
-  has_many :item_labels, inverse_of: :item, dependent: :destroy
+  has_many :prices, inverse_of: :item, dependent: :destroy
+  has_many :item_properties
+  has_many :properties, through: :item_properties
+  has_many :item_labels
   has_many :labels, through: :item_labels
-  has_many :prices, class_name: 'ItemPrice', inverse_of: :item, dependent: :destroy
-  has_many :variants, class_name: 'ItemVariant', inverse_of: :item, dependent: :destroy
 
-  accepts_nested_attributes_for :item_categories, allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :item_labels, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :labels
 
-  validates :photos, blob: { content_type: :image, size_range: 1..10.megabytes }
+  # validates :photos, blob: { content_type: :image, size_range: 1..10.megabytes }
   validates :name, :description, presence: true
 
   before_validation do |record|
-    record.user = record.store.user
+    record.user = record.store.try(:user) unless record.user
   end
 
-  ransack_alias :all, :id_or_name_or_description
+  ransack_alias :all, :name_or_description
 
   def default_photo
     photos.first

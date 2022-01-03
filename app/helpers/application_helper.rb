@@ -8,6 +8,14 @@ module ApplicationHelper
     title.compact.join(' | ')
   end
 
+  def berjubel_logo
+    [content_tag(:i, nil, class: 'bi bi-bootstrap-fill fs-3'), Rails.configuration.x.app_name.gsub('B', '')].join('&nbsp;').html_safe
+  end
+
+  def body_class
+    'class=page-error' if @page_error
+  end
+
   def item_listing_mode
     current_user.try(:setting).try(:listing_mode) || 'column'
   end
@@ -30,29 +38,11 @@ module ApplicationHelper
     end
   end
 
-  def render_success_message(messages)
-    render 'success_message', messages: messages if messages.present?
-  end
-
-  def render_success_message_for(model, field)
-    render 'success_message_for', model: model, field: field # if messages.present?
-  end
-
-  def render_error_message(messages)
-    render 'error_message', messages: messages if messages.present?
-  end
-
-  def render_error_message_for(model, field)
-    messages = if model.errors[field].present?
-                 model.errors[field]
-               else
-                 [[model.class.human_attribute_name(field), I18n.t('errors.messages.invalid')].join(' ')]
-               end
-    render 'error_message_for', messages: messages # if messages.present?
-  end
-
   def render_field_class(object, field)
-    object.errors.messages[field].present? ? 'form-control is-invalid' : 'form-control'
+    return 'form-control is-invalid' if object.errors[field].present?
+    return 'form-control is-valid' if object.errors[field].blank? && object[field].present?
+
+    'form-control'
   end
 
   def render_floating_alert(messages, type = :danger)
@@ -64,31 +54,21 @@ module ApplicationHelper
 
     return unless messages.present?
 
+    @page_error = true
+
     content_for :alert do
       render 'floating_alert', messages: alert_message
     end
   end
 
-  def render_breadcrumbs(items = [])
-    return if items.empty?
-
-    content_for :breadcrumbs do
-      render 'breadcrumbs', items: items
-    end
-  end
-
-  def render_search_form
-    content_for :search_form do
-      render 'layouts/search_form'
-    end
-  end
-
-  def render_locale_form
-    render 'layouts/locale_form'
-  end
-
   def render_locale_selector(current_path)
     render 'locale_selector', current_path: current_path || 'root_path'
+  end
+
+  def link_to_back
+    link_to 'javascript:window.history.back()' do
+      content_tag(:i, nil, class: 'bi bi-arrow-left')
+    end
   end
 
   def link_to_main_modal(name, options = {})
@@ -109,6 +89,7 @@ module ApplicationHelper
     link_options.merge!('data-bs-url': options[:url]) if options[:url]
     link_options.merge!('data-bs-params': options[:params]) if options[:params]
     link_options.merge!('data-bs-method': options[:method]) if options[:method]
+    link_options.merge!('data-bs-size': options[:size]) if options[:size]
     link_options.merge!(class: options[:class]) if options[:class]
     link_options
   end

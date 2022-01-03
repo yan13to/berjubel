@@ -1,0 +1,12 @@
+<% render_admin_page_title(Property.model_name.human(count: 2)) %>
+<% render_admin_main_nav(:properties) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), Property.model_name.human(count: 2)]) %>
+
+<ul class="nav nav-tabs mt-3">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Property</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Setting</a>
+  </li>
+</ul>

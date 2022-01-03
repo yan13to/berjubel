@@ -1,0 +1,32 @@
+<% render_admin_page_title(@category.translated_name) %>
+<% render_admin_main_nav(:categories) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), link_to(Category.model_name.human(count: 2), admin_categories_path), @category.translated_name]) %>
+
+<div class="d-flex justify-content-between align-items-center my-2">
+  <h3>
+    <%= link_to_back %>&nbsp;
+    <%= @category.translated_name %>&nbsp;
+    <button class="btn"><i class="bi bi-pencil-fill"></i></button>
+  </h3>
+  <div class="btn-group" role="group" aria-label="User's actions">
+    <%= link_to edit_admin_category_path(@category), class: 'btn btn-success' do %>
+      <i class="bi bi-pencil-fill"></i>
+    <% end %>
+    <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+  </div>
+</div>
+
+<div class="position-relative">
+  <button class="btn position-absolute">
+    <i class="bi bi-camera-fill fs-2"></i>
+  </button>
+  <svg class="img-fluid" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="<%= @category.image.filename.to_s %>" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <% if @category.image.attached? %>
+      <image href="<%= rails_blob_path(@category.image) %>" width="100%" />
+    <% else %>
+      <rect fill="#eee" width="100%" height="100%" />
+    <% end %>
+  </svg>
+</div>
+
+<%= render 'main_tab', active_tab: params[:tab] || 'home' %>

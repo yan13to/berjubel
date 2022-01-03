@@ -1,0 +1,10 @@
+<% render_admin_page_title([t(:edit), @category.translated_name].join(' | ')) %>
+<% render_admin_main_nav(:categories) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), link_to(Category.model_name.human(count: 2), admin_categories_path), link_to(@category.translated_name, admin_category_path(@category)), t(:edit)]) %>
+
+<div class="d-flex justify-content-between align-items-center my-2">
+  <h3><%= link_to_back %>&nbsp;<%= "#{t(:edit)} #{@category.translated_name}" %></h3>
+  <%= link_to t(:cancel), admin_categories_path, class: 'btn btn-link' %>
+</div>
+
+<%= render 'form', url: admin_category_path(@category) %>

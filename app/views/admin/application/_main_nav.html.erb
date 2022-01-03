@@ -1,0 +1,34 @@
+<% active ||= :home %>
+
+<ul class="nav nav-pills bg-info sticky-top" id="adminNav" role="tablist">
+  <li class="nav-item" role="presentation">
+    <%= link_to admin_root_path, class: "nav-link rounded-0#{' active' if active == :home}" do %>
+      <i class="bi bi-house-door-fill"></i>&nbsp;<%= t(:home) %>
+    <% end %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to admin_stores_path, class: "nav-link rounded-0#{' active' if active == :stores}" do %>
+      <i class="bi bi-bank2"></i>&nbsp;<%= Store.model_name.human(count: 2) %>
+    <% end %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to admin_items_path, class: "nav-link rounded-0#{' active' if active == :items}" do %>
+      <i class="bi bi-bag-fill"></i>&nbsp;<%= Item.model_name.human(count: 2) %>
+    <% end %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to admin_categories_path, class: "nav-link rounded-0#{' active' if active == :categories}" do %>
+      <i class="bi bi-collection-fill"></i>&nbsp;<%= Category.model_name.human(count: 2) %>
+    <% end %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to admin_users_path, class: "nav-link rounded-0#{' active' if active == :users}" do %>
+      <i class="bi bi-people-fill"></i>&nbsp;<%= User.model_name.human(count: 2) %>
+    <% end %>
+  </li>
+  <li class="nav-item ms-auto" role="presentation">
+    <%= link_to admin_properties_path, class: "nav-link rounded-0#{' active' if [:system, :properties].include?(active)}" do %>
+      <i class="bi bi-gear-fill"></i>&nbsp;<%= t(:system) %>
+    <% end %>
+  </li>
+</ul>

@@ -1,0 +1,25 @@
+<% render_admin_page_title(@user.email) %>
+<% render_admin_main_nav(:users) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), User.model_name.human(count: 2), @user.email]) %>
+
+<h3><%= link_to_back %>&nbsp;<%= @user.email %></h3>
+
+<ul class="nav nav-tabs mt-3">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">
+      <i class="bi bi-person-fill"></i>&nbsp;<%= t(:account) %>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#"><%= User::Profile.model_name.human %></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#"><%= User::Setting.model_name.human %></a>
+  </li>
+</ul>
+
+<div>
+  <%= @user.email %>
+  <%= @user.sign_in_count %>
+</div>

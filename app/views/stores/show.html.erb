@@ -1,14 +1,17 @@
 <%- @page_title = [Store.model_name.human, @store.name].join(' | ') %>
 
-<%= render_breadcrumbs([
-  link_to(t(:home), root_path),
-  link_to(t(:my_store), stores_path), @store.name
-]) %>
+<%= render_breadcrumbs([link_to(t(:home), root_path), link_to(t(:my_store), stores_path), @store.name]) %>
 <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <div class="card mb-3">
+  <svg class="img-fluid" width="100%" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="<%= @store.avatar.filename.to_s %>" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <% if @store.avatar.attached? %>
+      <image href="<%= rails_blob_path(@store.avatar) %>" width="100%" />
+    <% end %>
+  </svg>
+
   <div class="card-body">
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-start">
       <% if @store.avatar.attached? %>
         <%= image_tag @store.avatar.variant(resize_to_limit: [80, 80]), class: 'me-2' %>
       <%- else -%>
@@ -19,7 +22,7 @@
           <%= @store.name %>
         </h5>
         <p>
-          <%= @store.description %>
+          <%= simple_format @store.description %>
         </p>
       </div>
       <%- if current_user.my_store?(@store) -%>
@@ -27,7 +30,7 @@
           <%= link_to_main_modal t(:edit),
                 title: t('stores.update.title', name: @store.name),
                 processor: 'store/fetch-form',
-                url: edit_store_path(@store),
+                url: edit_store_path(@store, format: :js),
                 class: 'btn btn-outline-primary' %>
           <%= link_to_main_modal t(:delete),
                 title: t(:are_you_sure),
@@ -37,27 +40,32 @@
                 class: 'btn btn-outline-primary'  %>
         </div>
       <% else %>
-        <button class="btn btn-link"><%= t(:follow) %></button>
+        <button class="btn btn-link text-decoration-none">
+          <%= t(:follow) %>
+        </button>
       <% end %>
     </div>
   </div>
 </div>
 
 <ul class="nav nav-tabs border-bottom-0">
-  <li class="nav-item">
-    <%= link_to content_tag(:strong, Item.model_name.human(count: 2)), '#',
-          class: 'nav-link active', 'aria-current': 'page' %>
-  </li>
   <li class="nav-item me-auto">
-    <%= link_to content_tag(:strong, 'Review'), '#', class: 'nav-link' %>
+    <%= link_to content_tag(:strong, Item.model_name.human(count: 2)), '#',
+          class: 'nav-link active btn', 'aria-current': 'page' %>
   </li>
+  <!--
+  <li class="nav-item me-auto">
+    <%= link_to content_tag(:strong, 'Review'), '#', class: 'nav-link btn' %>
+  </li>
+  -->
   <%- if current_user.my_store?(@store) %>
     <li class="nav-item">
       <%= link_to_main_modal 'Add item',
             title: t(:new),
             processor: 'item/fetch-form',
+            size: 'lg',
             url: new_store_item_path(@store),
-            class: 'btn btn-link' %>
+            class: 'btn btn-link text-decoration-none' %>
     </li>
   <% end %>
 </ul>
@@ -67,7 +75,17 @@
 
     <div class="d-flex align-items-start">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>
+        <button class="nav-link active"
+                id="v-pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#v-pills-home"
+                type="button"
+                role="tab"
+                aria-controls="v-pills-home"
+                aria-selected="true">
+          <%= t(:all) %>
+        </button>
+
         <%- @store.labels.uniq.each do |label| %>
           <button class="nav-link"
             id="v-pills-<%= label.name %>-tab"
@@ -83,17 +101,16 @@
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <div class="<%= build_items_classes %>">
               <%- if @items.present? %>
-                <%= render_item_listing(@items, store: false) %>
+                <%#= render_item_listing(@items, store: false, from_store: true) %>
               <% else %>
                 <%= render 'new_item' %>
               <% end %>
             </div>
-            <%= will_paginate(@items, renderer: BerjubelPagination) %>
+            <%#= render_records_navigation @items %>
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
       </div>
     </div>
-
 
   </div>
 </div>

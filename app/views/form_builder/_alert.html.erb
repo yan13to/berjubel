@@ -1,0 +1,16 @@
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  <div class="d-flex align-items-start">
+    <span class="fs-2 me-1">&#x26D4;</span>
+    <div>
+      <h6 class="alert-heading">
+        <%= t('messages.problem') %>
+      </h6>
+      <% messages.each do |message| %>
+        <div data-error-key="<%= message[0] %>">
+          <%= message[1] %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>

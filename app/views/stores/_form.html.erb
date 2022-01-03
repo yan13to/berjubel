@@ -1,12 +1,8 @@
-<%= form_with model: @store, local: false, data: { 'bj-remote': true, 'bj-processor': 'store/validate-form' } do |f| %>
-  <%= render_error_message(@store.errors.full_messages) %>
+<%= form_with model: @store, local: local, url: url, builder: BerjubelFormBuilder,
+  data: { 'bj-remote': !local, 'bj-processor': 'store/validate-form' } do |f| %>
 
-  <div class="mb-3 form-group">
-    <%= f.label :name, class: 'd-block' %>
-    <%= f.text_field :name, class: render_field_class(@store, :name) %>
-    <%= render_error_message_for(@store, :name) %>
-    <%= render_success_message_for(Store, :name) %>
-  </div>
+  <%= f.alert %>
+  <%= f.text_form_group :name %>
 
   <div class="mb-3 form-group">
     <%= f.label :domain_name, class: 'd-block' %>
@@ -14,27 +10,16 @@
       <div class="input-group-text pe-0">
         <%= "http://#{Rails.application.config.x.host_name}/" %>
       </div>
-      <%= f.text_field :domain_name, class: "#{render_field_class(@store, :domain_name)} ps-0" %>
+      <%= f.text_field :domain_name, class: "#{render_field_class(@store, :domain_name)} ps-0", disabled: @store.persisted? %>
     </div>
-    <%= render_error_message_for(@store, :domain_name) %>
-    <%= render_success_message_for(Store, :domain_name) %>
+    <%= f.invalid_feedback :domain_name %>
+    <%= f.valid_feedback :domain_name %>
   </div>
 
-  <div class="mb-3 form-group">
-    <%= f.label :description, class: 'd-block' %>
-    <%= f.text_area :description, class: render_field_class(@store, :description) %>
-    <%= render_error_message_for(@store, :description) %>
-    <%= render_success_message_for(Store, :description) %>
-  </div>
+  <%= f.text_area_form_group :description %>
+  <%= f.file_form_group :avatar %>
 
-  <div class="mb-3 form-group">
-    <%= f.label :avatar, class: 'd-block' %>
-    <%= f.file_field :avatar, class: render_field_class(@store, :avatar) %>
-    <%= render_error_message_for(@store, :avatar) %>
-    <%= render_success_message_for(Store, :avatar) %>
-  </div>
-
-  <div class="mb-3">
+  <div class="mb-3 form-action">
     <%= f.submit t(:save), class: 'btn btn-secondary' %>
   </div>
 <% end %>

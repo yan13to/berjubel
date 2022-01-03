@@ -3,7 +3,8 @@ import headers from '../../shared/headers';
 import LoadingIndicator from '../../shared/loading-indicatior';
 
 export default function destroyStore(url, method) {
-  const modalBody = document.getElementById('mainModal').querySelector('.modal-body');
+  const modalBody = document.getElementById('mainModal')
+                            .querySelector('.modal-body');
 
   if (!url) return;
 
@@ -11,7 +12,7 @@ export default function destroyStore(url, method) {
     e.preventDefault()
 
     e.currentTarget.className = 'btn btn-link';
-    e.currentTarget.innerHTML = LoadingIndicator().innerHTML;
+    e.currentTarget.innerHTML = LoadingIndicator();
     headers['method'] = method;
 
     fetch(url, headers)

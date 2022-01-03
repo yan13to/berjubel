@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+    <strong>
+      <%= link_to_unless_current berjubel_logo, root_path(ref: :logo), class: 'navbar-brand' do %>
+        <span class="navbar-brand"><%= berjubel_logo %></span>
+      <% end %>
+    </strong>
+    <button type="button" class="btn dropdown-toggle me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMain" aria-controls="offcanvasMain">
+      <i class="bi bi-justify"></i>
+    </button>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= yield :search_form %>
+      <%= render 'user_nav' %>
+    </div>
+  </div>
+</nav>

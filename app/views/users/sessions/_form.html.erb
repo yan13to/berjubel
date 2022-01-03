@@ -1,32 +1,27 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render_floating_alert([flash.now[:alert]].compact) %>
 
-  <div class="mb-3 form-group">
-    <%= f.label :email, class: 'd-block' %>
+  <div class="form-floating mb-3">
     <%= f.email_field :email,
       autofocus: true,
       autocomplete: 'email',
       class: 'form-control',
       required: true %>
+    <%= f.label :email %>
     <%= render_error_message_for(resource, :email) %>
   </div>
 
-  <div class="mb-3 form-group">
-    <%= f.label :password %>
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <small>
-        <%= link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name) %>
-      </small>
-    <% end %>
+  <div class="form-floating mb-3">
     <%= f.password_field :password,
       autocomplete: 'current-password',
       class: 'form-control',
       required: true %>
+    <%= f.label :password %>
     <%= render_error_message_for(resource, :password) %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="form-check mb-3 form-group">
+    <div class="checkbox mb-3">
       <%= f.check_box :remember_me, class: 'form-check-input' %>
       <%= f.label :remember_me, class: 'form-check-label' %>
       <%= render_error_message_for(resource, :remember_me) %>
@@ -34,4 +29,11 @@
   <% end %>
 
   <%= f.submit t(:sign_in), class: 'btn btn-secondary' %>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <small>
+      <%= link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name) %>
+    </small>
+  <% end %>
+
 <% end %>

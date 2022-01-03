@@ -1,1119 +1,1138 @@
 - cat01:
     id: 1
     parent_id: NULL
-    name: Clothing and Apparel
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Clothing and Apparel, id: Pakaian dan Baju }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person-fill" viewBox="0 0 16 16"><path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-1 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm-3 4c2.623 0 4.146.826 5 1.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-1.245C3.854 11.825 5.377 11 8 11z"/></svg>
 
 - cat02:
     id: 2
     parent_id: 1
-    name: Men's Clothing
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Men's Clothing, id: Pakaian Pria }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16"><path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
 
 - cat03:
     id: 3
     parent_id: 1
-    name: Women's Clothing
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Women's Clothing, id: Pakaian Wanita }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/><path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/></svg>
 
 - cat04:
     id: 4
     parent_id: 1
-    name: Trending
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Trending, id: Terkenal }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gift" viewBox="0 0 16 16"><path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z"/></svg>
 
 - cat05:
     id: 5
     parent_id: NULL
-    name: Electronics
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Electronics, id: Perangkat Elektronik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speaker" viewBox="0 0 16 16"><path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/><path d="M8 4.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zM8 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-3.5 1.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg>
 
 - cat06:
     id: 6
     parent_id: 5
-    name: 3D Printer & Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: 3D Printer & Supplies, id: Printer 3D & Suku Cadang }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16"><path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/><path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/></svg>
 
 - cat07:
     id: 7
     parent_id: 5
-    name: Arduino Compatible SCM & DIY Kits
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Arduino Compatible SCM & DIY Kits, id: Arduino & Kits }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cpu" viewBox="0 0 16 16"><path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0zm-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/></svg>
 
 - cat08:
     id: 8
     parent_id: 5
-    name: Security & Protection
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Security & Protection, id: Alat keamanan dan perlindungan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-lock" viewBox="0 0 16 16"><path d="M10 7v1.076c.54.166 1 .597 1 1.224v2.4c0 .816-.781 1.3-1.5 1.3h-3c-.719 0-1.5-.484-1.5-1.3V9.3c0-.627.46-1.058 1-1.224V7a2 2 0 1 1 4 0zM7 7v1h2V7a1 1 0 0 0-2 0zM6 9.3v2.4c0 .042.02.107.105.175A.637.637 0 0 0 6.5 12h3a.64.64 0 0 0 .395-.125c.085-.068.105-.133.105-.175V9.3c0-.042-.02-.107-.105-.175A.637.637 0 0 0 9.5 9h-3a.637.637 0 0 0-.395.125C6.02 9.193 6 9.258 6 9.3z"/><path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/></svg>
 
 - cat09:
     id: 9
     parent_id: 5
-    name: Home Audio & Video
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Audio & Video, id: Audio & Video }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speaker" viewBox="0 0 16 16"><path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/><path d="M8 4.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5zM8 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-3.5 1.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg>
 
 - cat10:
     id: 10
     parent_id: 5
-    name: Module Board For Arduino
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Module Board For Arduino, id: Modul Arduino }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>
 
 - cat11:
     id: 11
     parent_id: 5
-    name: Photography & Camera Acc
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Photography & Camera Acc, id: Aksesoris Kamera dan Foto }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera-reels" viewBox="0 0 16 16"><path d="M6 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM1 3a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M9 6h.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 7.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 16H2a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7zm6 8.73V7.27l-3.5 1.555v4.35l3.5 1.556zM1 8v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1z"/><path d="M9 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 3a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg>
 
 - cat12:
     id: 12
     parent_id: 5
-    name: Media Players
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Media Players, id: Pemutar Media }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16"><path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/><path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/></svg>
 
 - cat13:
     id: 13
     parent_id: 5
-    name: Video Games Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Video Games Accessories, id: Aksesoris Video Game }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16"><path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/><path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/></svg>
 
 - cat14:
     id: 14
     parent_id: 5
-    name: Plug & Adaptors
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Plug & Adaptors, id: Colokan & Adaptor }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-disc" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 4a4 4 0 0 0-4 4 .5.5 0 0 1-1 0 5 5 0 0 1 5-5 .5.5 0 0 1 0 1zm4.5 3.5a.5.5 0 0 1 .5.5 5 5 0 0 1-5 5 .5.5 0 0 1 0-1 4 4 0 0 0 4-4 .5.5 0 0 1 .5-.5z"/></svg>
 
 - cat15:
     id: 15
     parent_id: 5
-    name: Electronic Accessories & Gadgets
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Electronic Accessories & Gadgets, id: Aksesoris Elektronik & Gadget }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-display" viewBox="0 0 16 16"><path d="M0 4s0-2 2-2h12s2 0 2 2v6s0 2-2 2h-4c0 .667.083 1.167.25 1.5H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h.75c.167-.333.25-.833.25-1.5H2s-2 0-2-2V4zm1.398-.855a.758.758 0 0 0-.254.302A1.46 1.46 0 0 0 1 4.01V10c0 .325.078.502.145.602.07.105.17.188.302.254a1.464 1.464 0 0 0 .538.143L2.01 11H14c.325 0 .502-.078.602-.145a.758.758 0 0 0 .254-.302 1.464 1.464 0 0 0 .143-.538L15 9.99V4c0-.325-.078-.502-.145-.602a.757.757 0 0 0-.302-.254A1.46 1.46 0 0 0 13.99 3H2c-.325 0-.502.078-.602.145z"/></svg>
 
 - cat16:
     id: 16
     parent_id: 5
-    name: Batteries & Chargers
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Batteries & Chargers, id: Batere & Charger }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns" viewBox="0 0 16 16"><path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z"/></svg>
 
 - cat17:
     id: 17
     parent_id: NULL
-    name: Home Appliances
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Appliances, id: Peralatan Rumah Tangga }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16"><path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/></svg>
 
 - cat18:
     id: 18
     parent_id: 17
-    name: Cleaning Appliances
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Cleaning Appliances, id: Alat Pembersih }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lamp" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5.04.303A.5.5 0 0 1 5.5 0h5c.2 0 .38.12.46.303l3 7a.5.5 0 0 1-.363.687h-.002c-.15.03-.3.056-.45.081a32.731 32.731 0 0 1-4.645.425V13.5a.5.5 0 1 1-1 0V8.495a32.753 32.753 0 0 1-4.645-.425c-.15-.025-.3-.05-.45-.08h-.003a.5.5 0 0 1-.362-.688l3-7ZM3.21 7.116A31.27 31.27 0 0 0 8 7.5a31.27 31.27 0 0 0 4.791-.384L10.171 1H5.83L3.209 7.116Z"/><path d="M6.493 12.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.052.075l-.001.004-.004.01V14l.002.008a.147.147 0 0 0 .016.033.62.62 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.62.62 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411Z"/></svg>
 
 - cat19:
     id: 19
     parent_id: 17
-    name: Household Appliances
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Household Appliances, id: Perkakas Rumah Tangga }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
+    icon: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/><path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/></svg>
 
 - cat20:
     id: 20
     parent_id: 17
-    name: Home Entertainments & Work
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Entertainments & Work, id: Hiburan & Pekarjaan Rumah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat21:
     id: 21
     parent_id: 17
-    name: Kitchen Appliances
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kitchen Appliances, id: Peralatan Dapur }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat22:
     id: 22
     parent_id: 17
-    name: Air Conditioning Appliances
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Air Conditioning Appliances, id: Peralatan AC }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat23:
     id: 23
     parent_id: 17
-    name: Kitchen
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kitchen, id: Dapur }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat24:
     id: 24
     parent_id: 17
-    name: Kitchen
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kitchen Appliances, id: Peralatan Dapur }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat25:
     id: 25
     parent_id: 17
-    name: Home Appliance Parts
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Appliance Parts, id: Suku Cadang Peralatan Rumah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat26:
     id: 26
     parent_id: 17
-    name: Bathroom Gadgets
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Bathroom Gadgets, id: Gadget Kamar Mandi }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat27:
     id: 27
     parent_id: NULL
-    name: Health & Beauty
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Health & Beauty, id: Kesehatan & Kecantikan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat28:
     id: 28
     parent_id: 27
-    name: Nail Art
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Nail Art, id: Seni Kuku }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat29:
     id: 29
     parent_id: 27
-    name: Eye Care
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Eye Care, id: Perawatan Mata }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat30:
     id: 30
     parent_id: 27
-    name: Health Management
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Health Management, id: Manajemen Kesehatan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat31:
     id: 31
     parent_id: 27
-    name: Skin Care
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Skin Care, id: Perawatan Kulit }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat32:
     id: 32
     parent_id: 27
-    name: Teeth & Mouth Care
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Teeth & Mouth Care, id: Perawatan Gigi dan Mulut }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat33:
     id: 33
     parent_id: 27
-    name: Health Care
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Health Care, id: Perawatan Kesehatan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat34:
     id: 34
     parent_id: 27
-    name: Makeup
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Makeup, id: Makeup }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat35:
     id: 35
     parent_id: 27
-    name: Massages & Relaxing
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Massages & Relaxing, id: Pijat & Relaksasi }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat36:
     id: 36
     parent_id: 27
-    name: Hair Styling Tools & Salon
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Hair Styling Tools & Salon, id: Alat gaya rambut & Salon }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat37:
     id: 37
     parent_id: 27
-    name: Personal Care Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Personal Care Supplies, id: Penyedia perawatan pribadi }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat38:
     id: 38
     parent_id: 27
-    name: Shavers and Hair Removal
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Shavers and Hair Removal, id: Gunting rambut & Kumis }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat39:
     id: 39
     parent_id: 27
-    name: Tattoos & Body Art
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Tattoos & Body Art, id: Seni tato & badan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat40:
     id: 40
     parent_id: 27
-    name: Brace & Support
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Brace & Support, id: Dukungan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat41:
     id: 41
     parent_id: 27
-    name: Hair & Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Hair & Accessories, id: Rambut & Aksesoris }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat42:
     id: 42
     parent_id: NULL
-    name: Automobiles & Motorcycles
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Automobiles & Motorcycles, id: Mobil & Motor }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat43:
     id: 43
     parent_id: 42
-    name: Car Lights
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Car Lights, id: Lampu Mobil }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat44:
     id: 44
     parent_id: 42
-    name: Car Alarm & Security
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Car Alarm & Security, id: Alarm & Keamanan mobil }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat45:
     id: 45
     parent_id: 42
-    name: Car Repair & Maintenance
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Car Repair & Maintenance, id: Perbaikan & Pemeliharaan Mobil }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat46:
     id: 46
     parent_id: 42
-    name: Car DVRs
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Car DVRs, id: DVR mobil }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat47:
     id: 47
     parent_id: 42
-    name: Diagnostic Scan Tool
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Diagnostic Scan Tool, id: Alat Diagnostik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat48:
     id: 48
     parent_id: 42
-    name: Motorcycle
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Motorcycle, id: Motor }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat49:
     id: 49
     parent_id: 42
-    name: GPS & Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: GPS & Accessories, id: GPS & Aksesoris-nya }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat50:
     id: 50
     parent_id: 42
-    name: Auto Parts
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Auto Parts, id: Suku Cadang kendaraan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat51:
     id: 51
     parent_id: 42
-    name: Electric Scooters
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Electric Scooters, id: Motor Listrik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat52:
     id: 52
     parent_id: 42
-    name: Car Electronics
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Car Electronics, id: Elektronik Mobil }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat53:
     id: 53
     parent_id: 42
-    name: Interior Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Interior Accessories, id: Aksesoris Interior }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat54:
     id: 54
     parent_id: 42
-    name: Boat
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Boat, id: Kapal }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat55:
     id: 55
     parent_id: 42
-    name: Car Audio & Monitor
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Car Audio & Monitor, id: Audio & Monitor Mobil }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat56:
     id: 56
     parent_id: 42
-    name: Exterior Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Exterior Accessories, id: Aksesoris Luar }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat57:
     id: 57
     parent_id: NULL
-    name: Mobile Phones & Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Mobile Phones & Accessories, id: Handphone & Aksesoris }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat58:
     id: 58
     parent_id: 57
-    name: Smartphones
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Smartphones, id: Telpon Pintar }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat59:
     id: 59
     parent_id: 57
-    name: Earphones & Speakers
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Earphones & Speakers, id: Earphones & Speaker }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat60:
     id: 60
     parent_id: 57
-    name: Smart Watch & Band
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Smart Watch & Band, id: Jam Pintar & Band }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat61:
     id: 61
     parent_id: 57
-    name: Feature Phones
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Feature Phones, id: Telpon Tambahan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat62:
     id: 62
     parent_id: 57
-    name: Mobile Phones Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Mobile Phones Accessories, id: Aksesoris Handphone }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat63:
     id: 63
     parent_id: 57
-    name: Smart Devices & Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Smart Devices & Accessories, id: Alat Pintar & Aksesoris-nya }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat64:
     id: 64
     parent_id: 57
-    name: Power Banks
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Power Banks, id: Powerbank }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat65:
     id: 65
     parent_id: 57
-    name: Gadgets
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Gadgets, id: Gadget }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat66:
     id: 66
     parent_id: 57
-    name: Samsung Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Samsung Accessories, id: Aksesoris Samsung }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat67:
     id: 67
     parent_id: 57
-    name: Chargers & Cables
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Chargers & Cables, id: Charger & Kabel }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat68:
     id: 68
     parent_id: 57
-    name: Mounts & Holders
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Mounts & Holders, id: Gantungan & Pegangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat69:
     id: 69
     parent_id: 57
-    name: Apple Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Apple Accessories, id: Aksesoris Apple }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat70:
     id: 70
     parent_id: 57
-    name: Case & Leather
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Case & Leather, id: Kasing & Kulit }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat71:
     id: 71
     parent_id: NULL
-    name: Tools, Industrial & Scientific
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Tools, Industrial & Scientific, id: Alat, Industri & Sains }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat72:
     id: 72
     parent_id: 71
-    name: Professional Tools
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Professional Tools, id: Alat Professional }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat73:
     id: 73
     parent_id: 71
-    name: Measurement & Analysis Instruments
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Measurement & Analysis Instruments, id: Alat ukur & Analisis }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat74:
     id: 74
     parent_id: 71
-    name: Tapes, Adhesives & Sealants
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Tapes, Adhesives & Sealants, id: Pita, Perekat & Sealant }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat75:
     id: 75
     parent_id: 71
-    name: Tool Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Tool Accessories, id: Aksesoris Alat }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat76:
     id: 76
     parent_id: 71
-    name: Mechanical Parts
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Mechanical Parts, id: Suku Cadang Mekanik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat77:
     id: 77
     parent_id: 71
-    name: Raw Materials
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Raw Materials, id: Bahan mentah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat78:
     id: 78
     parent_id: 71
-    name: Laser Equipment
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Laser Equipment, id: Peralatan laser }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat79:
     id: 79
     parent_id: 71
-    name: Electrical Equipment & Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Electrical Equipment & Supplies, id: Penyedia Peralatan Listrik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat80:
     id: 80
     parent_id: 71
-    name: Power Tools
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Power Tools, id: Alat-alat listrik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat81:
     id: 81
     parent_id: 71
-    name: Lab & Scientific Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Lab & Scientific Supplies, id: Perlengkapan Lab & Ilmiah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat82:
     id: 82
     parent_id: 71
-    name: Hardware &amp; Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Hardware & Accessories, id: Perangkat Keras & Aksesoris }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat83:
     id: 83
     parent_id: 71
-    name: Hand Tools
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Hand Tools, id: Alat Tangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat84:
     id: 84
     parent_id: 71
-    name: Fasteners
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Fasteners, id: Pengencang }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat85:
     id: 85
     parent_id: NULL
-    name: Bags & Shoes
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Bags & Shoes, id: Tas & Sepatu }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat86:
     id: 86
     parent_id: 85
-    name: Women's Bags
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Women's Bags, id: Tas Wanita }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat87:
     id: 87
     parent_id: 85
-    name: Women's Shoes
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Women's Shoes, id: Sepatu Wanita }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat88:
     id: 88
     parent_id: 85
-    name: Men's Bags
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Men's Bags, id: Tas Laki-laki }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat89:
     id: 89
     parent_id: 85
-    name: Men's Shoes
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Men's Shoes, id: Sepatu Laki-laki }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat90:
     id: 90
     parent_id: 85
-    name: School Bags
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: School Bags, id: Tas Sekolah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat91:
     id: 91
     parent_id: 85
-    name: Kids Shoes
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kids Shoes, id: Sepatu Anak }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat92:
     id: 92
     parent_id: 85
-    name: Kids Bags
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kids Bags, id: Tas Anak }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat93:
     id: 93
     parent_id: 85
-    name: Baby Shoes
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Baby Shoes, id: Sepatu Anak }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat94:
     id: 94
     parent_id: NULL
-    name: Computer & Networking
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Computer & Networking, id: Komputer & Jaringan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat95:
     id: 95
     parent_id: 94
-    name: Tablet PC
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Tablet PC, id: Table PC }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat96:
     id: 96
     parent_id: 94
-    name: Computer Components
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Computer Components, id: Komponen Komputer }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat97:
     id: 97
     parent_id: 94
-    name: Mini PC & Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Mini PC & Accessories, id: Komputer Kecil & Aksesoris-nya }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat98:
     id: 98
     parent_id: 94
-    name: Laptops & Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Laptops & Accessories, id: Laptop & Aksesoris-nya }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat99:
     id: 99
     parent_id: 94
-    name: Drives and Storage
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Drives and Storage, id: Drive & Penyimpanan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat100:
     id: 100
     parent_id: 94
-    name: Computer Cables & Connectors
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Computer Cables & Connectors, id: Kabel Komputer & Konektor }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat101:
     id: 101
     parent_id: 94
-    name: Office & School Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Office & School Supplies, id: Perlengkapan Kantor & Sekolah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat102:
     id: 102
     parent_id: 94
-    name: Networking
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Networking, id: Jaringan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat103:
     id: 103
     parent_id: 94
-    name: Office Furniture
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Office Furniture, id: Perabotan Kantor }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat104:
     id: 104
     parent_id: 94
-    name: Computer Peripherals
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Computer Peripherals, id: Periferal Komputer }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat105:
     id: 105
     parent_id: NULL
-    name: Lights & Lighting
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Lights & Lighting, id: Lampu & Pencahayaan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat106:
     id: 106
     parent_id: 105
-    name: Flashlight
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Flashlight, id: Senter }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat107:
     id: 107
     parent_id: 105
-    name: Indoor Lighting
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Indoor Lighting, id: Pencahayaan dalam ruangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat108:
     id: 108
     parent_id: 105
-    name: LED Light Bulbs
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: LED Light Bulbs, id: Bola Lampu LED }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat109:
     id: 109
     parent_id: 105
-    name: Outdoor Lighting
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Outdoor Lighting, id: Penerangan luar ruangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat110:
     id: 110
     parent_id: 105
-    name: Lighting Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Lighting Accessories, id: Aksesoris lampu }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat111:
     id: 111
     parent_id: 105
-    name: LED Strip
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: LED Strip, id: LED Garis }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat112:
     id: 112
     parent_id: 105
-    name: Lasers
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Lasers, id: Laser }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat113:
     id: 113
     parent_id: 105
-    name: Holiday Lights
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Holiday Lights, id: Lampu Liburan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat114:
     id: 114
     parent_id: NULL
-    name: Toys Hobbies and Robot
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Toys Hobbies & Robot, id: Mainan Hobi & Robot }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat115:
     id: 115
     parent_id: 114
-    name: RC Drones
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: RC Drones, id: Drone RC }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat116:
     id: 116
     parent_id: 114
-    name: RC Robot
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: RC Robot, id: Robot RC }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat117:
     id: 117
     parent_id: 114
-    name: Learning & Education
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Learning & Education, id: Belajar & Pendidikan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat118:
     id: 118
     parent_id: 114
-    name: RC Vehicles
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: RC Vehicles, id: Kendaraan RC }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat119:
     id: 119
     parent_id: 114
-    name: Musical Instruments
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Musical Instruments, id: Alat Musik }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat120:
     id: 120
     parent_id: 114
-    name: Novelty & Gagdet Toys
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Novelty & Gagdet Toys, id: Mainan Baru & Gadget }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat121:
     id: 121
     parent_id: 114
-    name: RC Parts
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: RC Parts, id: Suku Cadang RC }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat122:
     id: 122
     parent_id: 114
-    name: Dolls & Stuffed Toys
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Dolls & Stuffed Toys, id: Boneka & Boneka Mainan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat123:
     id: 123
     parent_id: 114
-    name: Model & Building Toys
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Model & Building Toys, id: Model & Mainan Bangunan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat124:
     id: 124
     parent_id: NULL
-    name: Home and Garden
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home & Garden, id: Rumah & Kebun }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat125:
     id: 125
     parent_id: 124
-    name: Kitchen,Dining & Bar
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kitchen, Dining & Bar, id: Dapur, Ruang Makan & Bar }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat126:
     id: 126
     parent_id: 124
-    name: Home Textiles
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Textiles, id: Tekstil Rumah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat127:
     id: 127
     parent_id: 124
-    name: Pet Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Pet Supplies, id: Perlengkapan Hewan Peliharaan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat128:
     id: 128
     parent_id: 124
-    name: Furniture
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Furniture, id: Mebel }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat129:
     id: 129
     parent_id: 124
-    name: Home Decor
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Decor, id: Dekorasi rumah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat130:
     id: 130
     parent_id: 124
-    name: Baby Kids & Mother Care
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Baby Kids & Mother Care, id: Perawatan Bayi & Ibu }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat131:
     id: 131
     parent_id: 124
-    name: Bathroom
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Bathroom, id: Kamar mandi }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat132:
     id: 132
     parent_id: 124
-    name: Festival Gifts & Party Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Festival Gifts & Party Supplies, id: Hadiah Festival & Perlengkapan Pesta }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat133:
     id: 133
     parent_id: 124
-    name: Housekeeping & Organization
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Housekeeping & Organization, id: Tata graha & Organisasi }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat134:
     id: 134
     parent_id: 124
-    name: Gardening
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Gardening, id: Berkebun }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat135:
     id: 135
     parent_id: 124
-    name: Faucets
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Faucets, id: Kran Air }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat136:
     id: 136
     parent_id: 124
-    name: Home Cleaner
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Home Cleaner, id: Pembersih Rumah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat137:
     id: 137
     parent_id: NULL
-    name: Jewelry and Watch
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Jewelry and Watch, id: Perhiasan dan Jam Tangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat138:
     id: 138
     parent_id: 137
-    name: Men Watches
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Men Watches, id: Jam Tangan Laki-laki }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat139:
     id: 139
     parent_id: 137
-    name: Men Jewelry
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Men Jewelry, id: Perhiasan Laki-laki }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat140:
     id: 140
     parent_id: 137
-    name: Magnet & Healing Jewelry
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Magnet & Healing Jewelry, id: Perhiasan Magnet & Penyembuhan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat141:
     id: 141
     parent_id: 137
-    name: Women Watches
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Women Watches, id: Jam Tangan Wanita }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat142:
     id: 142
     parent_id: 137
-    name: Women Jewelry
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Women Jewelry, id: Perhiasan Wanita }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat143:
     id: 143
     parent_id: 137
-    name: Keychain & Ornaments
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Keychain & Ornaments, id: Gantungan Kunci & Ornamen }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat144:
     id: 144
     parent_id: 137
-    name: Smart Wearable Device
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Smart Wearable Device, id: Alat cerdas }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat145:
     id: 145
     parent_id: 137
-    name: Fine Jewelry
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Fine Jewelry, id: Perhiasan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat146:
     id: 146
     parent_id: 137
-    name: Kid's Jewelry & DIY
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Kid's Jewelry & DIY, id: Perhiasan Anak & DIY }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat147:
     id: 147
     parent_id: 137
-    name: Gym & Hiking Watch
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Gym & Hiking Watch, id: Jam Tangan Gym & Hiking }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat148:
     id: 148
     parent_id: 137
-    name: Jewelry Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Jewelry Supplies, id: Perlengkapan Perhiasan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat149:
     id: 149
     parent_id: 137
-    name: Watch Accessories
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Watch Accessories, id: Aksesoris Jam Tangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat150:
     id: 150
     parent_id: 137
-    name: Watch Tools
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Watch Tools, id: Perlengkapan Jam Tangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat151:
     id: 151
     parent_id: 137
-    name: Sports & Outdoor
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Sports & Outdoor, id: Olahraga & Luar Ruangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat152:
     id: 152
     parent_id: 137
-    name: Bike & Bicycle
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Bike & Bicycle, id: Sepeda }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat153:
     id: 153
     parent_id: 137
-    name: Fitness Wellness
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Fitness Wellness, id: Kesehatan Kebugaran }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat154:
     id: 154
     parent_id: 137
-    name: Outdoors Clothing & Shoes
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Outdoors Clothing & Shoes, id: Pakaian & Sepatu Luar Ruangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat155:
     id: 155
     parent_id: 137
-    name: Camping
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Camping, id: Kemah }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat156:
     id: 156
     parent_id: 137
-    name: Outdoor Recreation
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Outdoor Recreation, id: Rekreasi Luar Ruangan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat157:
     id: 157
     parent_id: 137
-    name: Travel Supplies
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Travel Supplies, id: Perlengkapan Perjalanan }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat158:
     id: 158
     parent_id: 137
-    name: Fishing & Hunting
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Fishing & Hunting, id: Berburu & Memancing }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat159:
     id: 159
     parent_id: 137
-    name: Team Sport
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Team Sport, id: Olahraga Tim }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL
 
 - cat160:
     id: 160
     parent_id: 137
-    name: Hiking & Climbing
-    description: <%= Faker::Lorem.paragraph %>
+    name: { en: Hiking & Climbing, id: Mendaki & Memanjat }
+    description: { en: <%= Faker::Lorem.paragraph %>, id: <%= Faker::Lorem.paragraph %> }
     position: NULL

@@ -1,0 +1,38 @@
+<div class="mb-3 form-group">
+  <%= f.label method %>
+  <nav>
+    <div class="nav nav-tabs" id="nav-<%= method %>-tab" role="tablist">
+      <% I18n.available_locales.each_with_index do |row, i| %>
+        <button class="nav-link<%= ' active' if i.zero? %>"
+          id="nav-<%= method %>-<%= row %>-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-<%= method %>-<%= row %>"
+          type="button"
+          role="tab"
+          aria-controls="nav-<%= method %>-<%= row %>"
+          aria-selected="true">
+          <%= I18n.t(row) %>
+        </button>
+      <% end %>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-<%= method %>-tab-content">
+    <% I18n.available_locales.each_with_index do |row, i| %>
+      <div class="tab-pane fade show<%= ' active' if i.zero? %>"
+        id="nav-<%= method %>-<%= row %>"
+        role="tabpanel"
+        aria-labelledby="nav-<%= method %>-<%= row %>-tab">
+
+        <textarea class="form-control mt-3 border-0"
+          name="<%= f.object_name %>[<%= method %>][<%= row %>]"
+          id="<%= "#{f.object_name}_#{method}_#{row}" %>"
+          placeholder="<%= options[:placeholder] %>">
+
+          <%= f.object.send(method)[row.to_s].try(:strip) %>
+        </textarea>
+      </div>
+    <% end %>
+  </div>
+  <%= f.invalid_feedback method %>
+  <%= f.valid_feedback method %>
+</div>

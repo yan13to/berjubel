@@ -13,13 +13,15 @@ require("channels");
 import LocalTime from "local-time"
 LocalTime.start()
 
-import DirectSubmit from './bj/direct-submit';
-import DropdownCallback from './bj/dropdown-callback';
-import FadeAlert from './bj/fade-alert';
-import FormCallback from './bj/form-callback';
-import MainModalCallback from './bj/main-modal-callback';
-import NestedDropdown from './bj/nested-dropdown';
-import PhotosModalCallback from './bj/photos-modal-callback';
+import CarouselCallback from "./callbacks/carousel";
+import DirectSubmit from './callbacks/direct-submit';
+import DropdownCallback from './callbacks/dropdown';
+import FadeAlert from './callbacks/fade-alert';
+import FormCallback from './callbacks/form';
+import MainModalCallback from './callbacks/main-modal-callback';
+import TabCallback from './callbacks/tab';
+import NestedDropdown from './callbacks/nested-dropdown';
+import PhotosModalCallback from './callbacks/photos-modal-callback';
 
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons';
@@ -31,21 +33,23 @@ var ReactRailsUJS = require("react_ujs");
 ReactRailsUJS.useContext(componentRequireContext);
 
 const loadApp = () => {
+  CarouselCallback();
   DirectSubmit();
   DropdownCallback();
   FormCallback();
   FadeAlert();
   MainModalCallback();
+  TabCallback();
   NestedDropdown();
   PhotosModalCallback();
 
   // import('./bj/*')
   //   .then(module => module.default())
-  //   .catch(error => console.log(error))
+  //   .catch(error => console.error(error))
 }
 
 document.addEventListener('turbolinks:load', loadApp);
 //document.addEventListener('DOMContentLoaded', loadApp);
-document.addEventListener('direct-upload:initialize', (e) => console.log(e));
+document.addEventListener('direct-upload:initialize', (e) => console.error(e));
 
 window.addEventListener('beforeunload', (e) => document.getElementById('upper-alert').style.opacity = 1);

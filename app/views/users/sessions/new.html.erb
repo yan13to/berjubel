@@ -1,10 +1,14 @@
 <%- @page_title = t('devise.sessions.new.sign_in') %>
 
-<div class="card w-25" style="margin: 80px auto;">
+<div class="d-flex justify-content-center mt-5">
+  <i class="bi bi-bootstrap-fill fs-1"></i>
+</div>
+
+<div class="card w-25 mx-auto shake shadow">
   <div class="card-header d-flex align-items-center">
-    <h5 class="card-title mt-2 me-auto">
+    <h6 class="card-title mt-2 me-auto">
       <%= t('devise.sessions.new.sign_in') %>
-    </h5>
+    </h6>
     <%= render_locale_selector('new_user_session_path') %>
   </div>
   <div class="card-body">

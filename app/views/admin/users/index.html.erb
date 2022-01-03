@@ -1,0 +1,19 @@
+<% render_admin_page_title(User.model_name.human(count: 2)) %>
+<% render_admin_main_nav(:users) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), User.model_name.human(count: 2)]) %>
+
+<h3><%= User.model_name.human(count: 2) %></h3>
+
+<table class="table table-hover">
+  <thead>
+    <%= render 'tr_head' %>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <%= render 'tr_body', user: user %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render_records_navigation @users %>

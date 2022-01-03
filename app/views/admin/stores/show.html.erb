@@ -1,0 +1,20 @@
+<% render_admin_page_title(@store.name) %>
+<% render_admin_main_nav(:stores) %>
+<% render_admin_breadcrumbs([link_to(t(:home), admin_root_path), link_to(Store.model_name.human(count: 2), admin_stores_path), @store.name]) %>
+
+<div class="d-flex justify-content-between align-items-center my-2">
+  <h3><%= link_to_back %>&nbsp;<%= @store.name %></h3>
+  <div class="btn-group" role="group" aria-label="Store's actions">
+    <%= link_to edit_admin_store_path(@store), class: 'btn btn-success' do %>
+      <i class="bi bi-pencil-fill"></i>
+    <% end %>
+    <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+  </div>
+</div>
+
+<div class="card">
+  <%= image_tag @store.avatar, class: 'card-img-top' %>
+  <div class="card-body">
+    <%= simple_format @store.description %>
+  </div>
+</div>

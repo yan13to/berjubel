@@ -1,11 +1,6 @@
 <%- @page_title = [Store.model_name.human(count: 2), t(:edit), @store.name].join(' | ') %>
 
-<%= render_breadcrumbs([
-  link_to(t(:home), root_path),
-  link_to(t(:my_store), stores_path),
-  link_to(@store.name, store_path(@store)),
-  t(:edit)
-]) %>
+<%= render_breadcrumbs([link_to(t(:home), root_path), link_to(t(:my_store), stores_path), link_to(@store.name, store_path(@store)), t(:edit)]) %>
 <%= render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <div class="card mb-3">
@@ -22,7 +17,7 @@
         <% end %>
       </div>
       <div class="col">
-        <%= render 'form' %>
+        <%= render 'form', local: true, url: store_path(@store) %>
       </div>
     </div>
   </div>

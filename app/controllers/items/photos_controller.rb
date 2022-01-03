@@ -13,7 +13,7 @@ module Items
                      .result(distinct: true)
                      .order(order)
                      .page(page)
-                     .per_page(per_page)
+                     .per(per_page)
 
       render partial: 'carousel' and return if request.xhr?
     end

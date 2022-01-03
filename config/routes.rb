@@ -14,6 +14,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :categories
+    resources :items
+    resources :properties
+    resources :stores
+    resources :users
+
+    root 'home#index'
+  end
+
   devise_for :users, controllers: {
     confirmations: 'users/confirmations',
     omniauth_callback: 'users/omniauth_callbacks',
@@ -24,6 +34,11 @@ Rails.application.routes.draw do
   }
 
   resources :items, only: %I[index show] do
+    collection do
+      get :me
+      get :following
+    end
+
     resources :photos, module: 'items'
   end
   resources :stores do

@@ -1,0 +1,6 @@
+<div class="mb-3 form-group">
+  <%= f.label method, options %>
+  <%= f.email_field method, class: render_field_class(f.object, method) %>
+  <%= f.invalid_feedback method %>
+  <%= f.valid_feedback method %>
+</div>

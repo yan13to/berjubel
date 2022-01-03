@@ -1,0 +1,22 @@
+<div class="row d-flex align-items-center justify-content-between">
+  <div class="col-auto">
+    <div class="dropdown">
+      <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= per_page %>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <% available_per_pages.each do |ap| %>
+          <li>
+            <%= link_to ap, url_for_pagination(ap), class: 'dropdown-item' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-auto">
+    <%= paginate records, theme: 'bootstrap_pagination' %>
+  </div>
+  <div class="col-auto">
+    <%= page_entries_info records %>
+  </div>
+</div>

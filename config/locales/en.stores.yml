@@ -1,0 +1,20 @@
+en:
+  stores:
+    create:
+      title: Create new store
+      success: Store has been created successfully
+    destroy:
+      success: Store has been destroyed successfully
+    items:
+      form:
+        category_id:
+          placeholder: Select category
+        description:
+          placeholder: Enter description
+        label_id:
+          placeholder: Select label
+        name:
+          placeholder: Enter name of item
+    update:
+      title: Edit %{name}
+      success: Store has been updated successfully

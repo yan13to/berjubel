@@ -1,0 +1,20 @@
+id:
+  stores:
+    create:
+      title: Buat toko baru
+      success: Anda telah berhasil membuat toko
+    destroy:
+      success: Toko telah berhasil di hapus
+    items:
+      form:
+        category_id:
+          placeholder: Pilih kategori barang
+        description:
+          placeholder: Silahkan masukan deskripsi barang Anda
+        label_id:
+          placeholder: Pilih etalase yang sesuai untuk barang Anda
+        name:
+          placeholder: Tulis nama barang
+    update:
+      title: Ubah %{name}
+      success: Toko Anda telah berhasil di ubah

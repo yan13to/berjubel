@@ -1,0 +1,25 @@
+<tr>
+  <th scope="col">
+    <%= sort_link(@search, :id, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :name, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :domain_name, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= Store.human_attribute_name(:description) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :created_at, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :updated_at, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :active, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+  </th>
+</tr>

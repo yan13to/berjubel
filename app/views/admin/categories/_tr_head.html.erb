@@ -1,0 +1,16 @@
+<tr>
+  <th scope="col" style="width:24px;">&nbsp;</th>
+  <th scope="col">
+    <%= sort_link(@search, :id, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= Category.human_attribute_name(:image) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :name, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">
+    <%= sort_link(@search, :description, {}, { class: 'text-decoration-none' }) %>
+  </th>
+  <th scope="col">&nbsp;</th>
+</tr>

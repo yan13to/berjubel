@@ -1,0 +1,12 @@
+<% url ||= admin_categories_path %>
+
+<%= form_with model: @category, local: true, url: url, builder: BerjubelFormBuilder do |f| %>
+  <%= f.alert %>
+  <%= f.text_with_locales_form_group :name %>
+  <%#= f.select_form_group :parent_id, grouped_options_for_select(Category.to_nested_array, f.object.parent_id), { include_blank: t('.placeholder') } %>
+  <%= f.select_form_group :property_ids, [] %>
+  <%= f.text_area_with_locales_form_group :description, rows: 3 %>
+  <%= f.text_area_form_group :icon %>
+  <%= f.check_box_form_group :active %>
+  <%= f.action_form_group :save %>
+<% end %>

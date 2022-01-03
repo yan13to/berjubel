@@ -1,17 +1,11 @@
-<%- @page_title = [Store.model_name.human(count: 2), t(:edit), @store.name].join(' | ') %>
-
-<%= render_breadcrumbs([
-  link_to(t(:home), root_path),
-  link_to(t(:my_store), stores_path),
-  t(:new),
-  @store.name
-]) %>
-<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% @page_title = [Store.model_name.human(count: 2), t(:edit), @store.name].join(' | ') %>
+<% render_breadcrumbs([link_to(t(:home), root_path), link_to(t(:my_store), stores_path), t(:new), @store.name]) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <div class="card mb-3">
   <div class="card-body">
     <h5 class="card-title">
-      <%= t(:new) %>
+      <%= link_to_back %>&nbsp;<%= t(:new) %>
     </h5>
     <div class="row">
       <div class="col-2">
@@ -21,7 +15,7 @@
         </svg>
       </div>
       <div class="col">
-        <%= render 'form' %>
+        <%= render 'form', url: stores_path, local: true %>
       </div>
     </div>
   </div>

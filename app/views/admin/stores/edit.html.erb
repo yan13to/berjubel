@@ -1,0 +1,19 @@
+<% render_admin_page_title([t(:edit), @store.name].join(' | ')) %>
+<% render_admin_main_nav(:stores) %>
+<% render_admin_breadcrumbs([
+  link_to(t(:home), admin_root_path),
+  link_to(Store.model_name.human(count: 2), admin_stores_path),
+  link_to(@store.name, admin_store_path(@store)),
+  t(:edit)
+]) %>
+
+<div class="d-flex justify-content-between align-items-center my-2">
+  <h3><%= link_to_back %>&nbsp;<%= t(:edit) %></h3>
+  <%= link_to t(:cancel), admin_stores_path, class: 'btn btn-link' %>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', url: admin_store_path(@store), local: true %>
+  </div>
+</div>

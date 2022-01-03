@@ -1,7 +1,9 @@
 <% 1.upto(1000) do |i| %>
 item_<%= i %>:
   id: <%= i %>
+  category_id: <%= (1..160).to_a.sample %>
   store_id: <%= (1..100).to_a.sample %>
   name: <%= Faker::Commerce.product_name %>
   description: <%= Faker::Restaurant.description %>
+  active: <%= [0, 1].sample %>
 <% end %>

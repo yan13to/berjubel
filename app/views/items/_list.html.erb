@@ -10,15 +10,15 @@
   </div>
   <div class="me-auto p-2 ps-3">
     <h5 class="mb-0">
-      <%= link_to item.name, item_path(item) %>
+      <%= link_to item.name, options[:from_store] ? store_item_path(item.store, item) : item_path(item), class: 'text-decoration-none' %>
     </h5>
     <%- if options[:store] -%>
       <div>
-        <%= link_to(item.store.name, store_path(item.store)) if item.store %>
+        <%= link_to item.store.name, store_path(item.store) if item.store %>
       </div>
     <%- end -%>
-    <div class="text-truncate" style="max-width:670px;">
-      <%= item.description %>
+    <div>
+      <%= simple_format item.description %>
     </div>
   </div>
   <div>

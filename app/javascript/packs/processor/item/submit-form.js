@@ -3,12 +3,16 @@ import LoadingIndicator from '../../shared/loading-indicatior';
 
 export default function submitItemForm(e) {
   const form = e.currentTarget;
+  const modal = document.querySelector('div.modal');
+  const modalClass = 'shake';
 
-  form.addEventListener('ajax:before', (e) => {
-    form.querySelector('.form-action').innerHTML = LoadingIndicator().innerHTML
+  form.addEventListener('ajax:beforeSend', (e) => {
+    modal.classList.remove(modalClass);
+    form.querySelector('.form-action').innerHTML = LoadingIndicator();
   })
 
   form.addEventListener('ajax:success', (e) => {
+    modal.classList.remove(modalClass)
     console.log('success')
   })
 
@@ -18,5 +22,6 @@ export default function submitItemForm(e) {
 
     targetElement.innerHTML = xhr.response;
     validateItemForm(targetElement.querySelector('form'));
+    modal.classList.add(modalClass);
   })
 }

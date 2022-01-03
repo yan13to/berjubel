@@ -1,36 +1,55 @@
-<%- @page_title = Store.model_name.human(count: 2) %>
-
-<%= render_breadcrumbs([
-  link_to_unless_current(t(:home), root_path),
-  t(:my_store) 
-]) %>
-<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+<% @page_title = Store.model_name.human(count: 2) %>
+<% render_breadcrumbs([link_to_unless_current(t(:home), root_path), t(:my_store)]) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <div class="card mb-3">
   <div class="card-body">
     <div class="d-flex align-items-center">
       <h5 class="card-title me-auto"><%= t(:my_store) %></h5>
-      <%= link_to_main_modal content_tag(:i, nil, class: 'bi bi-plus'),
-            title: t('stores.create.title'),
-            processor: 'store/fetch-form',
-            url: new_store_path,
-            class: 'btn btn-primary' %>
+      <div class="btn-group" role="group" aria-label="<%= Store.model_name.human %>'s actions">
+        <button class="btn btn-secondary">
+          <i class="bi bi-grid"></i>
+        </button>
+        <%= link_to_main_modal content_tag(:i, nil, class: 'bi bi-plus'),
+              title: t('stores.create.title'),
+              processor: 'store/fetch-form',
+              url: new_store_path(format: :js),
+              class: 'btn btn-primary' %>
+      </div>
     </div>
     <table class="table table-hover align-middle">
-      <tr>
-        <th><%= Store.human_attribute_name(:id) %></th>
-        <th><%= Store.human_attribute_name(:name) %></th>
-        <th><%= Store.human_attribute_name(:items_count) %></th>
-        <th><%= Store.human_attribute_name(:created_at) %></th>
-        <th>&nbsp;</th>
-      </tr>
-      <% @stores.each do |store| %>
-        <% cache store do %>
-          <%= render 'store', store: store %>
+      <thead>
+        <tr>
+          <th scope="col">
+            <%= Store.human_attribute_name(:id) %>
+          </th>
+          <th scope="col">
+            <%= Store.human_attribute_name(:avatar) %>
+          </th>
+          <th scope="col">
+            <%= Store.human_attribute_name(:name) %>
+          </th>
+          <th scope="col">
+            <%= Store.human_attribute_name(:description) %>
+          </th>
+          <th scope="col">
+            <%= Store.human_attribute_name(:items_count) %>
+          </th>
+          <th scope="col">
+            <%= Store.human_attribute_name(:created_at) %>
+          </th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @stores.each do |store| %>
+          <% cache store do %>
+            <%= render 'store', store: store %>
+          <% end %>
         <% end %>
-      <% end %>
+      </tbody>
     </table>
+    <%= render_records_navigation @stores %>
   </div>
 </div>
-<%= will_paginate(@stores, renderer: BerjubelPagination) %>
 <br />

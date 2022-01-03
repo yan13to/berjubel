@@ -9,6 +9,7 @@ en:
   empty: Empty
   en: EN
   delete: Delete
+  false: 'No'
   filter: Filter
   follow: Follow
   go: Go
@@ -23,6 +24,7 @@ en:
     good: All good
     problem: There was a problem!
   my_store: My Store
+  new: New
   'no': 'No'
   price: Price
   rating: Rating
@@ -33,5 +35,6 @@ en:
   search: Search
   send: Send
   submit: Submit
+  true: 'Yes'
   update: Update
   'yes': 'Yes'

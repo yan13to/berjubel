@@ -1,0 +1,65 @@
+<tr>
+  <td>
+    <%= user.id %>
+  </td>
+  <td>
+    <%= link_to user.email, admin_user_path(user) %>
+  </td>
+  <td>
+    <%= user.sign_in_count %>
+  </td>
+  <td>
+    <%= user.unconfirmed_email %>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.confirmation_sent_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.confirmation_sent_at) if user.confirmation_sent_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.confirmed_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.confirmed_at) if user.confirmed_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.current_sign_in_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.current_sign_in_at) if user.current_sign_in_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.reset_password_sent_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.reset_password_sent_at) if user.reset_password_sent_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.remember_created_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.remember_created_at) if user.remember_created_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.last_sign_in_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.last_sign_in_at) if user.last_sign_in_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.locked_at&.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.locked_at) if user.locked_at.present? %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.created_at.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.created_at) %>
+    </span>
+  </td>
+  <td>
+    <span data-bs-toggle="tooltip" title="<%= user.updated_at.to_formatted_s(:long) %>">
+      <%= time_ago_in_words(user.updated_at) %>
+    </span>
+  </td>
+  <td>
+    <div class="btn-group btn-group-sm" role="group" aria-label="User's actions">
+      <button type="button" class="btn btn-success"><i class="bi bi-pencil-fill"></i></button>
+      <button type="button" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+    </div>
+  </td>
+</tr>

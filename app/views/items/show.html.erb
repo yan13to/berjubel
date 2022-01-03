@@ -1,37 +1,102 @@
-<%- @page_title = [Item.model_name.human(count: 2), @item.name].join(' | ') %>
+<% @page_title = [Item.model_name.human(count: 2), @item.name].join(' | ') %>
+<% render_search_form %>
+<% render_breadcrumbs([link_to(t(:home), root_path), link_to(Item.model_name.human(count: 2), items_path), @item.name]) %>
+<% render_floating_alert([flash.now[:notice]].compact, :success) %>
 
-<%= render_search_form %>
-
-<%= render_breadcrumbs([
-  link_to(t(:home), root_path),
-  link_to(Item.model_name.human(count: 2), items_path),
-  @item.name
-]) %>
-
-<%= render_floating_alert([flash.now[:notice]].compact, :success) %>
+<%= link_to_back %>
 
 <div class="card">
   <div class="card-body">
     <div class="row">
       <div class="col d-flex align-items-start">
-        <div style="width:80px;">
-          <%- @item.photos.each do |photo| %>
-            <%= link_to image_tag(photo.variant(resize_to_limit: [40, 40]), style: 'margin:5px auto;border:2px solid blue;'), '#' %>
+        <div class="vstack" style="width:42px;">
+          <%- @item.photos.each_with_index do |photo, i| %>
+            <a href="#carouselItemPhotos" data-bs-slide-to="<%= i %>" class="mb-1 text-center border border-primary" style="width:42px;">
+              <%= image_tag photo.variant(resize_to_limit: [40, 40]) %>
+            </a>
           <% end %>
         </div>
-        <div class="mt-4">
-          <%= image_tag @item.default_photo.variant(resize_to_limit: [414, 414]) if @item.photos.attached? %>
+        <div id="carouselItemPhotos" class="carousel ms-2" data-bs-interval="false">
+          <div class="carousel-inner">
+            <% @item.photos.each_with_index do |photo, i| %>
+              <div class="carousel-item <%= 'active' if i.zero? %>">
+                <%= image_tag photo, class: 'd-block w-100' %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="col-6">
-        <h5 class="card-title d-flex">
-          <span class="me-auto"><%= @item.name %></span>
-          <%= render_item_action(@item) %>
-        </h5>
+        <h3>
+          <%= link_to @item.store.name, store_path(@item.store), class: 'text-decoration-none' %>
+        </h3>
         <div>
-          <%= link_to "Visit #{@item.store.name} store", store_path(@item.store) %>
+          <span>12345</span> Penjualan | 
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
         </div>
-        <%= simple_format(@item.description) %>
+
+        <h1 class="card-title d-flex">
+          <span class="me-auto"><%= @item.name %></span>
+          <%#= render_item_action(@item) %>
+        </h1>
+
+        <div class="mb-3">
+          <span class="badge bg-info text-dark">Editor pick / Best Seller</span>
+        </div>
+
+        <h2>
+          Rp. 5000
+        </h2>
+
+        <div class="mb-4 d-flex justify-content-between">
+          <button type="button" class="btn btn-success">+ keranjang</button>
+          <button type="button" class="btn btn-secondary">+ wishlist</button>
+        </div>
+
+        <div class="accordion accordion-flush" id="accordionItem">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <%= Item.human_attribute_name :description %>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+              <div class="accordion-body">
+                <%= simple_format(@item.description) %>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Pengiriman dan Pengembalian
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+              <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Hubungi Penjual
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>

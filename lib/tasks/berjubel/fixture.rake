@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :berjubel do
-  desc 'Import sample data from fixtures'
+  desc 'Import sample data from fixtures with argument MODELS=categories,users'
   task fixtures: :environment do
     models = ENV['MODELS'].present? ? ENV['MODELS'].split(',').map(&:to_sym) : []
 
@@ -10,30 +10,64 @@ namespace :berjubel do
       load_users if models.include?(:users)
       load_stores if models.include?(:stores)
       load_items if models.include?(:items)
+    else
+      puts 'MODELS is not specified by user'
     end
   end
 end
 
 def load_categories
-  categories = YAML.safe_load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'categories.yml'))).result).map(&:values).flatten
+  category_path = File.join(Rails.root, 'test', 'fixtures', 'categories.yml')
+  category_file = File.read(category_path)
+  category_result = ERB.new(category_file).result
+  category_params = YAML.safe_load(category_result).map(&:values).flatten
 
-  categories.each do |params|
-    params['name'] = { en: params['name'], id: params['name'] }
-    params['description'] = { en: params['description'], id: params['description'] }
-    Category.where(id: params['id']).first_or_create!(params)
+  category_params.each do |params|
+    category = Category.where(id: params['id']).first || Category.new
+
+    category.assign_attributes(params)
+
+    if category.save
+      ap category.attributes
+    else
+      ap category.errors.full_messages
+    end
+
+    next if category.image.attached?
+
+    url = 'https://picsum.photos/800/600'
+    filename = File.basename(URI.parse(url).path)
+
+    begin
+      file = URI.open(url)
+    rescue OpenURI::HTTPError, SocketError
+      file = nil
+      next
+    end
+
+    category.image.attach(io: file, filename: filename) if file
   end
 
-  ActiveRecord::Base.connection.reset_pk_sequence!('categories')
+  # ActiveRecord::Base.connection.reset_sequence!('categories')
 
   puts "There are now #{Category.count} rows in the categories table"
 end
 
 def load_users
-  users = YAML.safe_load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'users.yml'))).result).values
+  user_path = File.join(Rails.root, 'test', 'fixtures', 'users.yml')
+  user_file = File.read(user_path)
+  user_result = ERB.new(user_file).result
+  user_params = YAML.safe_load(user_result).values
 
-  users.each do |params|
-    user = User.where(id: params['id']).first_or_create!(params)
-    ap user.attributes
+  user_params.each do |params|
+    user = User.where(id: params['id']).first || User.new
+
+    user.assign_attributes(params)
+    if user.save
+      ap user.attributes
+    else
+      ap user.errors.full_messages
+    end
 
     next if user.try(:profile).try(:avatar).try(:attached?)
 
@@ -51,16 +85,27 @@ def load_users
     user.profile.avatar.attach(io: file, filename: filename) if file
   end
 
-  ActiveRecord::Base.connection.reset_pk_sequence!('users')
+  # ActiveRecord::Base.connection.reset_sequence!('users')
 
   puts "There are now #{User.count} rows in the users table"
 end
 
 def load_stores
-  stores = YAML.safe_load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'stores.yml'))).result).values
+  store_path = File.join(Rails.root, 'test', 'fixtures', 'stores.yml')
+  store_file = File.read(store_path)
+  store_result = ERB.new(store_file).result
+  store_params = YAML.safe_load(store_result).values
 
-  stores.each do |params|
-    store = Store.where(id: params['id']).first_or_create!(params)
+  store_params.each do |params|
+    store = Store.where(id: params['id']).first || Store.new
+
+    store.assign_attributes(params)
+
+    if store.save
+      ap store.attributes
+    else
+      ap store.errors.full_messages
+    end
 
     next if store.avatar.attached?
 
@@ -77,16 +122,28 @@ def load_stores
     store.avatar.attach(io: file, filename: filename) if file
   end
 
-  ActiveRecord::Base.connection.reset_pk_sequence!('stores')
+  # ActiveRecord::Base.connection.reset_sequence!('stores')
 
   puts "There are now #{Store.count} rows in the stores table"
 end
 
 def load_items
-  items = YAML.safe_load(ERB.new(File.read(File.join(Rails.root, 'test', 'fixtures', 'items.yml'))).result).values
+  item_path = File.join(Rails.root, 'test', 'fixtures', 'items.yml')
+  item_file = File.read(item_path)
+  item_result = ERB.new(item_file).result
+  item_params = YAML.safe_load(item_result).values
 
-  items.each do |params|
-    item = Item.where(id: params['id']).first_or_create!(params)
+  item_params.each do |params|
+    item = Item.where(id: params['id']).first || Item.new
+
+    item.assign_attributes(params)
+
+    if item.save
+      ap item.attributes
+    else
+      ap item.errors.full_messages
+    end
+
     next unless item.photos.blank?
 
     url = 'https://picsum.photos/800/400'
@@ -104,7 +161,7 @@ def load_items
     end
   end
 
-  ActiveRecord::Base.connection.reset_pk_sequence!('items')
+  # ActiveRecord::Base.connection.reset_sequence!('items')
 
   puts "There are now #{Item.count} rows in the items table"
 end

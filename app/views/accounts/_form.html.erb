@@ -1,25 +1,7 @@
-<%= form_for current_user, url: account_path do |f| %>
-  <%= render_floating_alert(f.object.errors.full_messages) %>
-
-  <div class="mb-3 form-group">
-    <%= f.label :email, class: 'd-block' %>
-    <%= f.email_field :email, class: render_field_class(f.object, :email) %>
-    <%= render_error_message_for(f.object, :email) %>
-  </div>
-
-  <div class="mb-3 form-group">
-    <%= f.label :password, class: 'd-block' %>
-    <%= f.password_field :password, class: render_field_class(f.object, :password) %>
-    <%= render_error_message_for(f.object, :password) %>
-  </div>
-
-  <div class="mb-3 form-group">
-    <%= f.label :password_confirmation, class: 'd-block' %>
-    <%= f.password_field :password_confirmation, class: render_field_class(f.object, :password_confirmation) %>
-    <%= render_error_message_for(f.object, :password_confirmation) %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.submit t(:save), class: 'btn btn-secondary' %>&nbsp;
-  </div>
+<%= form_for current_user, url: account_path, builder: BerjubelFormBuilder do |f| %>
+  <%= f.alert %>
+  <%= f.email_form_group :email %>
+  <%= f.password_form_group :password %>
+  <%= f.password_form_group :password_confirmation %>
+  <%= f.action_form_group :save %>
 <% end %>

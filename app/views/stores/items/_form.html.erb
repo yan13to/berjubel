@@ -1,59 +1,18 @@
 <%- local ||= false %>
 <%- url = @item.persisted? ? store_item_path(@store, @item) : store_items_path(@store) %>
 
-<%= form_with model: @item, url: url, local: local do |f| %>
-  <%= render_error_message(@item.errors.full_messages) %>
+<%= form_with model: @item, url: url, local: local, builder: BerjubelFormBuilder do |f| %>
+  <%= f.alert %>
+  <%= f.text_form_group :name, placeholder: t('.name.placeholder'), autofocus: true %>
+  <%= f.select_form_group :category_id, grouped_options_for_select(Category.to_nested_array, f.object.category_id), { prompt: t('.placeholder') } %>
 
   <div class="mb-3 form-group">
-    <%= f.label :name, class: 'd-block' %>
-    <%= f.text_field :name, class: render_field_class(@item, :name) %>
-    <%= render_error_message_for(@item, :name) %>
-    <%= render_success_message_for(Item, :name) %>
+    <%= f.label :label_id %>
+    <%= f.select :label_id, [], { prompt: t('.label_id.placeholder') }, class: 'form-control' %>
   </div>
 
-  <div class="mb-3 form-group">
-    <%= f.label :category, class: 'd-block' %>
-    <div class="dropdown form-control" data-nested-dropdown="true" data-target-element="[name='item[item_categories_attributes][0][category_id]']">
-      <span class="dropdown-toggle" data-bs-toggle="dropdown">
-        <%- category = @item.item_categories.map(&:category).first %>
-        <%= render_nested_category_path(category) || 'Select item category' %>
-      </span>
-      <%= render_nested_categories(Category.parents) %>
-    </div>
-    <%= f.fields_for :item_categories, @item_categories do |ff| %>
-      <%= ff.hidden_field :id %>
-      <%= ff.hidden_field :category_id %>
-    <% end %>
-  </div>
-
-  <div class="mb-3 form-group">
-    <%= f.label :label, class: 'd-block' %>
-    <div class="d-flex align-items-center form-control p-0">
-      <p class="form-control border-0 m-0" contenteditable="true">
-        <!--<span>Enter label here</span>-->
-        <span class="badge rounded-pill bg-dark">Alat kayu <button class="btn badge bg-danger">x</button></span>
-        <span class="badge rounded-pill bg-dark">Pertukangan <button class="btn badge bg-danger">x</button></span>
-      </p>
-      <div class="spinner-border" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-    <%= f.fields_for :item_labels do |ff| %>
-      <%= ff.hidden_field :label_id %>
-    <% end %>
-  </div>
-
-  <div class="mb-3 form-group">
-    <%= f.label :description, class: 'd-block' %>
-    <%= f.text_area :description, class: render_field_class(@item, :description), rows: 10 %>
-    <%= render_error_message_for(@item, :description) %>
-    <%= render_success_message_for(Item, :description) %>
-  </div>
-
-  <div class="mb-3 form-group">
-    <%= f.label :photos, class: 'd-block' %>
-    <%= f.file_field :photos, multiple: true, class: render_field_class(@item, :photos) %>
-  </div>
+  <%= f.text_area_form_group :description, placeholder: t('.description.placeholder'), rows: 10 %>
+  <%= f.file_form_group :photos, multiple: true %>
 
   <div class="form-group">
     <%- f.object.photos.each do |p| %>

@@ -11,16 +11,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div id="upper-alert" class="alert-warning p-1 mt-1" role="alert">
-      <strong><%= t(:loading) %>...</strong>
-    </div>
-    <%= render 'layouts/header' unless devise_controller? %>
+  <body <%= body_class %>>
+    <%= render_upper_alert %>
+    <%= render_header %>
     <div class="container">
       <%= yield :breadcrumbs %>
       <%= yield :alert %>
       <%= yield %>
     </div>
-    <%= render 'layouts/main_modal' %>
+    <%= render 'footer' %>
+    <%= render_main_modal %>
   </body>
 </html>
