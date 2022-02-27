@@ -23,5 +23,7 @@
     <%= render_error_message_for(resource, :password_confirmation) %>
   </div>
 
-  <%= f.submit t(:sign_up), class: 'btn btn-secondary' %>
+  <div class="d-grid gap-2">
+    <%= f.submit t(:sign_up), class: 'btn btn-secondary' %>
+  </div>
 <% end %>

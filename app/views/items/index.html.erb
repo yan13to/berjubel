@@ -16,28 +16,57 @@
     <%= link_to 'My Items', me_items_path, class: 'badge rounded-pill bg-info text-decoration-none' %>
   </div>
   <div>
+    <select class="form-select" aria-label="Default select example">
+      <option selected>Sort by:</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+  </div>
+  <div class="ms-2">
     <%= render_listing_items_selector if signed_in? %>
   </div>
 </div>
 
-<div class="my-3">
-  <div class="<%= build_items_classes %>">
-    <%- if @items.present? %>
-      <%= render_item_listing(@items, store: false) %>
-    <% else %>
-      <%= render 'empty' %>
-    <% end %>
+<nav class="mt-2">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active"
+      id="nav-item-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#item"
+      data-bs-processor="item/list/item"
+      type="button"
+      role="tab"
+      aria-controls="item"
+      aria-selected="true"><%= Item.model_name.human %></button>
+    <button class="nav-link"
+      id="nav-store-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#store"
+      data-bs-processor="item/list/store"
+      type="button"
+      role="tab"
+      aria-controls="store"
+      aria-selected="false"><%= Store.model_name.human %></button>
   </div>
-</div>
+</nav>
 
-<%= render_records_navigation @items %>
-
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMain" aria-labelledby="offcanvasMainLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasMainLabel">Filter</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<div class="tab-content" id="itemTabContent">
+  <div class="tab-pane show active" id="item" role="tabpanel" aria-labelledby="item-tab">
+    <div class="my-3">
+      <div class="<%= build_items_classes %>">
+        <%= render_item_listing(@items) %>
+      </div>
+    </div>
+    <%= render_records_navigation @items %>
   </div>
-  <div class="offcanvas-body">
-    <%= render 'items/filters/form' %>
+  <div class="tab-pane" id="store" role="tabpanel" aria-labelledby="store-tab">
+    <div class="my-3">
+      <div class="<%= build_items_classes %>">
+        <% 9.times.each do %>
+          <%= render 'column_placeholder' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

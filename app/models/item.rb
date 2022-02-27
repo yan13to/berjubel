@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   has_many :labels, through: :item_labels
 
   accepts_nested_attributes_for :labels
+  accepts_nested_attributes_for :prices
 
   # validates :photos, blob: { content_type: :image, size_range: 1..10.megabytes }
   validates :name, :description, presence: true

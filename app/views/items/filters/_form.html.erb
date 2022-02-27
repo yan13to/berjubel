@@ -1,40 +1,62 @@
-<%= search_form_for Item.ransack(params[:q]), id: 'item_search_sidebar' do |f| %>
-  <div class="d-flex">
-    <strong class="me-auto"><%= Category.model_name.human(count: 2) %></strong>
-    <% if Category.parents.present? %>
-      <%= link_to_main_modal t(:reset),
-          title: 'Are you sure want to reset categories?',
-          processor: 'filter/reset-categories' %>
-    <% end %>
-  </div>
-  <div class="list-group list-group-categories">
-    <%- if Category.parents.any? -%>
-      <%= render 'items/filters/categories', f: f, categories: Category.parents %>
-    <%- else -%>
-      <div class="list-group-item">
-        <%= render 'empty' %>
+<div class="accordion accordion-flush" id="accordionFilter">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseCategory"
+              aria-expanded="true"
+              aria-controls="collapseCategory">
+        <%= Category.model_name.human(count: 2) %>
+      </button>
+    </h2>
+    <div id="collapseCategory"
+         class="accordion-collapse collapse show"
+         aria-labelledby="headingCategory"
+         data-bs-parent="#accordionFilter">
+      <div class="accordion-body">
+        <%= render 'items/filters/categories', categories: Category.parents %>
       </div>
-    <%- end -%>
+    </div>
   </div>
-  <!--
-  <div class="d-flex">
-    <strong class="me-auto"><%= t(:price) %></strong>
-    <%#= link_to_main_modal t(:reset),
-        title: 'Are you sure want to reset prices?',
-        body: 'this the body from prices' %>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsePrice"
+              aria-expanded="true"
+              aria-controls="collapsePrice">
+        <%= t(:price) %>
+      </button>
+    </h2>
+    <div id="collapsePrice"
+         class="accordion-collapse collapse"
+         aria-labelledby="headingPrice"
+         data-bs-parent="#accordionFilter">
+      <div class="accordion-body">
+        <%= render 'items/filters/prices' %>
+      </div>
+    </div>
   </div>
-  <div class="list-group list-group-prices">
-    <%#= render 'items/filters/prices', f: f %>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseRating"
+              aria-expanded="true"
+              aria-controls="collapseRating">
+        <%= t(:rating) %>
+      </button>
+    </h2>
+    <div id="collapseRating"
+         class="accordion-collapse collapse"
+         aria-labelledby="headingRating"
+         data-bs-parent="#accordionFilter">
+      <div class="accordion-body">
+        <%= render 'items/filters/ratings' %>
+      </div>
+    </div>
   </div>
-  <div class="d-flex">
-    <strong class="me-auto"><%= t(:rating) %></strong>
-    <a href="#mainModal"
-      data-bs-toggle="modal"
-      data-bs-title="Are sure want to reset ratings?"
-      data-bs-body="This is the body from ratings"><%= t(:reset) %></a>
-  </div>
-  <div class="list-group list-group-ratings">
-    <%#= render 'items/filters/ratings', f: f %>
-  </div>
-  -->
-<% end %>
+</div>

@@ -45,5 +45,7 @@
     <%= render_error_message_for(resource, :current_password) %>
   </div>
 
-  <%= f.submit t(:update), class: 'btn btn-secondary' %>
+  <div class="d-grid gap-2">
+    <%= f.submit t(:update), class: 'btn btn-secondary' %>
+  </div>
 <% end %>

@@ -7,7 +7,7 @@ export default function FormCallback() {
 
     if (!processor) return;
 
-    import('../processor/'+ processor)
+    import('../processor/'+ processor + '.js')
       .then(module => module.default(form))
       .catch(error => console.error(error))
   }

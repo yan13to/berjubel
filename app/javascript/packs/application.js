@@ -19,6 +19,7 @@ import DropdownCallback from './callbacks/dropdown';
 import FadeAlert from './callbacks/fade-alert';
 import FormCallback from './callbacks/form';
 import MainModalCallback from './callbacks/main-modal-callback';
+import Processor from "./callbacks/processor";
 import TabCallback from './callbacks/tab';
 import NestedDropdown from './callbacks/nested-dropdown';
 import PhotosModalCallback from './callbacks/photos-modal-callback';
@@ -39,11 +40,12 @@ const loadApp = () => {
   FormCallback();
   FadeAlert();
   MainModalCallback();
+  Processor();
   TabCallback();
   NestedDropdown();
   PhotosModalCallback();
 
-  // import('./bj/*')
+  // import('./callbacks/*')
   //   .then(module => module.default())
   //   .catch(error => console.error(error))
 }

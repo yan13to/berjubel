@@ -35,6 +35,10 @@ module PartialHelper
     render 'error_message_for', messages: messages # if messages.present?
   end
 
+  def render_footer
+    render 'footer'
+  end
+
   def render_header
     render 'header' unless devise_controller?
   end
@@ -51,6 +55,10 @@ module PartialHelper
     content_for :search_form do
       render 'search_form'
     end
+  end
+
+  def render_sidebar
+    render 'sidebar'
   end
 
   def render_upper_alert

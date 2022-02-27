@@ -1,6 +1,5 @@
 <% categories ||= Category.parents %>
 
-<div class="accordion accordion-flush" id="accordionCategory">
   <% categories.each do |category| %>
     <div class="accordion-item">
       <% if category.children.present? %>
@@ -11,7 +10,7 @@
         </div>
       <% else %>
         <div class="py-3">
-          <%= link_to category.translated_name, params.permit!.merge(category_id_in: [category.id]), class: 'text-decoration-none' %>
+          <%= link_to category.translated_name, params.permit!.merge(q: { category_id_in: [category.id] }), class: 'text-decoration-none' %>
         </div>
       <% end %>
       <% if category.children.present? %>
@@ -23,4 +22,3 @@
       <% end %>
     </div>
   <% end %>
-</div>

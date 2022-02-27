@@ -4,11 +4,11 @@
       <%= render_locale_form %>
     </li>
     <li class="dropdown me-2">
-      <%= link_to_remote_dropdown t(:my_store), stores_path, url: stores_path(per_page: 3, format: :js) %>
-      <ul class="dropdown-menu p-2">Loading...</ul>
+      <%= link_to_remote_dropdown t(:my_store), stores_path, url: stores_path(per_page: 3, format: :js), class: 'text-decoration-none' %>
+      <ul class="dropdown-menu p-2 dropdown-menu-dark">Loading...</ul>
     </li>
     <li class="dropdown me-2">
-      <%= link_to '#', class: 'dropdown-toggle', 'data-bs-toggle': 'dropdown' do %>
+      <%= link_to '#', class: 'dropdown-toggle text-decoration-none', 'data-bs-toggle': 'dropdown' do %>
         <%= render_user_avatar %>
         <%= render_user_name %>
       <% end %>

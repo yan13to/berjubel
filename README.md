@@ -16,6 +16,18 @@ SPA (react js)
 
 <https://berjubel-app.web.app>
 
+## Method
+
+Use default rails, bootstrap features as much as possible.
+
+## Technology
+
+* Ruby On Rails
+
+* Postgresql
+
+* Bootstrap
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

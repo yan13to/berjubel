@@ -1,6 +1,6 @@
 <% @page_title = [Item.model_name.human(count: 2), @item.name].join(' | ') %>
 <% render_search_form %>
-<% render_breadcrumbs([link_to(t(:home), root_path), link_to(Item.model_name.human(count: 2), items_path), @item.name]) %>
+<% render_breadcrumbs([link_to(t(:home), root_path, class: 'text-decoration-none'), link_to(Item.model_name.human(count: 2), items_path, class: 'text-decoration-none'), @item.name]) %>
 <% render_floating_alert([flash.now[:notice]].compact, :success) %>
 
 <%= link_to_back %>
@@ -16,7 +16,7 @@
             </a>
           <% end %>
         </div>
-        <div id="carouselItemPhotos" class="carousel ms-2" data-bs-interval="false">
+        <div id="carouselItemPhotos" class="carousel m-3" data-bs-interval="false">
           <div class="carousel-inner">
             <% @item.photos.each_with_index do |photo, i| %>
               <div class="carousel-item <%= 'active' if i.zero? %>">
@@ -31,21 +31,29 @@
           <%= link_to @item.store.name, store_path(@item.store), class: 'text-decoration-none' %>
         </h3>
         <div>
-          <span>12345</span> Penjualan | 
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
-          <i class="bi bi-star-fill"></i>
+          <button type="button" class="btn p-0">12345 Penjualan</button> | 
+
+          <span class="dropdown">
+            <button class="btn p-0 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-warning"></i>
+              <i class="bi bi-star-fill text-black-50"></i>
+            </button>
+            <%= render 'ratings' %>
+          </span>
         </div>
 
         <h1 class="card-title d-flex">
           <span class="me-auto"><%= @item.name %></span>
           <%#= render_item_action(@item) %>
         </h1>
-
         <div class="mb-3">
-          <span class="badge bg-info text-dark">Editor pick / Best Seller</span>
+          <span class="badge bg-info text-dark"
+                data-bs-toggle="tooltip"
+                data-bs-html="true"
+                title="Qui elit <em>adipisicing</em> non non magna enim. Eu anim laborum tempor proident elit eu esse ex. Officia <strong>amet</strong> nostrud duis dolore laborum ad elit pariatur adipisicing velit non velit anim. Incididunt culpa voluptate non dolore do proident irure Lorem excepteur aliquip eiusmod ea do et. Consectetur voluptate Lorem est incididunt mollit eiusmod proident incididunt mollit nulla irure tempor ad. Consequat ut nulla id Lorem nostrud elit excepteur enim ex culpa.">Editor pick / Best Seller</span>
         </div>
 
         <h2>
@@ -53,8 +61,8 @@
         </h2>
 
         <div class="mb-4 d-flex justify-content-between">
-          <button type="button" class="btn btn-success">+ keranjang</button>
-          <button type="button" class="btn btn-secondary">+ wishlist</button>
+          <button type="button" class="btn btn-success">+ Cart</button>
+          <button type="button" class="btn btn-secondary">+ Wishlist</button>
         </div>
 
         <div class="accordion accordion-flush" id="accordionItem">

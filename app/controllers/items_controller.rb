@@ -44,8 +44,9 @@ class ItemsController < ApplicationController
 
   def load_items
     @items = @search.result(distinct: true)
-                    .order(order)
+                    .includes(:store)
                     .page(page)
                     .per(per_page)
+                    .order(order)
   end
 end

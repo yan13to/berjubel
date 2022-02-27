@@ -6,7 +6,7 @@ module ItemHelper
     if item_listing_mode == 'list'
       'd-flex flex-column'
     else
-      'd-flex align-content-stretch flex-wrap'
+      'd-flex align-content-stretch flex-wrap justify-content-between'
     end
   end
 

@@ -28,12 +28,13 @@
     </div>
   <% end %>
 
-  <%= f.submit t(:sign_in), class: 'btn btn-secondary' %>
-
-  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-    <small>
-      <%= link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name) %>
-    </small>
-  <% end %>
+  <div class="d-grid gap-2">
+    <%= f.submit t(:sign_in), class: 'btn btn-secondary' %>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <small>
+        <%= link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name) %>
+      </small>
+    <% end %>
+  </div>
 
 <% end %>

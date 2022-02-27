@@ -21,7 +21,11 @@ module ApplicationHelper
   end
 
   def render_item_listing(items, options = {})
-    render "items/#{item_listing_mode.pluralize}", items: items, options: options
+    if items.any?
+      render "items/#{item_listing_mode.pluralize}", items: items, options: options
+    else
+      render 'empty'
+    end
   end
 
   def render_user_name

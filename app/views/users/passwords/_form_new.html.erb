@@ -8,5 +8,7 @@
     <%= render_error_message_for(resource, :email) %>
   </div>
 
-  <%= f.submit t(:send), class: 'btn btn-secondary' %>
+  <div class="d-grid gap-2">
+    <%= f.submit t(:send), class: 'btn btn-secondary' %>
+  </div>
 <% end %>

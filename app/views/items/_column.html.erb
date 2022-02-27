@@ -1,10 +1,10 @@
 <%- options = options.present? ? options : { store: true } %>
 
-<div class="card m-2 w-25 position-relative">
+<div class="card mb-4 position-relative" data-processor="item/column">
   <%= link_to "#photos-item-#{item.id}", 'data-bs-toggle': 'modal' do %>
     <svg class="img-fluid"
         width="100%"
-        height="150"
+        height="180"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
         preserveAspectRatio="xMidYMid slice"
@@ -32,10 +32,13 @@
     </div>
   <% end %>
 
-  <div class="card-body">
+  <div class="card-body pt-0">
     <h5 class="card-title">
       <%= link_to item.name, options[:from_store] ? store_item_path(item.store, item) : item_path(item), class: 'text-decoration-none' %>
     </h5>
+    <div class="mb-2">
+      Rp. 1.000.000,00
+    </div>
     <%- if options[:store] %>
       <div>
         <%= link_to item.store.name, store_path(item.store), class: 'text-decoration-none' if item.store %>
@@ -46,6 +49,21 @@
         <%= simple_format(item.description) %>
       </div>
     <% end %>
+  </div>
+
+  <div class="card-footer text-muted">
+    <div class="d-flex justify-content-between small">
+      <span class="dropdown">
+        <span class="dropdown-toggle" data-bs-toggle="dropdown">
+          <i class="bi bi-star-fill text-warning"></i>
+          <%= (1..5).to_a.sample %>
+        </span>
+        <%= render 'ratings' %>
+      </span>
+      <span>
+        1rb penjualan
+      </span>
+    </div>
   </div>
 </div>
 
