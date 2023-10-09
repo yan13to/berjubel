@@ -40,7 +40,7 @@ def load_categories
 
     begin
       file = URI.open(url)
-    rescue OpenURI::HTTPError, SocketError
+    rescue OpenURI::HTTPError, SocketError, OpenSSL::SSL::SSLError, Errno::ECONNRESET
       file = nil
       next
     end
@@ -76,7 +76,7 @@ def load_users
 
     begin
       file = URI.open(url)
-    rescue OpenURI::HTTPError, SocketError
+    rescue OpenURI::HTTPError, SocketError, OpenSSL::SSL::SSLError, Errno::ECONNRESET
       file = nil
       next
     end
@@ -114,7 +114,7 @@ def load_stores
 
     begin
       file = URI.open(url)
-    rescue OpenURI::HTTPError, SocketError
+    rescue OpenURI::HTTPError, SocketError, OpenSSL::SSL::SSLError, Errno::ECONNRESET
       file = nil
       next
     end
@@ -152,7 +152,7 @@ def load_items
     1.upto(num_photos) do |i|
       begin
         file = URI.open(url)
-      rescue OpenURI::HTTPError, SocketError
+      rescue OpenURI::HTTPError, SocketError, OpenSSL::SSL::SSLError, Errno::ECONNRESET
         file = nil
         next
       end
